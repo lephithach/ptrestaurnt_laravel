@@ -11,6 +11,8 @@
 <body>
     @include('admin.include.menu-left')
 
-    @yield('root')
+    <div class="container">
+        @yield('root')
+    </div>
 </body>
 </html>

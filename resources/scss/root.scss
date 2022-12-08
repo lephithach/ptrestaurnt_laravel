@@ -1,0 +1,11 @@
+#menu-left {
+    max-width: $widthMenuLeft;
+    width: $widthMenuLeft;
+}
+
+.container {
+    max-width: calc(100% - $widthMenuLeft);
+    width: calc(100% - $widthMenuLeft);
+    margin-left: $widthMenuLeft;
+    padding: 1rem;
+}

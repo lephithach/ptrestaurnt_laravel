@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    DashboardController,
+    LoaiMonController,
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::prefix('/')->name('dashboard.')->group(function() {
+    Route::resource('/', DashboardController::class);
+});
+
+Route::prefix('/mon-an')->name('monan.')->group(function() {
+    Route::resource('/', LoaiMonController::class);
 });

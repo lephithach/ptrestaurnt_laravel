@@ -1,17 +1,17 @@
-<div id="menu-left" class="bg-sky-800 text-white md:fixed md:top-0 md:bottom-0 md:w-[250px]">
+<div id="menu-left" class="bg-sky-800 text-white md:fixed md:top-0 md:bottom-0">
     <ul class="main-menu">
-        <li class="item active">
-            <a href="./" class="btn-menu">
+        <li class="item {{ request()->routeIs('dashboard*') ? 'active' : '' }}">
+            <a href="{{ route('dashboard.index') }}" class="btn-menu">
                 <i class="bi bi-display"></i>
                 <span>Dashboard</span>
             </a>
         </li>
 
-        <li class="item" id="nhanvien">
+        <li class="item" id="nhanvien" sub-menu="true">
             <a href="#" class="btn-menu">
                 <i class="bi bi-people-fill"></i>
                 <span>Nhân viên</span>
-                <i class="bi bi-caret-down-fill icon-arrow"></i>
+                <i class="bi bi-caret-down icon-arrow"></i>
             </a>
 
             <div class="sub-menu">
@@ -20,19 +20,24 @@
             </div>
         </li>
 
-        <li class="item">
+        <li class="item {{ request()->routeIs('monan*') ? 'active' : '' }}" sub-menu="true">
             <a href="#" class="btn-menu">
                 <i class="bi bi-cup-straw"></i>
                 <span>Món ăn</span>
+                <i class="bi bi-caret-down icon-arrow"></i>
             </a>
+
+            <div class="sub-menu">
+                <a href="{{ route('monan.create') }}" class="{{ request()->routeIs('monan.create') ? 'active' : '' }}">Tạo mã món</a>
+                <a href="#">Danh sách món</a>
+            </div>
         </li>
 
-        <li class="item" id="donhang">
+        <li class="item" id="donhang" sub-menu="true">
             <a href="#" class="btn-menu">
                 <i class="bi bi-journals"></i>
                 <span>Đơn hàng</span>
-                <i class="bi bi-caret-down-fill icon-arrow"></i>
-                <!-- <i class="bi bi-chevron-compact-down icon-arrow"></i> -->
+                <i class="bi bi-caret-down icon-arrow"></i>
             </a>
 
             <div class="sub-menu">

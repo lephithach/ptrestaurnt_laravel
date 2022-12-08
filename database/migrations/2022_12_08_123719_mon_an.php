@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('monan', function (Blueprint $table) {
             $table->bigIncrements('mamon');
-            $table->string('tenmon', 100);
+            $table->string('tenmon', 100)->unique();
             $table->string('maloai', 10)->index();
             $table->double('dongia', 10, 2);
             $table->text('hinh');
