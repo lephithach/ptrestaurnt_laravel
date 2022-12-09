@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\LoaiMonModel;
 
 class LoaiMonController extends Controller
 {
@@ -23,7 +24,8 @@ class LoaiMonController extends Controller
      */
     public function create()
     {
-        return view('admin.monan.tao-ma-mon');
+        $data = LoaiMonModel::all()->toJson();
+        return view('admin.monan.tao-ma-mon', compact('data'));
     }
 
     /**
@@ -34,7 +36,36 @@ class LoaiMonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'maloai' => ['required', 'regex:/^[a-zA-Z_-]{3,10}$/', 'min:3', 'max:10'],
+            'tenloai' => ['required', 'min:3']
+        ], [
+            'maloai.required' => 'Mã loại không được để trống',
+            'maloai.regex' => 'Mã loại phải là chuỗi',
+            'maloai.min' => 'Mã loại phải lớn hơn :min ký tự',
+            'maloai.max' => 'Mã loại không quá :max ký tự',
+            'tenloai.required' => 'Tên loại không được để trống',
+            'tenloai.min' => 'Tên loại phải lớn hơn :min ký tự',
+        ]);
+        
+        $data = $request->except('_token');
+        $data['maloai'] = strtoupper($request['maloai']);
+        $data['tenloai'] = ucwords($request['tenloai']);
+
+        $result = LoaiMonModel::insert($data);
+
+        if($result) {
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => 'Thêm thành công'
+            ]);
+        } else {
+            return redirect()->back()->with([
+                'status' => 'danger',
+                'message' => 'Thêm thất bại'
+            ]);
+        }   
     }
 
     /**
