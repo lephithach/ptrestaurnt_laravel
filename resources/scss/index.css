@@ -49,5 +49,21 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
 }
+.container .modal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+.container .modal-container {
+  width: 700px;
+  height: 500px;
+  border-radius: 10px;
+  background-color: #fff;
+}
 
 /*# sourceMappingURL=index.css.map */

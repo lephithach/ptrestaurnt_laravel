@@ -1,5 +1,32 @@
 @extends('admin.include.layout')
 @section('root')
+
+{{-- Modal --}}
+{{-- @include('admin.include.modal.modal-start')
+    <h3 class="text-2xl font-bold text-center my-2">SỬA MÃ LOẠI</h3>
+
+    <div class="form">
+        <form action="{{ route('loaimon.update') }}" method="post">
+            @csrf
+
+            <div class="form-group c-form-group-flex-col">
+                <label for="maloai">Mã loại</label>
+                <input type="text" name="maloai" id="maloai" placeholder="Mã món" class="c-input" autocomplete="off" value="{{ old('maloai') ?? null }}" />
+            </div>
+
+            <div class="form-group c-form-group-flex-col">
+                <label for="tenloai">Tên loại món</label>
+                <input type="text" name="tenloai" id="tenloai" placeholder="Tên món" class="c-input" autocomplete="off" value="{{ old('tenloai') ?? null }}" />
+            </div>
+
+            <div class="form-group c-form-group-flex-col">
+                <input class="bg-sky-700 text-white px-4 py-3 rounded cursor-pointer" type="submit" value="Thêm" />
+            </div>
+        </form>
+    </div>
+
+@include('admin.include.modal.modal-end') --}}
+
 <div class="grid grid-cols-[30%_70%] gap-4">
     <section>
         <h3 class="text-xl font-bold mb-3">TẠO MÃ LOẠI</h3>
@@ -21,7 +48,7 @@
         @endif
     
         <div class="form">
-            <form action="{{ route('monan.store') }}" method="post">
+            <form action="{{ route('loaimon.store') }}" method="post">
                 @csrf
     
                 <div class="form-group c-form-group-flex-col">
@@ -50,22 +77,24 @@
                     <th>#</th>
                     <th>Mã Loại</th>
                     <th>Tên Loại</th>
-                    <th>Tổng số món ăn</th>
+                    <th>Số món</th>
+                    <th>&nbsp;</th>
                 </thead>
     
                 <tbody>
-                    @if ($data != null)
+                    @if (!empty(json_decode($data)))
                     @foreach (json_decode($data) as $key => $item)
                     <tr class="text-center">
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->maloai }}</td>
                         <td>{{ $item->tenloai }}</td>
                         <td>&nbsp;</td>
+                        <td><a href="{{ route('loaimon.edit', [$item->maloai]) }}"><i class="bi bi-pencil-fill"></i></a></td>
                     </tr>
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="4" class="text-center">Chưa có dữ liệu</td>
+                        <td colspan="5" class="text-center">Chưa có dữ liệu</td>
                     </tr>
                     @endif
                 </tbody>

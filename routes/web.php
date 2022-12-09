@@ -22,6 +22,11 @@ Route::prefix('/')->name('dashboard.')->group(function() {
     Route::resource('/', DashboardController::class);
 });
 
-Route::prefix('/mon-an')->name('monan.')->group(function() {
-    Route::resource('/', LoaiMonController::class);
+Route::prefix('/loai-mon')->name('loaimon.')->group(function() {
+    // Route::resource('/', LoaiMonController::class);
+    Route::get('/', [LoaiMonController::class, 'index'])->name('index');
+    Route::get('/create', [LoaiMonController::class, 'create'])->name('create');
+    Route::post('/store', [LoaiMonController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [LoaiMonController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [LoaiMonController::class, 'update'])->name('update');
 });
