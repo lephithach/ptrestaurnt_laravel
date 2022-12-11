@@ -88,6 +88,8 @@ class LoaiMonController extends Controller
     public function edit($id)
     {
         $get = LoaiMonModel::where('maloai', $id)->get()->toJson();
+
+        return $get;
     }
 
     /**

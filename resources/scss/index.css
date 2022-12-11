@@ -50,6 +50,9 @@
   padding: 0.5rem 0;
 }
 .container .modal {
+  display: none;
+}
+.container .modal.show {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -59,11 +62,21 @@
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 10;
 }
+.container .modal-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.container .modal-button .icon-close {
+  display: block;
+  cursor: pointer;
+}
 .container .modal-container {
   width: 700px;
   height: 500px;
   border-radius: 10px;
   background-color: #fff;
+  padding: 1rem 1.5rem;
 }
 
 /*# sourceMappingURL=index.css.map */

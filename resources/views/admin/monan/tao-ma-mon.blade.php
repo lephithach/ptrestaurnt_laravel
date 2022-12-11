@@ -2,11 +2,12 @@
 @section('root')
 
 {{-- Modal --}}
-{{-- @include('admin.include.modal.modal-start')
+@include('admin.include.modal.modal-start')
+<div>
     <h3 class="text-2xl font-bold text-center my-2">SỬA MÃ LOẠI</h3>
 
     <div class="form">
-        <form action="{{ route('loaimon.update') }}" method="post">
+        <form action="/" method="post">
             @csrf
 
             <div class="form-group c-form-group-flex-col">
@@ -20,12 +21,13 @@
             </div>
 
             <div class="form-group c-form-group-flex-col">
-                <input class="bg-sky-700 text-white px-4 py-3 rounded cursor-pointer" type="submit" value="Thêm" />
+                <input class="bg-sky-700 text-white px-4 py-3 rounded cursor-pointer" type="submit" value="Cập nhật" />
             </div>
         </form>
     </div>
+</div>
 
-@include('admin.include.modal.modal-end') --}}
+@include('admin.include.modal.modal-end')
 
 <div class="grid grid-cols-[30%_70%] gap-4">
     <section>
@@ -89,7 +91,10 @@
                         <td>{{ $item->maloai }}</td>
                         <td>{{ $item->tenloai }}</td>
                         <td>&nbsp;</td>
-                        <td><a href="{{ route('loaimon.edit', [$item->maloai]) }}"><i class="bi bi-pencil-fill"></i></a></td>
+                        {{-- <td><a href="{{ route('loaimon.edit', [$item->maloai]) }}"><i class="bi bi-pencil-fill"></i></a></td> --}}
+                        <td>
+                            <i class="bi bi-pencil-fill icon-edit cursor-pointer" data-maloai="{{ $item->maloai }}"></i>
+                        </td>
                     </tr>
                     @endforeach
                     @else
@@ -102,4 +107,21 @@
         </div>
     </section>
 </div>
+
+<script>
+    const elList = document.querySelectorAll('.icon-edit');
+
+    elList.forEach((el) => {
+        el.onclick = (e) => {
+            let maLoai = e.target.getAttribute('data-maloai');
+            openModal();
+            console.log(maLoai);
+
+            fetch(`/loai-mon/${maLoai}/edit`)
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+        }
+    });
+</script>
+
 @endsection
