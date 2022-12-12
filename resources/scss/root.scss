@@ -54,4 +54,17 @@
             padding: 1rem 1.5rem;
         }
     }
+
+    #toast-success {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        bottom: 2px;
+        right: 10px;
+
+        &.show {
+            opacity: 100;
+            visibility: visible;
+        }
+    }
 }

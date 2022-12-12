@@ -78,5 +78,16 @@
   background-color: #fff;
   padding: 1rem 1.5rem;
 }
+.container #toast-success {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  bottom: 2px;
+  right: 10px;
+}
+.container #toast-success.show {
+  opacity: 100;
+  visibility: visible;
+}
 
 /*# sourceMappingURL=index.css.map */

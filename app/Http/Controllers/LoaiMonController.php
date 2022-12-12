@@ -101,7 +101,28 @@ class LoaiMonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Đang test update bằng axios
+        $data = json_decode($request->all());
+
+        $dataInput = [
+            'maloai' => $data->maLoai,
+            'tenloai' => $data->tenLoai
+        ];
+        $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
+
+
+        // Dưới này chạy laravel ok rùi
+        
+        // $dataInput = $request->except('_token');
+
+        // $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
+        
+        // if($result) {
+        //     return redirect()->back()->with([
+        //         'status' => 'success',
+        //         'message' => 'Cập nhật thành công'
+        //     ]);
+        // }
     }
 
     /**

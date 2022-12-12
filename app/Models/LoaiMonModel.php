@@ -10,5 +10,5 @@ class LoaiMonModel extends Model
     use HasFactory;
     protected $table = 'loaimon';
     // protected $primaryKey = 'maloai';
-    public $timestamp = false;
+    public $timestamps = false;
 }

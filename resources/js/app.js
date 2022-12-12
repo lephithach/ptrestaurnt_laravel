@@ -18,8 +18,8 @@ subMenuList.forEach((menu) => {
 });
 
 // Modal control
-const modalEl = document.querySelector(".modal");
-const btnModalClose = document.querySelector(".modal .icon-close");
+const modalEl = document.querySelector(".modal") ?? null;
+const btnModalClose = document.querySelector(".modal .icon-close") ?? null;
 
 const openModal = () => {
     modalEl.classList.add("show");
@@ -34,36 +34,68 @@ btnModalClose.addEventListener("click", () => {
 });
 
 // Modal update dsmonan
-const elList = document.querySelectorAll(".icon-edit");
-const formDSMonAn = document.querySelector(".form");
+const elList = document.querySelectorAll(".icon-edit") ?? null;
+const formDSMonAn = document.querySelector(".form") ?? null;
 
 if (elList != null) {
     elList.forEach((el) => {
         el.onclick = (e) => {
             let maLoai = e.target.getAttribute("data-maloai");
+            document
+                .querySelector(".form form")
+                .setAttribute(
+                    "data-maloai",
+                    e.target.getAttribute("data-maloai")
+                );
             openModal();
 
-            axios
-                .get(`/loai-mon/${maLoai}/edit`)
-                .then(function (response) {
-                    // handle success
-                    console.log(response);
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-                .finally(function () {
-                    // always executed
-                });
+            axios.get(`/loai-mon/${maLoai}/edit`).then(function (response) {
+                // handle success
+                formDSMonAn.querySelector(".form-group #maloai").value =
+                    response.data[0].maloai;
 
-            let dataFetch = fetch(`/loai-mon/${maLoai}/edit`)
-                .then((response) => response.json())
-                .then((data) => data);
+                formDSMonAn.querySelector(".form-group #tenloai").value =
+                    response.data[0].tenloai;
 
-            console.log({ dataFetch });
-
-            // formDSMonAn.querySelector(".maloai").value = dataFetch.maloai;
+                formDSMonAn
+                    .querySelector("form")
+                    .setAttribute("action", `/loai-mon/update/${maLoai}`);
+            });
         };
     });
 }
+
+// Handle form update maloai
+const formUpdateMaloai = formDSMonAn.querySelector("#form-update-maloai");
+
+formUpdateMaloai.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let maLoaiAttr = document
+        .querySelector(".form form")
+        .getAttribute("data-maloai");
+    let maLoai = formDSMonAn.querySelector(".form-group #maloai").value;
+    let tenLoai = formDSMonAn.querySelector(".form-group #tenloai").value;
+
+    // axios
+    //     .post(`/loai-mon/update/${maLoaiAttr}`, {
+    //         _token: formDSMonAn.querySelector("input[type='hidden']").value,
+    //         maloai: maLoai,
+    //         tenloai: tenLoai,
+    //     })
+    //     .then(function (response) {
+    //         console.log(response);
+    //     });
+
+    axios({
+        method: "post",
+        url: `/loai-mon/update/${maLoaiAttr}`,
+        data: JSON.stringify({
+            _token: formDSMonAn.querySelector("input[type='hidden']").value,
+            maloai: maLoai,
+            tenloai: tenLoai,
+        }),
+    }).then((response) => {
+        console.log(response);
+    });
+});
