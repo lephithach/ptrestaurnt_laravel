@@ -55,6 +55,52 @@
         }
     }
 
+    // Test toast remake
+    .container-toast {
+        position: absolute;
+        bottom: 20px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow: hidden;
+
+        .toast {
+            display: none;
+            border-radius: 5px;
+            width: 300px;
+            padding: 0.7rem;
+            transform: translateX(100%);
+            background-color: #fff;
+
+            &.show {
+                z-index: 10;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                transform: translateX(0);
+                animation-name: toastShow;
+                animation-duration: 0.25s;
+            }
+
+            &.toast-success {
+                color: $colorSucess;
+                border: 1px solid rgba($color: $colorSucess, $alpha: 0.3);
+            }
+
+            &.toast-danger {
+                color: $colorDanger;
+                border: 1px solid rgba($color: $colorDanger, $alpha: 0.3);
+            }
+
+            .icon-close {
+                margin-left: auto;
+                cursor: pointer;
+            }
+        }
+    }
+    // End test toast remake
+
     #toast-success {
         opacity: 0;
         visibility: hidden;

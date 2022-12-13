@@ -102,27 +102,39 @@ class LoaiMonController extends Controller
     public function update(Request $request, $id)
     {
         // Đang test update bằng axios
-        $data = json_decode($request->all());
+        // $data = json_decode($request->all());
 
-        $dataInput = [
-            'maloai' => $data->maLoai,
-            'tenloai' => $data->tenLoai
-        ];
-        $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
+        // $dataInput = [
+        //     'maloai' => $data->maLoai,
+        //     'tenloai' => $data->tenLoai
+        // ];
+        // $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
 
 
         // Dưới này chạy laravel ok rùi
-        
-        // $dataInput = $request->except('_token');
 
-        // $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
+        $request->validate([
+            'maloai' => ['required', 'regex:/^[a-zA-Z_-]{3,10}$/', 'min:3', 'max:10'],
+            'tenloai' => ['required', 'min:3']
+        ], [
+            'maloai.required' => 'Mã loại không được để trống',
+            'maloai.regex' => 'Mã loại phải là chuỗi',
+            'maloai.min' => 'Mã loại phải lớn hơn :min ký tự',
+            'maloai.max' => 'Mã loại không quá :max ký tự',
+            'tenloai.required' => 'Tên loại không được để trống',
+            'tenloai.min' => 'Tên loại phải lớn hơn :min ký tự',
+        ]);
         
-        // if($result) {
-        //     return redirect()->back()->with([
-        //         'status' => 'success',
-        //         'message' => 'Cập nhật thành công'
-        //     ]);
-        // }
+        $dataInput = $request->except('_token');
+
+        $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
+        
+        if($result) {
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => 'Cập nhật thành công'
+            ]);
+        }
     }
 
     /**

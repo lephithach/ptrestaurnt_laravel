@@ -1,3 +1,21 @@
+@keyframes toastShow {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes toastHidden {
+  from {
+    transform: translateX(0);
+    opacity: 100;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
 #menu-left .main-menu .item {
   padding: 1rem 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -77,6 +95,44 @@
   border-radius: 10px;
   background-color: #fff;
   padding: 1rem 1.5rem;
+}
+.container .container-toast {
+  position: absolute;
+  bottom: 20px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+.container .container-toast .toast {
+  display: none;
+  border-radius: 5px;
+  width: 300px;
+  padding: 0.7rem;
+  transform: translateX(100%);
+  background-color: #fff;
+}
+.container .container-toast .toast.show {
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  transform: translateX(0);
+  animation-name: toastShow;
+  animation-duration: 0.25s;
+}
+.container .container-toast .toast.toast-success {
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+.container .container-toast .toast.toast-danger {
+  color: rgb(235, 14, 14);
+  border: 1px solid rgba(235, 14, 14, 0.3);
+}
+.container .container-toast .toast .icon-close {
+  margin-left: auto;
+  cursor: pointer;
 }
 .container #toast-success {
   opacity: 0;

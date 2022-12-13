@@ -66,36 +66,58 @@ if (elList != null) {
 }
 
 // Handle form update maloai
-const formUpdateMaloai = formDSMonAn.querySelector("#form-update-maloai");
+// const formUpdateMaloai = formDSMonAn.querySelector("#form-update-maloai");
 
-formUpdateMaloai.addEventListener("submit", (e) => {
-    e.preventDefault();
+// formUpdateMaloai.addEventListener("submit", (e) => {
+//     e.preventDefault();
 
-    let maLoaiAttr = document
-        .querySelector(".form form")
-        .getAttribute("data-maloai");
-    let maLoai = formDSMonAn.querySelector(".form-group #maloai").value;
-    let tenLoai = formDSMonAn.querySelector(".form-group #tenloai").value;
+//     let maLoaiAttr = document
+//         .querySelector(".form form")
+//         .getAttribute("data-maloai");
+//     let maLoai = formDSMonAn.querySelector(".form-group #maloai").value;
+//     let tenLoai = formDSMonAn.querySelector(".form-group #tenloai").value;
 
-    // axios
-    //     .post(`/loai-mon/update/${maLoaiAttr}`, {
-    //         _token: formDSMonAn.querySelector("input[type='hidden']").value,
-    //         maloai: maLoai,
-    //         tenloai: tenLoai,
-    //     })
-    //     .then(function (response) {
-    //         console.log(response);
-    //     });
+//     // axios
+//     //     .post(`/loai-mon/update/${maLoaiAttr}`, {
+//     //         _token: formDSMonAn.querySelector("input[type='hidden']").value,
+//     //         maloai: maLoai,
+//     //         tenloai: tenLoai,
+//     //     })
+//     //     .then(function (response) {
+//     //         console.log(response);
+//     //     });
 
-    axios({
-        method: "post",
-        url: `/loai-mon/update/${maLoaiAttr}`,
-        data: JSON.stringify({
-            _token: formDSMonAn.querySelector("input[type='hidden']").value,
-            maloai: maLoai,
-            tenloai: tenLoai,
-        }),
-    }).then((response) => {
-        console.log(response);
+//     axios({
+//         method: "post",
+//         url: `/loai-mon/update/${maLoaiAttr}`,
+//         data: JSON.stringify({
+//             _token: formDSMonAn.querySelector("input[type='hidden']").value,
+//             maloai: maLoai,
+//             tenloai: tenLoai,
+//         }),
+//     }).then((response) => {
+//         console.log(response);
+//     });
+// });
+
+// Toast control
+const containerToast = document.querySelector(".container-toast");
+const toastList = containerToast.querySelectorAll(".toast");
+
+if (toastList.length > 0) {
+    toastList.forEach((toast) => {
+        // Click button close toast
+        toast.querySelector(".icon-close").addEventListener("click", () => {
+            closeToast(toast);
+        });
+
+        // Auto hide after 5s
+        setTimeout(() => {
+            closeToast(toast);
+        }, 5000);
     });
-});
+}
+
+const closeToast = (toastElement) => {
+    toastElement.classList.remove("show");
+};
