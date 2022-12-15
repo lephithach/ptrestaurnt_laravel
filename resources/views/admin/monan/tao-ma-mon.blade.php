@@ -12,16 +12,19 @@
 
             <div class="form-group c-form-group-flex-col">
                 <label for="maloai">Mã loại</label>
-                <input type="text" name="maloai" id="maloai" placeholder="Mã món" class="c-input" autocomplete="off" value="{{ old('maloai') ?? null }}" />
+                <input type="text" name="maloai" id="maloai" placeholder="Mã loại" class="c-input" autocomplete="off" value="{{ old('maloai') ?? null }}" />
+                <span class="text-sm italic text-red-500 erorr"></span>
             </div>
 
             <div class="form-group c-form-group-flex-col">
-                <label for="tenloai">Tên loại món</label>
-                <input type="text" name="tenloai" id="tenloai" placeholder="Tên món" class="c-input" autocomplete="off" value="{{ old('tenloai') ?? null }}" />
+                <label for="tenloai">Tên loại</label>
+                <input type="text" name="tenloai" id="tenloai" placeholder="Tên loại" class="c-input" autocomplete="off" value="{{ old('tenloai') ?? null }}" />
+                <span class="text-sm italic text-red-500 erorr"></span>
             </div>
 
             <div class="form-group c-form-group-flex-col">
-                <input class="bg-sky-700 text-white px-4 py-3 rounded cursor-pointer" type="submit" value="Cập nhật" />
+                <input type="button" id="btn-delete" name="btn-delete" value="Xoá" class="btn-danger" />
+                <input class="btn-primary" type="submit" value="Cập nhật" />
             </div>
         </form>
     </div>
@@ -31,24 +34,12 @@
         
 <div class="container-toast">
     @if(session()->get('status'))
-    <div class="toast toast-{{ session()->get('status') }} show">
-        <i class="bi bi-check-lg"></i>
-        <div class="toast-message">
-            <p>{{ session()->get('message') }}</p>
-        </div>
-        <i class="bi bi-x icon-close"></i>
-    </div>
+    @include('admin.include.toast', ['status' => session()->get('status'), 'message' => session()->get('message')])
     @endif
 
     @if ($errors->any())
         @foreach ($errors->all() as $error)
-            <div class="toast toast-danger show">
-                <i class="bi bi-check-lg"></i>
-                <div class="toast-message">
-                    <p>{{ $error }}</p>
-                </div>
-                <i class="bi bi-x icon-close"></i>
-            </div>  
+            @include('admin.include.toast', ['status' => 'danger','message' => $error])
         @endforeach
     @endif
 </div>
@@ -59,7 +50,7 @@
     <section>
         <h3 class="text-xl font-bold mb-3">TẠO MÃ LOẠI</h3>
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
                 <ul class="c-message-error">
                     @foreach ($errors->all() as $error)
@@ -67,7 +58,7 @@
                     @endforeach
                 </ul>
             </div>            
-        @endif
+        @endif --}}
     
         <div class="form">
             <form action="{{ route('loaimon.store') }}" method="post">
@@ -75,12 +66,12 @@
     
                 <div class="form-group c-form-group-flex-col">
                     <label for="maloai">Mã loại</label>
-                    <input type="text" name="maloai" id="maloai" placeholder="Mã món" class="c-input" autocomplete="off" value="{{ old('maloai') ?? null }}" />
+                    <input type="text" name="maloai" id="maloai" placeholder="Mã loại" class="c-input @error('maloai') is-invalid @enderror" autocomplete="off" value="{{ old('maloai') ?? null }}" />
                 </div>
     
                 <div class="form-group c-form-group-flex-col">
-                    <label for="tenloai">Tên loại món</label>
-                    <input type="text" name="tenloai" id="tenloai" placeholder="Tên món" class="c-input" autocomplete="off" value="{{ old('tenloai') ?? null }}" />
+                    <label for="tenloai">Tên loại</label>
+                    <input type="text" name="tenloai" id="tenloai" placeholder="Tên loại" class="c-input @error('tenloai') is-invalid @enderror" autocomplete="off" value="{{ old('tenloai') ?? null }}" />
                 </div>
     
                 <div class="form-group c-form-group-flex-col">

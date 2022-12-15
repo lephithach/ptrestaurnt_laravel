@@ -9,3 +9,15 @@
 .c-input {
     @apply p-2 border rounded;
 }
+
+.c-input.is-invalid {
+    @apply border-red-500;
+}
+
+.btn-primary {
+    @apply bg-sky-700 text-white px-4 py-3 rounded cursor-pointer;
+}
+
+.btn-danger {
+    @apply bg-red-700 text-white px-4 py-3 rounded cursor-pointer;
+}

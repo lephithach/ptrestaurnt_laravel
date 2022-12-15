@@ -14,10 +14,29 @@
             th {
                 border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
             }
+
             td {
                 border: 1px solid rgba($color: #000000, $alpha: 0.1);
                 padding: 0.5rem 0;
             }
+
+            .btn-function {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+    }
+
+    .form-group {
+        input + input {
+            margin-top: 0.5rem;
+        }
+
+        input.disabled {
+            background-color: $colorSecondary;
         }
     }
 
@@ -48,7 +67,8 @@
 
         &-container {
             width: 700px;
-            height: 500px;
+            height: auto;
+            max-height: 80vh;
             border-radius: 10px;
             background-color: #fff;
             padding: 1rem 1.5rem;

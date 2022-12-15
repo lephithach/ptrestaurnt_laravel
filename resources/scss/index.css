@@ -67,6 +67,19 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
 }
+.container table tr .btn-function {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.container .form-group input + input {
+  margin-top: 0.5rem;
+}
+.container .form-group input.disabled {
+  background-color: #6c757d;
+}
 .container .modal {
   display: none;
 }
@@ -91,7 +104,8 @@
 }
 .container .modal-container {
   width: 700px;
-  height: 500px;
+  height: auto;
+  max-height: 80vh;
   border-radius: 10px;
   background-color: #fff;
   padding: 1rem 1.5rem;

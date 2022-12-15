@@ -49,11 +49,11 @@ class LoaiMonController extends Controller
             'tenloai.min' => 'Tên loại phải lớn hơn :min ký tự',
         ]);
         
-        $data = $request->except('_token');
-        $data['maloai'] = strtoupper($request['maloai']);
-        $data['tenloai'] = ucwords($request['tenloai']);
+        $dataInput = $request->except('_token');
+        $dataInput['maloai'] = strtoupper($request['maloai']);
+        $dataInput['tenloai'] = ucwords($request['tenloai']);
 
-        $result = LoaiMonModel::insert($data);
+        $result = LoaiMonModel::insert($dataInput);
 
         if($result) {
             return redirect()->back()->with([
@@ -101,18 +101,6 @@ class LoaiMonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Đang test update bằng axios
-        // $data = json_decode($request->all());
-
-        // $dataInput = [
-        //     'maloai' => $data->maLoai,
-        //     'tenloai' => $data->tenLoai
-        // ];
-        // $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
-
-
-        // Dưới này chạy laravel ok rùi
-
         $request->validate([
             'maloai' => ['required', 'regex:/^[a-zA-Z_-]{3,10}$/', 'min:3', 'max:10'],
             'tenloai' => ['required', 'min:3']
@@ -126,6 +114,8 @@ class LoaiMonController extends Controller
         ]);
         
         $dataInput = $request->except('_token');
+        $dataInput['maloai'] = strtoupper($request['maloai']);
+        $dataInput['tenloai'] = ucwords($request['tenloai']);
 
         $result = LoaiMonModel::where('maloai', $id)->update($dataInput);
         
@@ -145,6 +135,6 @@ class LoaiMonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
     }
 }

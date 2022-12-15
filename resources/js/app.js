@@ -66,39 +66,66 @@ if (elList != null) {
 }
 
 // Handle form update maloai
-// const formUpdateMaloai = formDSMonAn.querySelector("#form-update-maloai");
+const formUpdateMaloai = document.querySelector(".modal #form-update-maloai");
 
-// formUpdateMaloai.addEventListener("submit", (e) => {
-//     e.preventDefault();
+formUpdateMaloai.addEventListener("keyup", () => {
+    let maLoaiInput = formUpdateMaloai.querySelector(".form-group #maloai");
+    let tenLoaiInput = formUpdateMaloai.querySelector(".form-group #tenloai");
+    let errorMaLoai = false;
+    let errorTenLoai = false;
 
-//     let maLoaiAttr = document
-//         .querySelector(".form form")
-//         .getAttribute("data-maloai");
-//     let maLoai = formDSMonAn.querySelector(".form-group #maloai").value;
-//     let tenLoai = formDSMonAn.querySelector(".form-group #tenloai").value;
+    // Validation maloai
+    if (maLoaiInput.value == "") {
+        errorMaLoai = true;
+        maLoaiInput.classList.add("is-invalid");
+        maLoaiInput.nextElementSibling.innerHTML = "Không được để trống";
+    } else if (maLoaiInput.value.length < 3) {
+        errorMaLoai = true;
+        maLoaiInput.classList.add("is-invalid");
+        maLoaiInput.nextElementSibling.innerHTML = "Không được nhỏ hơn 3 ký tự";
+    } else if (maLoaiInput.value.length > 10) {
+        errorMaLoai = true;
+        maLoaiInput.classList.add("is-invalid");
+        maLoaiInput.nextElementSibling.innerHTML =
+            "Không được lớn hơn 10 ký tự";
+    } else {
+        errorMaLoai = 0;
+        maLoaiInput.classList.remove("is-invalid");
+        maLoaiInput.nextElementSibling.innerHTML = null;
+    }
 
-//     // axios
-//     //     .post(`/loai-mon/update/${maLoaiAttr}`, {
-//     //         _token: formDSMonAn.querySelector("input[type='hidden']").value,
-//     //         maloai: maLoai,
-//     //         tenloai: tenLoai,
-//     //     })
-//     //     .then(function (response) {
-//     //         console.log(response);
-//     //     });
+    // Validation tenloai
+    if (tenLoaiInput.value == "") {
+        errorTenLoai = true;
+        tenLoaiInput.classList.add("is-invalid");
+        tenLoaiInput.nextElementSibling.innerHTML = "Không được để trống";
+    } else if (tenLoaiInput.value.length < 3) {
+        errorTenLoai = true;
+        tenLoaiInput.classList.add("is-invalid");
+        tenLoaiInput.nextElementSibling.innerHTML =
+            "Không được nhỏ hơn 3 ký tự";
+    } else {
+        errorTenLoai = false;
+        tenLoaiInput.classList.remove("is-invalid");
+        tenLoaiInput.nextElementSibling.innerHTML = null;
+    }
 
-//     axios({
-//         method: "post",
-//         url: `/loai-mon/update/${maLoaiAttr}`,
-//         data: JSON.stringify({
-//             _token: formDSMonAn.querySelector("input[type='hidden']").value,
-//             maloai: maLoai,
-//             tenloai: tenLoai,
-//         }),
-//     }).then((response) => {
-//         console.log(response);
-//     });
-// });
+    if (errorMaLoai == false && errorTenLoai == false) {
+        formUpdateMaloai
+            .querySelector("input[type='submit']")
+            .classList.remove("disabled");
+        formUpdateMaloai
+            .querySelector("input[type='submit']")
+            .removeAttribute("disabled");
+    } else {
+        formUpdateMaloai
+            .querySelector("input[type='submit']")
+            .classList.add("disabled");
+        formUpdateMaloai
+            .querySelector("input[type='submit']")
+            .setAttribute("disabled", true);
+    }
+});
 
 // Toast control
 const containerToast = document.querySelector(".container-toast");
