@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group c-form-group-flex-col">
-                <input type="button" id="btn-delete" name="btn-delete" value="Xoá" class="btn-danger" />
+                {{-- <input type="button" id="btn-delete" name="btn-delete" value="Xoá" class="btn-danger" /> --}}
                 <input class="btn-primary" type="submit" value="Cập nhật" />
             </div>
         </form>
@@ -103,8 +103,9 @@
                         <td>{{ $item->tenloai }}</td>
                         <td>&nbsp;</td>
                         {{-- <td><a href="{{ route('loaimon.edit', [$item->maloai]) }}"><i class="bi bi-pencil-fill"></i></a></td> --}}
-                        <td>
-                            <i class="bi bi-pencil-fill icon-edit cursor-pointer" data-maloai="{{ $item->maloai }}"></i>
+                        <td class="btn-function">
+                            <i class="bi bi-pencil-fill icon-edit cursor-pointer text-blue-500" data-maloai="{{ $item->maloai }}"></i>
+                            <i class="bi bi-trash3-fill icon-delete cursor-pointer text-red-500" data-maloai="{{ $item->maloai }}"></i>
                         </td>
                     </tr>
                     @endforeach

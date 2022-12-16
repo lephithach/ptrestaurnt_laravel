@@ -42,7 +42,7 @@ class LoaiMonController extends Controller
             'tenloai' => ['required', 'min:3']
         ], [
             'maloai.required' => 'Mã loại không được để trống',
-            'maloai.regex' => 'Mã loại phải là chuỗi',
+            'maloai.regex' => 'Mã loại phải là chuỗi và phải viết liền',
             'maloai.min' => 'Mã loại phải lớn hơn :min ký tự',
             'maloai.max' => 'Mã loại không quá :max ký tự',
             'tenloai.required' => 'Tên loại không được để trống',
@@ -135,6 +135,15 @@ class LoaiMonController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        $request = new Request();
+
+        $result = LoaiMonModel::where('maloai', $id)->delete();
+
+        if($result) {
+            return json_encode([
+                'status' => 'success',
+                'message' => 'Xoá thành công'
+            ]);
+        }
     }
 }

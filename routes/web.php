@@ -29,5 +29,5 @@ Route::prefix('/loai-mon')->name('loaimon.')->group(function() {
     Route::post('/store', [LoaiMonController::class, 'store'])->name('store');
     Route::get('/{id}/edit', [LoaiMonController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [LoaiMonController::class, 'update'])->name('update');
-    Route::post('/delete/{id}', [LoaiMonController::class, 'update'])->name('update');
+    Route::post('/delete/{id}', [LoaiMonController::class, 'destroy'])->name('destroy');
 });

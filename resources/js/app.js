@@ -34,11 +34,11 @@ btnModalClose.addEventListener("click", () => {
 });
 
 // Modal update dsmonan
-const elList = document.querySelectorAll(".icon-edit") ?? null;
+const btnUpdateMaLoaiList = document.querySelectorAll(".icon-edit") ?? null;
 const formDSMonAn = document.querySelector(".form") ?? null;
 
-if (elList != null) {
-    elList.forEach((el) => {
+if (btnUpdateMaLoaiList != null) {
+    btnUpdateMaLoaiList.forEach((el) => {
         el.onclick = (e) => {
             let maLoai = e.target.getAttribute("data-maloai");
             document
@@ -125,6 +125,34 @@ formUpdateMaloai.addEventListener("keyup", () => {
             .querySelector("input[type='submit']")
             .setAttribute("disabled", true);
     }
+});
+
+// Handle form delete maloai
+const iconDeleteMaLoaiList = document.querySelectorAll(
+    ".btn-function .icon-delete"
+);
+iconDeleteMaLoaiList.forEach((iconDelete) => {
+    iconDelete.addEventListener("click", (e) => {
+        let maLoaiAttr = e.target.getAttribute("data-maloai");
+        let token = document.head.querySelector('meta[name="csrf-token"]');
+
+        let isComfirm = confirm(
+            `Bạn có chắc chắn muốn xoá mã loại "${maLoaiAttr}"\nĐiều này sẽ khiến dữ liệu sẽ không thể khôi phục`
+        );
+        if (isComfirm == true) {
+            axios
+                .post(`./delete/${maLoaiAttr}`, {
+                    _token: token,
+                })
+                .then(function (response) {
+                    let data = response.data;
+
+                    data.status == "success"
+                        ? (alert("Xoá thành công"), location.reload())
+                        : "";
+                });
+        }
+    });
 });
 
 // Toast control
