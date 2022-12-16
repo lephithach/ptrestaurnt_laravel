@@ -96,7 +96,7 @@
 .container .modal-button {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .container .modal-button .icon-close {
   display: block;
@@ -158,6 +158,10 @@
 .container #toast-success.show {
   opacity: 100;
   visibility: visible;
+}
+.container .paginate .active > span {
+  background-color: #007bff;
+  color: #fff;
 }
 
 /*# sourceMappingURL=index.css.map */

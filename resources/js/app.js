@@ -29,9 +29,13 @@ const closeModal = () => {
     modalEl.classList.remove("show");
 };
 
-btnModalClose.addEventListener("click", () => {
-    closeModal();
-});
+// Gặp lỗi ở đây
+if (modalEl && btnModalClose) {
+    console.log("null");
+    btnModalClose.addEventListener("click", () => {
+        closeModal();
+    });
+}
 
 // Modal update dsmonan
 const btnUpdateMaLoaiList = document.querySelectorAll(".icon-edit") ?? null;
@@ -162,9 +166,12 @@ const toastList = containerToast.querySelectorAll(".toast");
 if (toastList.length > 0) {
     toastList.forEach((toast) => {
         // Click button close toast
-        toast.querySelector(".icon-close").addEventListener("click", () => {
+        // toast.querySelector(".icon-close").addEventListener("click", () => {
+        //     closeToast(toast);
+        // });
+        toast.querySelector(".icon-close").onclick = () => {
             closeToast(toast);
-        });
+        };
 
         // Auto hide after 5s
         setTimeout(() => {

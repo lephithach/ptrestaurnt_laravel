@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\LoaiMonModel;
 
 class MonAnController extends Controller
 {
@@ -23,7 +24,8 @@ class MonAnController extends Controller
      */
     public function create()
     {
-        //
+        $maLoaiList = LoaiMonModel::All();
+        return view('admin.monan.tao-mon-an', compact('maLoaiList'));
     }
 
     /**
@@ -34,7 +36,20 @@ class MonAnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tenmon' => ['required', 'max:100'],
+            'loaimon' => ['required'],
+            'dongia' => ['required', 'regex:/^-?\d+$/', 'min:4'],
+        ], [
+            'tenmon.required' => 'Tên món ăn không được để trống',
+            'tenmon.max' => 'Tên món ăn không được dài hơn :max',
+            'loaimon.required' => 'Loại món ăn không được để trống',
+            'dongia.required' => 'Đơn giá không được để trống',
+            'dongia.regex' => 'Đơn giá phải là số',
+            'dongia.min' => 'Đơn giá phải lớn hơn :min ký tự',
+        ]);
+
+        // $request = $request->except('_token');
     }
 
     /**

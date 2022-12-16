@@ -48,7 +48,7 @@
 
 <div class="grid grid-cols-[30%_70%] gap-4">
     <section>
-        <h3 class="text-xl font-bold mb-3">TẠO MÃ LOẠI</h3>
+        <h3 class="text-xl font-bold mb-3">THÊM MÃ LOẠI</h3>
 
         {{-- @if ($errors->any())
             <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
@@ -66,7 +66,7 @@
     
                 <div class="form-group c-form-group-flex-col">
                     <label for="maloai">Mã loại</label>
-                    <input type="text" name="maloai" id="maloai" placeholder="Mã loại" class="c-input @error('maloai') is-invalid @enderror" autocomplete="off" value="{{ old('maloai') ?? null }}" />
+                    <input type="text" name="maloai" id="maloai" placeholder="Mã loại" class="c-input @error('maloai') is-invalid @enderror" autocomplete="off" autofocus value="{{ old('maloai') ?? null }}" />
                 </div>
     
                 <div class="form-group c-form-group-flex-col">
@@ -93,10 +93,10 @@
                     <th>Số món</th>
                     <th>&nbsp;</th>
                 </thead>
-    
+                {{-- @php(dd(json_decode($data))) --}}
                 <tbody>
-                    @if (!empty(json_decode($data)))
-                    @foreach (json_decode($data) as $key => $item)
+                    @if (!empty($data))
+                    @foreach ($data as $key => $item)
                     <tr class="text-center">
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->maloai }}</td>
@@ -116,6 +116,14 @@
                     @endif
                 </tbody>
             </table>
+        </div>
+
+        
+
+        <div class="paginate mt-4">
+            @if (count($data) > 0)
+                {{ $data->links('admin.include.pagination.custom') }}
+            @endif
         </div>
     </section>
 </div>

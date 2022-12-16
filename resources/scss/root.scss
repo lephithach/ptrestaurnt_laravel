@@ -55,14 +55,14 @@
         }
 
         &-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+
             .icon-close {
                 display: block;
                 cursor: pointer;
             }
-
-            display: flex;
-            flex-direction: row;
-            justify-content: end;
         }
 
         &-container {
@@ -131,6 +131,13 @@
         &.show {
             opacity: 100;
             visibility: visible;
+        }
+    }
+
+    .paginate {
+        .active > span {
+            background-color: $colorPrimary;
+            color: #fff;
         }
     }
 }

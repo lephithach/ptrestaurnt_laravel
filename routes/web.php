@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     DashboardController,
     LoaiMonController,
+    MonAnController,
 };
 
 /*
@@ -30,4 +31,14 @@ Route::prefix('/loai-mon')->name('loaimon.')->group(function() {
     Route::get('/{id}/edit', [LoaiMonController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [LoaiMonController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [LoaiMonController::class, 'destroy'])->name('destroy');
+});
+
+Route::prefix('/mon-an')->name('monan.')->group(function() {
+    // Route::resource('/', LoaiMonController::class);
+    Route::get('/', [MonAnController::class, 'index'])->name('index');
+    Route::get('/create', [MonAnController::class, 'create'])->name('create');
+    Route::post('/store', [MonAnController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [MonAnController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [MonAnController::class, 'update'])->name('update');
+    Route::post('/delete/{id}', [MonAnController::class, 'destroy'])->name('destroy');
 });

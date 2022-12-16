@@ -20,7 +20,7 @@
             </div>
         </li>
 
-        <li class="item {{ request()->routeIs('loaimon*') ? 'active' : '' }}" sub-menu="true">
+        <li class="item {{ request()->routeIs('loaimon*') || request()->routeIs('monan*') ? 'active' : '' }}" sub-menu="true">
             <a href="#" class="btn-menu">
                 <i class="bi bi-cup-straw"></i>
                 <span>Món ăn</span>
@@ -28,8 +28,8 @@
             </a>
 
             <div class="sub-menu">
-                <a href="{{ route('loaimon.create') }}" class="{{ request()->routeIs('loaimon.create') ? 'active' : '' }}">Tạo mã món</a>
-                <a href="#">Danh sách món</a>
+                <a href="{{ route('monan.create') }}" class="{{ request()->routeIs('monan.create') ? 'active' : '' }}">Thêm món ăn</a>
+                <a href="{{ route('loaimon.create') }}" class="{{ request()->routeIs('loaimon.create') ? 'active' : '' }}">Thêm mã loại</a>
             </div>
         </li>
 
