@@ -8,6 +8,8 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/scss/index.css",
                 "resources/js/app.js",
+                "resources/js/form-maloai.js",
+                "resources/js/function.js",
             ],
             refresh: true,
         }),

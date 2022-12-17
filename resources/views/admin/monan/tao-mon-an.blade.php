@@ -1,7 +1,6 @@
 @extends('admin.include.layout')
 @section('root')
 
-
 <div class="container-toast">
     @if(session()->get('status'))
     @include('admin.include.toast', ['status' => session()->get('status'), 'message' => session()->get('message')])
@@ -43,7 +42,7 @@
                 </div>
 
                 <div class="form-group c-form-group-flex-col">
-                    <label for="hinh">Hỉnh ảnh món</label>
+                    <label for="hinh">Hình ảnh món</label>
                     <input type="file" name="hinh" id="hinh" accept="image/png, image/jpeg, image/jpg" class="c-input @error('hinh') is-invalid @enderror" autocomplete="off" value="{{ old('hinh') ?? null }}" />
                 </div>
     
@@ -51,6 +50,16 @@
                     <input class="bg-sky-700 text-white px-4 py-3 rounded cursor-pointer" type="submit" value="Thêm" />
                 </div>
             </form>
+        </div>
+    </section>
+    
+    <section>
+        <h3 class="text-xl font-bold mb-3">XEM TRƯỚC KẾT QUẢ</h3>
+
+        <div class="preview-product">
+            <p class="product-name">Tên món</p>
+            <img src="" alt="hinh-anh" class="product-image" id="product-image" />
+            <p class="product-price">0.000.000</p>
         </div>
     </section>
 </div>

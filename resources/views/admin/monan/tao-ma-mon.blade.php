@@ -118,8 +118,6 @@
             </table>
         </div>
 
-        
-
         <div class="paginate mt-4">
             @if (count($data) > 0)
                 {{ $data->links('admin.include.pagination.custom') }}
@@ -128,20 +126,5 @@
     </section>
 </div>
 
-{{-- <script>
-    const elList = document.querySelectorAll('.icon-edit');
-
-    elList.forEach((el) => {
-        el.onclick = (e) => {
-            let maLoai = e.target.getAttribute('data-maloai');
-            openModal();
-            console.log(maLoai);
-
-            fetch(`/loai-mon/${maLoai}/edit`)
-                .then((response) => response.json())
-                .then((data) => console.log(data));
-        }
-    });
-</script> --}}
-
-@endsection
+@vite(['resources/js/form-maloai.js'])
+@endsection 
