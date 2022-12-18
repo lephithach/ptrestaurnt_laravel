@@ -1,11 +1,13 @@
 #menu-left {
+    background-color: $colorMenuLeft;
+
     .main-menu {
         .item {
             padding: 1rem 0.5rem;
             border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
 
             &.active {
-                border-left: 5px solid #fff;
+                border-left: 5px solid $colorActive;
             }
 
             &:hover {
@@ -28,8 +30,9 @@
                 visibility: hidden;
                 height: 0;
 
-                & .active {
-                    // border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+                a.active,
+                a:hover {
+                    color: $colorActive;
                 }
 
                 &.show {

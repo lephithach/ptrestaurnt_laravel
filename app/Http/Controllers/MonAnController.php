@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\LoaiMonModel;
+use App\Models\{
+    MonAnModel,
+    LoaiMonModel
+};
 
 class MonAnController extends Controller
 {
@@ -14,7 +17,12 @@ class MonAnController extends Controller
      */
     public function index()
     {
-        //
+        $data = MonAnModel::all()->toArray();
+        dd($data);
+        // $monAnModel = new MonAnModel();
+
+        // dd($monAnModel->getMaLoai());
+        return view('admin.monan.danh-sach-mon-an');
     }
 
     /**
@@ -36,20 +44,50 @@ class MonAnController extends Controller
      */
     public function store(Request $request)
     {
+        
+        
         $request->validate([
             'tenmon' => ['required', 'max:100'],
-            'loaimon' => ['required'],
+            'maloai' => ['required'],
             'dongia' => ['required', 'regex:/^-?\d+$/', 'min:4'],
+            'hinh' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:512'],
         ], [
             'tenmon.required' => 'Tên món ăn không được để trống',
             'tenmon.max' => 'Tên món ăn không được dài hơn :max',
-            'loaimon.required' => 'Loại món ăn không được để trống',
+            'maloai.required' => 'Loại món ăn không được để trống',
             'dongia.required' => 'Đơn giá không được để trống',
             'dongia.regex' => 'Đơn giá phải là số',
             'dongia.min' => 'Đơn giá phải lớn hơn :min ký tự',
+            'hinh.required' => 'Hình ảnh không được để trống',
+            'hinh.image' => 'Hình ảnh không đúng định dạng',
+            'hinh.mimes' => 'Hình ảnh chỉ chấp nhận đuôi jpeg,png,jpg',
+            'hinh.max' => 'Hình ảnh không được quá :max KB, vui lòng thử lại',
         ]);
+        
+        // Upload Images
+        $pathInit = 'public/images/products';
+        $image = $request->file('hinh');
+        $imageName = $image->getClientOriginalName();
+        $request->file('hinh')->storeAs($pathInit, $imageName);
+        
+        // Filter data input request
+        $dataInput = $request->except('_token');
+        $dataInput['hinh'] = $imageName;
 
-        // $request = $request->except('_token');
+        // Store database
+        $result = MonAnModel::insert($dataInput);
+
+        if($result) {
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => 'Thêm món ăn thành công'
+            ]);
+        } else {
+            return redirect()->back()->with([
+                'status' => 'danger',
+                'message' => 'Thêm món ăn thất bại'
+            ]);
+        }
     }
 
     /**

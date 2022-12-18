@@ -28,8 +28,8 @@
                 </div>
 
                 <div class="form-group c-form-group-flex-col">
-                    <label for="loaimon">Loại món ăn</label>
-                    <select name="loaimon" id="loaimon" class="c-input @error('loaimon') is-invalid @enderror">
+                    <label for="maloai">Loại món ăn</label>
+                    <select name="maloai" id="maloai" class="c-input @error('loaimon') is-invalid @enderror">
                         @foreach ($maLoaiList as $value)
                             <option value="{{ $value->maloai }}" {{ old('loaimon') == $value->maloai ? 'selected' : '' }}>{{ $value->tenloai }}</option>
                         @endforeach

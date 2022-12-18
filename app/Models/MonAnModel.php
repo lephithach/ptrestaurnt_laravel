@@ -12,4 +12,8 @@ class MonAnModel extends Model
     protected $table = 'monan';
     protected $primaryKey = 'mamon';
     public $timestamp = false;
+
+    public function getMaLoai() {
+        return $this->hasOne(LoaiMonModel::class, 'maloai', 'maloai');
+    }
 }

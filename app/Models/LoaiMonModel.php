@@ -11,4 +11,8 @@ class LoaiMonModel extends Model
     protected $table = 'loaimon';
     // protected $primaryKey = 'maloai';
     public $timestamps = false;
+
+    public function getMonAn() {
+        return $this->hasMany(MonAnModel::class, 'maloai', 'maloai');
+    }
 }

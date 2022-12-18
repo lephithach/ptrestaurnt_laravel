@@ -17,12 +17,15 @@
     opacity: 0;
   }
 }
+#menu-left {
+  background-color: #273a49;
+}
 #menu-left .main-menu .item {
   padding: 1rem 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 #menu-left .main-menu .item.active {
-  border-left: 5px solid #fff;
+  border-left: 5px solid #8ddad5;
 }
 #menu-left .main-menu .item:hover {
   background-color: rgba(255, 255, 255, 0.3);
@@ -40,6 +43,10 @@
   flex-direction: column;
   visibility: hidden;
   height: 0;
+}
+#menu-left .main-menu .item .sub-menu a.active,
+#menu-left .main-menu .item .sub-menu a:hover {
+  color: #8ddad5;
 }
 #menu-left .main-menu .item .sub-menu.show {
   visibility: visible;

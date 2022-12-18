@@ -1,4 +1,4 @@
-<div id="menu-left" class="bg-sky-800 text-white md:fixed md:top-0 md:bottom-0">
+<div id="menu-left" class="text-white md:fixed md:top-0 md:bottom-0">
     <ul class="main-menu">
         <li class="item {{ request()->routeIs('dashboard*') ? 'active' : '' }}">
             <a href="{{ route('dashboard.index') }}" class="btn-menu">
@@ -29,6 +29,7 @@
 
             <div class="sub-menu">
                 <a href="{{ route('monan.create') }}" class="{{ request()->routeIs('monan.create') ? 'active' : '' }}">Thêm món ăn</a>
+                <a href="{{ route('monan.index') }}" class="{{ request()->routeIs('monan.index') ? 'active' : '' }}">Danh sách món ăn</a>
                 <a href="{{ route('loaimon.create') }}" class="{{ request()->routeIs('loaimon.create') ? 'active' : '' }}">Thêm mã loại</a>
             </div>
         </li>
