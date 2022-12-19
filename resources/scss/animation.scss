@@ -19,3 +19,15 @@
         opacity: 0;
     }
 }
+
+@keyframes menu-item-hover {
+    0% {
+        left: 0;
+        right: -100;
+    }
+
+    100% {
+        left: 0;
+        right: 0;
+    }
+}

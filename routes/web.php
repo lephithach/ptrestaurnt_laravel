@@ -1,10 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// Controller Admin
 use App\Http\Controllers\{
     DashboardController,
     LoaiMonController,
     MonAnController,
+};
+// Controller Client
+use App\Http\Controllers\Client\{
+    HomeController,
 };
 
 /*
@@ -17,6 +22,10 @@ use App\Http\Controllers\{
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::prefix('/')->name('home.')->group(function() {
+    Route::resource('/', HomeController::class);
+});
     
 Route::prefix('/admin')->name('dashboard.')->group(function() {
     Route::resource('/', DashboardController::class);

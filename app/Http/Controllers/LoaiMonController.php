@@ -87,8 +87,8 @@ class LoaiMonController extends Controller
      */
     public function edit($id)
     {
+        // Trả JSON về view để update bằng Javascript
         $get = LoaiMonModel::where('maloai', $id)->get()->toJson();
-
         return $get;
     }
 

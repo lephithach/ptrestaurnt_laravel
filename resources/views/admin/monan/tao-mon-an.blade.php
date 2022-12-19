@@ -29,9 +29,9 @@
 
                 <div class="form-group c-form-group-flex-col">
                     <label for="maloai">Loại món ăn</label>
-                    <select name="maloai" id="maloai" class="c-input @error('loaimon') is-invalid @enderror">
+                    <select name="maloai" id="maloai" class="c-input @error('maloai') is-invalid @enderror">
                         @foreach ($maLoaiList as $value)
-                            <option value="{{ $value->maloai }}" {{ old('loaimon') == $value->maloai ? 'selected' : '' }}>{{ $value->tenloai }}</option>
+                            <option value="{{ $value->maloai }}" {{ old('maloai') == $value->maloai ? 'selected' : '' }}>{{ $value->tenloai }}</option>
                         @endforeach
                     </select>
                 </div>

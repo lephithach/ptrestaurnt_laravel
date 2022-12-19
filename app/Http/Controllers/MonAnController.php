@@ -18,15 +18,8 @@ class MonAnController extends Controller
      */
     public function index()
     {
-        // $productList = MonAnModel::select('*')->paginate(10);
-        $productList = DB::table('monan')
-                        ->join('loaimon', 'loaimon.maloai', '=', 'monan.maloai')
-                        ->get();
-        dd($productList);
+        $productList = MonAnModel::join('loaimon', 'monan.maloai', '=', 'loaimon.maloai')->paginate(10);
 
-        // https://stackoverflow.com/questions/29165410/how-to-join-three-table-by-laravel-eloquent-model
-
-        // dd($monAnModel->getMaLoai());
         return view('admin.monan.danh-sach-mon-an', compact('productList'));
     }
 
@@ -49,13 +42,12 @@ class MonAnController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
+        // Validation
         $request->validate([
             'tenmon' => ['required', 'max:100'],
             'maloai' => ['required'],
             'dongia' => ['required', 'regex:/^-?\d+$/', 'min:4'],
-            'hinh' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:512'],
+            'hinh' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:1024'],
         ], [
             'tenmon.required' => 'Tên món ăn không được để trống',
             'tenmon.max' => 'Tên món ăn không được dài hơn :max',

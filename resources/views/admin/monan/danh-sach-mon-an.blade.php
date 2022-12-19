@@ -19,7 +19,7 @@
                 <tr class="text-center">
                     <td>{{ $key+1 }}</td>
                     <td class="text-left">{{ $product->tenmon }}</td>
-                    <td>{{ $product->maloai }}</td>
+                    <td>{{ $product->tenloai }}</td>
                     <td>
                         <img src="{{ asset("/storage/images/products/{$product->hinh}") }}" alt="{{ $product->tenmon }}" width="30px" height="30px">
                     </td>

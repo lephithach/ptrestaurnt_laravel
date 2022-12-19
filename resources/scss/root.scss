@@ -3,7 +3,7 @@
     width: $widthMenuLeft;
 }
 
-.container {
+.admin-container.container {
     max-width: calc(100% - $widthMenuLeft);
     width: calc(100% - $widthMenuLeft);
     margin-left: $widthMenuLeft;

@@ -12,7 +12,7 @@
 <body>
     @include('admin.include.menu-left')
     
-    <div class="container">
+    <div class="admin-container container">
         @yield('root')
     </div>
 </body>
