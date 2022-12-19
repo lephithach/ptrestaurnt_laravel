@@ -93,7 +93,6 @@
                     <th>Số món</th>
                     <th>&nbsp;</th>
                 </thead>
-                {{-- @php(dd(json_decode($data))) --}}
                 <tbody>
                     @if (!empty($data))
                     @foreach ($data as $key => $item)
@@ -102,7 +101,6 @@
                         <td>{{ $item->maloai }}</td>
                         <td>{{ $item->tenloai }}</td>
                         <td>&nbsp;</td>
-                        {{-- <td><a href="{{ route('loaimon.edit', [$item->maloai]) }}"><i class="bi bi-pencil-fill"></i></a></td> --}}
                         <td class="btn-function">
                             <i class="bi bi-pencil-fill icon-edit cursor-pointer text-blue-500" data-maloai="{{ $item->maloai }}"></i>
                             <i class="bi bi-trash3-fill icon-delete cursor-pointer text-red-500" data-maloai="{{ $item->maloai }}"></i>

@@ -17,15 +17,11 @@
 
             td {
                 border: 1px solid rgba($color: #000000, $alpha: 0.1);
-                padding: 0.5rem 0;
+                padding: 0.5rem;
             }
 
-            .btn-function {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: center;
-                gap: 1rem;
+            .btn-function i + i {
+                margin-left: 0.3rem;
             }
         }
     }

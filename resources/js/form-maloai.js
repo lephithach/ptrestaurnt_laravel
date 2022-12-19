@@ -17,7 +17,7 @@ if (btnUpdateMaLoaiList != null) {
                 );
             openModal();
 
-            axios.get(`/loai-mon/${maLoai}/edit`).then(function (response) {
+            axios.get(`./${maLoai}/edit`).then(function (response) {
                 // handle success
                 formDSMonAn.querySelector(".form-group #maloai").value =
                     response.data[0].maloai;
@@ -27,7 +27,7 @@ if (btnUpdateMaLoaiList != null) {
 
                 formDSMonAn
                     .querySelector("form")
-                    .setAttribute("action", `/loai-mon/update/${maLoai}`);
+                    .setAttribute("action", `./update/${maLoai}`);
             });
         };
     });

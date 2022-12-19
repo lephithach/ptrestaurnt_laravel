@@ -15,4 +15,7 @@ class LoaiMonModel extends Model
     public function getMonAn() {
         return $this->hasMany(MonAnModel::class, 'maloai', 'maloai');
     }
+    public function scopeMonAn($query) {
+        return $query->join(MonAnModel::class, 'maloai', 'maloai');
+    }
 }

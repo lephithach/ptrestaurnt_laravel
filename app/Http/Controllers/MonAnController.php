@@ -7,6 +7,7 @@ use App\Models\{
     MonAnModel,
     LoaiMonModel
 };
+use DB;
 
 class MonAnController extends Controller
 {
@@ -17,12 +18,16 @@ class MonAnController extends Controller
      */
     public function index()
     {
-        $data = MonAnModel::all()->toArray();
-        dd($data);
-        // $monAnModel = new MonAnModel();
+        // $productList = MonAnModel::select('*')->paginate(10);
+        $productList = DB::table('monan')
+                        ->join('loaimon', 'loaimon.maloai', '=', 'monan.maloai')
+                        ->get();
+        dd($productList);
+
+        // https://stackoverflow.com/questions/29165410/how-to-join-three-table-by-laravel-eloquent-model
 
         // dd($monAnModel->getMaLoai());
-        return view('admin.monan.danh-sach-mon-an');
+        return view('admin.monan.danh-sach-mon-an', compact('productList'));
     }
 
     /**

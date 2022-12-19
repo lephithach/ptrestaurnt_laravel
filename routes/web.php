@@ -17,13 +17,12 @@ use App\Http\Controllers\{
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::prefix('/')->name('dashboard.')->group(function() {
+    
+Route::prefix('/admin')->name('dashboard.')->group(function() {
     Route::resource('/', DashboardController::class);
 });
 
-Route::prefix('/loai-mon')->name('loaimon.')->group(function() {
+Route::prefix('/admin/loai-mon')->name('loaimon.')->group(function() {
     // Route::resource('/', LoaiMonController::class);
     Route::get('/', [LoaiMonController::class, 'index'])->name('index');
     Route::get('/create', [LoaiMonController::class, 'create'])->name('create');
@@ -33,7 +32,7 @@ Route::prefix('/loai-mon')->name('loaimon.')->group(function() {
     Route::post('/delete/{id}', [LoaiMonController::class, 'destroy'])->name('destroy');
 });
 
-Route::prefix('/mon-an')->name('monan.')->group(function() {
+Route::prefix('/admin/mon-an')->name('monan.')->group(function() {
     // Route::resource('/', LoaiMonController::class);
     Route::get('/', [MonAnController::class, 'index'])->name('index');
     Route::get('/create', [MonAnController::class, 'create'])->name('create');

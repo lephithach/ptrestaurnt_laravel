@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('mamon');
             $table->string('tenmon', 100)->unique();
             $table->string('maloai', 10)->index();
-            $table->double('dongia', 10, 2);
+            $table->integer('dongia');
             $table->text('hinh');
         });
     }

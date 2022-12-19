@@ -73,14 +73,10 @@
 }
 .container table tr td {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 }
-.container table tr .btn-function {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  gap: 1rem;
+.container table tr .btn-function i + i {
+  margin-left: 0.3rem;
 }
 .container .form-group input + input {
   margin-top: 0.5rem;
