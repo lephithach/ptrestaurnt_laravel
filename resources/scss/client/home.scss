@@ -4,6 +4,11 @@
 $colorFontPrimary: #28a745;
 
 .container {
+    &.client {
+        background-color: rgba($color: #fcf6ed, $alpha: 0.3);
+    }
+    // background-color: #fcf6ed;
+
     .navbar {
         // background-color: #fcf6ed;
         background-color: rgba($color: #000000, $alpha: 0.3);
@@ -89,12 +94,15 @@ $colorFontPrimary: #28a745;
             // height: 300px;
             width: 100%;
             height: 500px;
-            margin: 0 auto;
+            // margin: 0 auto;
+            margin-left: auto;
 
             img {
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
+                // object-fit: contain;
+                object-fit: cover;
+                border-radius: 5px;
             }
         }
 
@@ -103,6 +111,7 @@ $colorFontPrimary: #28a745;
             flex-direction: column;
             gap: 1rem;
             justify-content: center;
+            // background-color: #fff;
 
             .title {
                 font-family: "Pattaya", sans-serif;
@@ -117,6 +126,7 @@ $colorFontPrimary: #28a745;
 
             .btn-readmore {
                 border: 1px solid #000;
+                border-radius: 5px;
                 padding: 0.5rem 0.7rem;
                 text-align: center;
                 text-transform: uppercase;
@@ -126,14 +136,87 @@ $colorFontPrimary: #28a745;
     }
 
     .product {
+        // .product-header {
+        //     display: table;
+        //     width: 100%;
+        //     max-width: 100%;
+        // }
+        // .product-header .line {
+        //     display: table-row;
+        //     line-height: 1.5em;
+        //     font-size: 1rem;
+        //     white-space: nowrap;
+        // }
+        // .product-header h3 {
+        //     font-size: inherit; /* Change font-size in .product-header */
+        //     overflow: hidden;
+        //     display: table-cell;
+        //     vertical-align: middle;
+        //     width: 1px;
+        //     font-size: 1.5rem;
+        //     table-layout: fixed;
+        // }
+        // .product-header span.spacer {
+        //     display: table-cell;
+        // }
+        // .product-header h3 {
+        //     padding: 0 10px;
+        // }
+        // .product-header span.spacer:after {
+        //     display: inline-block;
+        //     width: 100%;
+        //     content: ".";
+        //     font-size: 0;
+        //     color: transparent;
+        //     height: 2px;
+        //     background: #000;
+        //     vertical-align: middle;
+        //     position: relative;
+        //     top: -1px;
+        // }
+        // .product-header > a {
+        //     font-size: 0.4em;
+        //     vertical-align: middle;
+        //     background: #25a2a4;
+        //     color: #fff;
+        //     text-transform: uppercase;
+        //     font-family: monospace;
+        //     border-radius: 0.5em;
+        //     padding: 0.3em 0.5em;
+        //     text-decoration: none;
+        // }
+
+        // &-header {
+        //     position: relative;
+        //     z-index: 1;
+        //     background-color: inherit;
+
+        //     &::after {
+        //         position: absolute;
+        //         content: "";
+        //         width: 100%;
+        //         height: 1px;
+        //         inset: 0;
+        //         z-index: -1;
+        //         margin: auto 0;
+        //         background-color: rgba($color: #000000, $alpha: 0.3);
+        //     }
+        // }
+
+        &-header {
+            border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+        }
+
         &-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
         }
 
-        &-image {
-            // width: 100%;
+        &-image img {
+            border-radius: 5px;
         }
 
         &-title {
@@ -144,6 +227,13 @@ $colorFontPrimary: #28a745;
 
         &-price {
             color: $colorDanger;
+        }
+
+        .btn-addcart {
+            padding: 0.5rem 0.7rem;
+            background-color: $colorFontPrimary;
+            color: #fff;
+            border-radius: 5px;
         }
     }
 }

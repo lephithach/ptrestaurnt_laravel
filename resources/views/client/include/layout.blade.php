@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 </head>
 <body>
-    <div class="container mx-auto">
+    <div class="container client mx-auto">
         <nav class="navbar px-4">
             <section class="logo-container">
                 <p class="brand-name">PT Restaurant</p>
@@ -33,6 +33,7 @@
             <img class="img" src="{{ asset('storage/images/banner/image-nha-hang.jpg') }}" alt="banner">
         </section>
 
+        {{-- grid lg:grid-cols-2 gap-5 xl:mx-44 --}}
         <section class="about py-2 grid lg:grid-cols-2 gap-5 xl:mx-44">
             <div class="about-content">
                 <p class="title">Sơ lược về nhà hàng</p>
@@ -41,31 +42,30 @@
             </div>
 
             <div class="about-picture">
-                <img src="{{ asset('storage/images/banner/image-nha-hang-2-768px.jpg') }}" alt="picture">
+                <img src="{{ asset('storage/images/banner/theatrer-bar.jpeg') }}" alt="picture">
             </div>            
         </section>
 
-        <section class="product grid grid-cols-3 gap-6 py-2 xl:mx-44">
-            <div class="product-container">
-                <div class="product-image">
-                    <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
+        <section class="product py-2 xl:mx-44">
+            {{-- <div class="product-header">
+                <div class="line">
+                    <span class="spacer"></span>
+                    <h3>SẢN PHẨM MỚI</h3>
+                    <span class="spacer"></span>
                 </div>
-                <div class="product-title">Cua Cà Mau</div>
-                <div class="product-price">500.000</div>
-            </div>
-            <div class="product-container">
-                <div class="product-image">
-                    <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
+            </div> --}}
+            <h3 class="product-header font-bold text-xl text-center">SẢN PHẨM MỚI</h3>
+            <div class="grid xl:grid-cols-4 gap-6">
+                @for ($i = 0; $i < 4; $i++)
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
+                    </div>
+                    <div class="product-title">Cua Cà Mau</div>
+                    <div class="product-price">500.000</div>
+                    <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
                 </div>
-                <div class="product-title">Cua Cà Mau</div>
-                <div class="product-price">500.000</div>
-            </div>
-            <div class="product-container">
-                <div class="product-image">
-                    <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
-                </div>
-                <div class="product-title">Cua Cà Mau</div>
-                <div class="product-price">500.000</div>
+                @endfor
             </div>
         </section>
 
@@ -73,5 +73,18 @@
             @yield('root')
         </section>
     </div>
+
+    <script>        
+    // chưa chạy đc
+        document.addEventListener("scroll", (e) => {
+            console.log(e);
+            let i = window.scrollY;
+            if(i === '50') {
+                // document.querySelector(".container .navbar").style.cssText = 'background-color:#000'; 
+                document.querySelector(".container .navbar").classList.add('active'); 
+                console.log('ok');
+            }
+        });
+    </script>
 </body>
 </html>
