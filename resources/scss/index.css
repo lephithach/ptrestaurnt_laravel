@@ -235,6 +235,9 @@
   text-shadow: 1px 1px 5px #000;
   z-index: 10;
 }
+.container .navbar.active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 .container .navbar .logo-container .brand-name {
   font-family: "Courgette", cursive;
   font-size: 2em;
@@ -308,6 +311,7 @@
   text-align: justify;
 }
 .container .about .about-content .btn-readmore {
+  display: block;
   border: 1px solid #000;
   border-radius: 5px;
   padding: 0.5rem 0.7rem;
@@ -341,6 +345,64 @@
   background-color: #28a745;
   color: #fff;
   border-radius: 5px;
+}
+.container .category-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.container .category-container {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.container .category-container .category-image img {
+  border-radius: 5px;
+}
+.container .category-container .category-showmore {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  transition: all 0.25s ease-in-out;
+}
+.container .category-container .category-showmore:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.container .category-container .category-showmore .category-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+.container .category-container .category-showmore .btn-addcart {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  transition: all 0.25s ease-in-out;
+}
+.container .category-container .category-showmore .btn-addcart:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+.container footer .brand-name {
+  font-family: "Courgette", cursive;
+  font-size: 2em;
+  color: #28a745;
+}
+.container footer .social a {
+  font-size: 1.5rem;
+  transition: all 0.25s ease-in-out;
+}
+.container footer .social a:hover {
+  color: #28a745;
+}
+.container footer .social a + a {
+  margin-left: 0.7rem;
+}
+.container footer .address p + p {
+  margin-top: 0.5rem;
 }
 
 /*# sourceMappingURL=index.css.map */

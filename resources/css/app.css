@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Format container */
+.mx-container {
+    @apply mx-5 lg:mx-32 xl:mx-44;
+}
+
 .c-form-group-flex-col {
     @apply flex flex-col mb-2;
 }

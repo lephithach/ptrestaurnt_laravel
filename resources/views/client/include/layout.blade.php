@@ -10,79 +10,78 @@
 </head>
 <body>
     <div class="container client mx-auto">
+        {{-- Navbar --}}
         <nav class="navbar px-4">
-            <section class="logo-container">
+            <div class="logo-container">
                 <p class="brand-name">PT Restaurant</p>
-            </section>
+            </div>
 
-            <section class="menu-container">
+            <div class="menu-container hidden lg:block">
                 <ul class="menu">
-                    <li class="menu-item active"><a class="menu-link" href="./">Trang chủ</a></li>
-                    <li class="menu-item"><a class="menu-link" href="#">Giới thiệu</a></li>
+                    <li class="menu-item{{ request()->routeIs('client.trangchu') ? ' active' : '' }}"><a class="menu-link" href="./">Trang chủ</a></li>
+                    <li class="menu-item{{ request()->routeIs('client.gioithieu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.gioithieu') }}">Giới thiệu</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Danh sách món ăn</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Góp ý</a></li>
                 </ul>
-            </section>
+            </div>
 
-            <section class="call-now">
+            <div class="hidden lg:block call-now">
                 <a href="tel:+84929626424">Gọi ngay</a>
-            </section>
+            </div>
+
+            <div class="lg:hidden">
+                <button class="border py-2 px-3"><i class="bi bi-list"></i></button>
+            </div>
         </nav>
 
+        {{-- Banner --}}
         <section class="banner">
             <img class="img" src="{{ asset('storage/images/banner/image-nha-hang.jpg') }}" alt="banner">
         </section>
 
-        {{-- grid lg:grid-cols-2 gap-5 xl:mx-44 --}}
-        <section class="about py-2 grid lg:grid-cols-2 gap-5 xl:mx-44">
-            <div class="about-content">
-                <p class="title">Sơ lược về nhà hàng</p>
-                <p class="content">Nhà hàng PT Restaurant tự hào khi được trở thành một trong những điểm hẹn lý tưởng của những doanh nhân thành đạt, những bạn trẻ năng động hay những bữa cơm gia đình ấm cúng sau mỗi ngày làm việc căng thẳng. Không gian nơi đây được trang trí và thiết kế đầy ấn tượng nổi bật với tông màu ấm. Cảm giác ấy đến từ không gian nổi bật với lối thiết kế kiến trúc Đông Dương hài hòa với những món ăn biểu tượng của món ngon Việt Nam hiện đại và ẩm thực phương Tây.</p>
-                <a class="btn-readmore" href="#">Đọc thêm</a>
-            </div>
-
-            <div class="about-picture">
-                <img src="{{ asset('storage/images/banner/theatrer-bar.jpeg') }}" alt="picture">
-            </div>            
-        </section>
-
-        <section class="product py-2 xl:mx-44">
-            {{-- <div class="product-header">
-                <div class="line">
-                    <span class="spacer"></span>
-                    <h3>SẢN PHẨM MỚI</h3>
-                    <span class="spacer"></span>
-                </div>
-            </div> --}}
-            <h3 class="product-header font-bold text-xl text-center">SẢN PHẨM MỚI</h3>
-            <div class="grid xl:grid-cols-4 gap-6">
-                @for ($i = 0; $i < 4; $i++)
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
-                    </div>
-                    <div class="product-title">Cua Cà Mau</div>
-                    <div class="product-price">500.000</div>
-                    <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
-                </div>
-                @endfor
-            </div>
-        </section>
-
-        <section class="content">   
+        {{-- Root --}}
+        <section class="root my-3 mx-container"> 
             @yield('root')
         </section>
+
+        {{-- Line break --}}
+        <hr class=" my-2 mx-container">
+        {{-- Footer --}}
+        <footer class="mx-5 py-3 mx-container">
+            <div class="grid sm:grid-cols-1 xl:grid-cols-2 gap-2">
+                {{-- Info --}}
+                <div class="text-center xl:text-left">
+                    <p class="brand-name">PT Restaurant</p>
+                    <div class="social my-2">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-telegram"></i></a>
+                        <a href="#"><i class="bi bi-envelope"></i></a>
+                    </div>
+                    <div class="address">
+                        <p>Email: lephithach00@gmail.com</p>
+                        <p>Điện thoại: 0929-626-424 | 038-3431-380</p>
+                        <p>Địa chỉ: 123, Võ Thị Sáu, Thống Nhất, TP. Biên Hòa, Đồng Nai</p>
+                    </div>
+                </div>
+    
+                {{-- Google Maps --}}
+                <div class="maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d869.5928033235059!2d106.8427941919293!3d10.95732864981353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1671628865901!5m2!1svi!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center">Copyright © 2021 - 2022 | Designed by <a href="#">Lê Phi Thạch</a></p>
+        </footer>
     </div>
 
     <script>        
-    // chưa chạy đc
+    // Change backgroundColor navbar on scroll
         document.addEventListener("scroll", (e) => {
-            console.log(e);
-            let i = window.scrollY;
-            if(i === '50') {
-                // document.querySelector(".container .navbar").style.cssText = 'background-color:#000'; 
-                document.querySelector(".container .navbar").classList.add('active'); 
-                console.log('ok');
+            if(window.scrollY > 200) {
+                document.querySelector(".container .navbar").classList.add("active"); 
+            } else {
+                document.querySelector(".container .navbar").classList.remove("active"); 
             }
         });
     </script>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('maloai', 10)->index();
             $table->integer('dongia');
             $table->text('hinh');
+            $table->text('hienthi')->default('1');
         });
     }
 

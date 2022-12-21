@@ -9,7 +9,7 @@ use App\Http\Controllers\{
 };
 // Controller Client
 use App\Http\Controllers\Client\{
-    HomeController,
+    ClientViewController,
 };
 
 /*
@@ -23,8 +23,9 @@ use App\Http\Controllers\Client\{
 |
 */
 
-Route::prefix('/')->name('home.')->group(function() {
-    Route::resource('/', HomeController::class);
+Route::prefix('/')->name('client.')->group(function() {
+    Route::get('/', [ClientViewController::class, 'TrangChu'])->name('trangchu');
+    Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
 });
     
 Route::prefix('/admin')->name('dashboard.')->group(function() {
