@@ -4,15 +4,27 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\{
+    MonAnModel,
+    LoaiMonModel,
+};
 
 class ClientViewController extends Controller
 {
     public function TrangChu() {
-        return view('client.home');
+        $monAnMoiList = MonAnModel::select('*')->offset(0)->limit(5)->get();
+        $loaiMonNoiBatList = LoaiMonModel::select('*')->offset(0)->limit(5)->get();
+        return view('client.home', compact('monAnMoiList', 'loaiMonNoiBatList'));
     }
 
     public function GioiThieu() {
         $metaTitle = 'Giới thiệu về nhà hàng';
         return view('client.gioi-thieu', compact('metaTitle'));
+    }
+
+    public function DanhSachMonAn() {
+        $metaTitle = 'Danh sách món ăn';
+        $monAnList = MonAnModel::all();
+        return view('client.danh-sach-mon-an', compact('metaTitle', 'monAnList'));
     }
 }

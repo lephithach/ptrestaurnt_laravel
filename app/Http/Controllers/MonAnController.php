@@ -131,7 +131,6 @@ class MonAnController extends Controller
             'tenmon' => ['required', 'max:100'],
             'maloai' => ['required'],
             'dongia' => ['required', 'regex:/^-?\d+$/', 'min:4'],
-            'hinh' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:1024'],
         ], [
             'tenmon.required' => 'Tên món ăn không được để trống',
             'tenmon.max' => 'Tên món ăn không được dài hơn :max',
@@ -139,26 +138,34 @@ class MonAnController extends Controller
             'dongia.required' => 'Đơn giá không được để trống',
             'dongia.regex' => 'Đơn giá phải là số',
             'dongia.min' => 'Đơn giá phải lớn hơn :min ký tự',
-            'hinh.required' => 'Hình ảnh không được để trống',
-            'hinh.image' => 'Hình ảnh không đúng định dạng',
-            'hinh.mimes' => 'Hình ảnh chỉ chấp nhận đuôi jpeg,png,jpg',
-            'hinh.max' => 'Hình ảnh không được quá :max KB, vui lòng thử lại',
         ]);
-        
-        // Upload Images
-        $pathInit = 'public/images/products';
-        $image = $request->file('hinh');
-        $imageName = $image->getClientOriginalName();
-        // Check exist
-        // if(file_exists("./storage/images/products/{$imageName}")) {
-        //     // delete file exist
-        //     unlink("./storage/images/products/{$imageName}");
-        // }
-        $request->file('hinh')->storeAs($pathInit, $imageName);
+
+        if($request->hasFile('hinh')) {
+            $request->validate([
+                'hinh' => ['required', 'image', 'mimes:jpeg,png,jpg', 'max:1024'],
+            ], [
+                'hinh.required' => 'Hình ảnh không được để trống',
+                'hinh.image' => 'Hình ảnh không đúng định dạng',
+                'hinh.mimes' => 'Hình ảnh chỉ chấp nhận đuôi jpeg,png,jpg',
+                'hinh.max' => 'Hình ảnh không được quá :max KB, vui lòng thử lại',
+            ]);
+            // Upload Images
+            $pathInit = 'public/images/products';
+            $image = $request->file('hinh');
+            $imageName = $image->getClientOriginalName();
+            // Check exist
+            // if(file_exists("./storage/images/products/{$imageName}")) {
+            //     // delete file exist
+            //     unlink("./storage/images/products/{$imageName}");
+            // }
+            $request->file('hinh')->storeAs($pathInit, $imageName);
+        }
         
         // Filter data input request
         $dataInput = $request->except('_token');
-        $dataInput['hinh'] = $imageName;
+        if($request->hasFile('hinh')) {
+            $dataInput['hinh'] = $imageName;
+        }
 
         $result = MonAnModel::where('mamon', $id)->update($dataInput);
 

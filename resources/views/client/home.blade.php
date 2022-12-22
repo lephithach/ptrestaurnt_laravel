@@ -21,36 +21,36 @@
             <span class="spacer"></span>
         </div>
     </div> --}}
-    <h3 class="product-header font-bold text-xl text-center">SẢN PHẨM MỚI</h3>
-    <div class="grid xl:grid-cols-4 gap-6">
-        @for ($i = 0; $i < 4; $i++)
+    <h3 class="product-header font-bold text-xl text-center">MÓN ĂN MỚI</h3>
+    <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+        @foreach ($monAnMoiList as $monAnMoi)
         <div class="product-container">
             <div class="product-image">
-                <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
+                <img src="{{ asset("storage/images/products/{$monAnMoi->hinh}") }}" alt="product">
             </div>
-            <div class="product-title">Cua Cà Mau</div>
-            <div class="product-price">500.000</div>
+            <div class="product-title">{{ $monAnMoi->tenmon }}</div>
+            <div class="product-price">{{ number_format($monAnMoi->dongia, 0, ",", ".") }}</div>
             <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
         </div>
-        @endfor
+        @endforeach
     </div>
 </section>
 
 <section class="category py-2">
     <h3 class="category-header font-bold text-xl text-center my-2">LOẠI MÓN ĂN NỔI BẬT</h3>
-    <div class="grid xl:grid-cols-4 gap-6">
-        @for ($i = 0; $i < 4; $i++)
+    <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+        @foreach ($loaiMonNoiBatList as $loaiMonNoiBat)
         <div class="category-container">
             <div class="category-image">
                 <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
             </div>
 
             <div class="category-showmore">
-                <div class="category-title">Cua Cà Mau</div>
+                <div class="category-title">{{ $loaiMonNoiBat->tenloai }}</div>
                 <a href="#" class="btn-addcart">XEM NGAY</a>
             </div>
         </div>
-        @endfor
+        @endforeach
     </div>
 </section>
 @endsection

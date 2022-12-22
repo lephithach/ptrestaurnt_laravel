@@ -20,7 +20,7 @@
     </div>
 
     <div class="xl:order-1 about-picture">
-        <img src="{{ asset('storage/images/banner/theatrer-bar.jpeg') }}" alt="picture">
+        <img src="{{ asset('storage/images/banner/nhan-vien.jpg') }}" alt="picture">
     </div>
 </div>
 
@@ -31,7 +31,7 @@
     </div>
 
     <div class="about-picture">
-        <img src="{{ asset('storage/images/banner/theatrer-bar.jpeg') }}" alt="picture">
+        <img src="{{ asset('storage/images/banner/mon-an.jpg') }}" alt="picture">
     </div>
 </div>
 

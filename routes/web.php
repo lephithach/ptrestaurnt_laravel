@@ -25,7 +25,8 @@ use App\Http\Controllers\Client\{
 
 Route::prefix('/')->name('client.')->group(function() {
     Route::get('/', [ClientViewController::class, 'TrangChu'])->name('trangchu');
-    Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu  '])->name('gioithieu');
+    Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
+    Route::get('/mon-an', [ClientViewController::class, 'DanhSachMonAn'])->name('danhsachmonan');
 });
     
 Route::prefix('/admin')->name('dashboard.')->group(function() {

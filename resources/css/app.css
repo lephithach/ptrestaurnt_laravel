@@ -4,7 +4,7 @@
 
 /* Format container */
 .mx-container {
-    @apply mx-5 lg:mx-32 xl:mx-44;
+    @apply mx-5 lg:mx-32 xl:mx-44 2xl:mx-0;
 }
 
 .c-form-group-flex-col {

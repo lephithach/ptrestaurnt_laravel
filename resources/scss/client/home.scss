@@ -210,6 +210,7 @@ $colorFontPrimary: #28a745;
 
         &-header {
             border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+            padding-bottom: 0.5rem;
         }
 
         &-container {
@@ -245,6 +246,7 @@ $colorFontPrimary: #28a745;
     .category {
         &-header {
             border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+            padding-bottom: 0.5rem;
         }
 
         &-container {

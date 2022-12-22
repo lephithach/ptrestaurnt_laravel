@@ -20,7 +20,7 @@
                 <ul class="menu">
                     <li class="menu-item{{ request()->routeIs('client.trangchu') ? ' active' : '' }}"><a class="menu-link" href="./">Trang chủ</a></li>
                     <li class="menu-item{{ request()->routeIs('client.gioithieu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.gioithieu') }}">Giới thiệu</a></li>
-                    <li class="menu-item"><a class="menu-link" href="#">Danh sách món ăn</a></li>
+                    <li class="menu-item{{ request()->routeIs('client.danhsachmonan') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.danhsachmonan') }}">Danh sách món ăn</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Góp ý</a></li>
                 </ul>
             </div>
@@ -36,6 +36,7 @@
 
         {{-- Banner --}}
         <section class="banner">
+            {{-- https://github.com/lephithach/Bethany-Wedding/blob/main/index.html --}}
             <img class="img" src="{{ asset('storage/images/banner/image-nha-hang.jpg') }}" alt="banner">
         </section>
 
