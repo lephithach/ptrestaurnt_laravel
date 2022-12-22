@@ -20,7 +20,8 @@
                 padding: 0.5rem;
             }
 
-            .btn-function i + i {
+            .btn-function i + i,
+            .btn-function a + a {
                 margin-left: 0.3rem;
             }
         }

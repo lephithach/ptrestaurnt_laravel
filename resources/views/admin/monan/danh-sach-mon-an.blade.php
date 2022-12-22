@@ -21,12 +21,16 @@
                     <td class="text-left">{{ $product->tenmon }}</td>
                     <td>{{ $product->tenloai }}</td>
                     <td>
-                        <img src="{{ asset("/storage/images/products/{$product->hinh}") }}" alt="{{ $product->tenmon }}" width="30px" height="30px">
+                        <img class="mx-auto" src="{{ asset("/storage/images/products/{$product->hinh}") }}" alt="{{ $product->tenmon }}" width="30px" height="30px">
                     </td>
-                    <td>{{ number_format($product->dongia) }}</td>
+                    <td>{{ number_format($product->dongia, 0, ",", ".") }}</td>
                     <td class="btn-function">
-                        <i class="bi bi-pencil-fill icon-edit cursor-pointer text-blue-500" data-maloai="{{ $product->mamon }}"></i>
-                        <i class="bi bi-trash3-fill icon-delete cursor-pointer text-red-500" data-maloai="{{ $product->mamon }}"></i>
+                        <a href="{{ route('monan.edit', [$product->mamon]) }}">
+                            <i class="bi bi-pencil-fill icon-edit cursor-pointer text-blue-500" data-maloai="{{ $product->mamon }}"></i>
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-trash3-fill icon-delete cursor-pointer text-red-500" data-maloai="{{ $product->mamon }}"></i>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

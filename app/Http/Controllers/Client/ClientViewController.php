@@ -12,6 +12,7 @@ class ClientViewController extends Controller
     }
 
     public function GioiThieu() {
-        return view('client.gioi-thieu');
+        $metaTitle = 'Giới thiệu về nhà hàng';
+        return view('client.gioi-thieu', compact('metaTitle'));
     }
 }

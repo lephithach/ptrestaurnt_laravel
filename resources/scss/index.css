@@ -87,7 +87,8 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
 }
-.admin-container.container table tr .btn-function i + i {
+.admin-container.container table tr .btn-function i + i,
+.admin-container.container table tr .btn-function a + a {
   margin-left: 0.3rem;
 }
 .admin-container.container .form-group input + input {
