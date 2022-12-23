@@ -35,7 +35,7 @@
         </nav>
 
         {{-- Banner --}}
-        <section class="banner">
+        <section class="banner mx-container">
             {{-- https://github.com/lephithach/Bethany-Wedding/blob/main/index.html --}}
             <img class="img" src="{{ asset('storage/images/banner/image-nha-hang.jpg') }}" alt="banner">
         </section>

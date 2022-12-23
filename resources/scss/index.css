@@ -276,7 +276,7 @@
 }
 .container .banner {
   margin-top: -4rem;
-  width: 100%;
+  width: auto;
   height: 500px;
 }
 .container .banner .img {
