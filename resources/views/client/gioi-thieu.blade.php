@@ -1,7 +1,6 @@
 @extends('client.include.layout')
 @section('root')
-<h3 class="font-bold text-xl text-center">GIỚI THIỆU VỀ NHÀ HÀNG</h3>
-<hr class="my-2">
+<h2 class="font-bold text-xl text-center text-header">GIỚI THIỆU VỀ NHÀ HÀNG</h2>
 <div class="about py-2 grid lg:grid-cols-2 gap-10">
     <div class="my-3 xl:my-0 about-content">
         <p class="text-center xl:text-left title">Sơ lược về nhà hàng</p>

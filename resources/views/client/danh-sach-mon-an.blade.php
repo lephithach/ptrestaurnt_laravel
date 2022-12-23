@@ -1,6 +1,6 @@
 @extends('client.include.layout')
 @section('root')
-<h3 class="product-header font-bold text-xl text-center">DANH SÁCH MÓN ĂN</h3>
+<h2 class="product-header font-bold text-center text-header">Danh sách món ăn</h2>
 <div class="product py-2">
     <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         @foreach ($monAnList as $monAn)

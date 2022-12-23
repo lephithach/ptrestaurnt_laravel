@@ -21,7 +21,7 @@
             <span class="spacer"></span>
         </div>
     </div> --}}
-    <h3 class="product-header font-bold text-xl text-center">MÓN ĂN MỚI</h3>
+    <h2 class="product-header font-bold text-center text-header">Món ăn mới</h2>
     <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         @foreach ($monAnMoiList as $monAnMoi)
         <div class="product-container">
@@ -37,8 +37,8 @@
 </section>
 
 <section class="category py-2">
-    <h3 class="category-header font-bold text-xl text-center my-2">LOẠI MÓN ĂN NỔI BẬT</h3>
-    <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+    <h2 class="category-header font-bold text-center text-header">Loại món ăn nổi bật</h2>
+    <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6 mt-3">
         @foreach ($loaiMonNoiBatList as $loaiMonNoiBat)
         <div class="category-container">
             <div class="category-image">

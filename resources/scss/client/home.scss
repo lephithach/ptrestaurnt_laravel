@@ -1,11 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
 
 $colorFontPrimary: #28a745;
 
 .container {
     &.client {
         background-color: rgba($color: #fcf6ed, $alpha: 0.3);
+
+        h2.text-header {
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+            padding-bottom: 0.5rem;
+            font-family: inherit !important;
+            color: $colorFontPrimary;
+            text-transform: uppercase;
+        }
     }
     // background-color: #fcf6ed;
 
@@ -208,10 +218,12 @@ $colorFontPrimary: #28a745;
         //     }
         // }
 
-        &-header {
-            border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
-            padding-bottom: 0.5rem;
-        }
+        // &-header {
+        //     border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+        //     padding-bottom: 1rem;
+        //     color: $colorFontPrimary;
+        //     font-size: 1.5rem;
+        // }
 
         &-container {
             display: flex;
@@ -244,10 +256,12 @@ $colorFontPrimary: #28a745;
     }
 
     .category {
-        &-header {
-            border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
-            padding-bottom: 0.5rem;
-        }
+        // &-header {
+        //     border-bottom: 1px solid rgba($color: #000, $alpha: 0.1);
+        //     padding-bottom: 1rem;
+        //     color: $colorFontPrimary;
+        //     font-size: 1.5rem;
+        // }
 
         &-container {
             position: relative;

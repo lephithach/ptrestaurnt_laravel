@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap");
 @keyframes toastShow {
   from {
     transform: translateX(100%);
@@ -221,6 +222,14 @@
 .container.client {
   background-color: rgba(252, 246, 237, 0.3);
 }
+.container.client h2.text-header {
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+  font-family: inherit !important;
+  color: #28a745;
+  text-transform: uppercase;
+}
 .container .navbar {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -320,10 +329,6 @@
   text-transform: uppercase;
   width: 120px;
 }
-.container .product-header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 0.5rem;
-}
 .container .product-container {
   display: flex;
   flex-direction: column;
@@ -347,10 +352,6 @@
   background-color: #28a745;
   color: #fff;
   border-radius: 5px;
-}
-.container .category-header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 0.5rem;
 }
 .container .category-container {
   position: relative;
