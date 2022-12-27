@@ -11,10 +11,7 @@ btnAddCartList.forEach((btnAddCart) => {
         let IDMonAn = targetElement.getAttribute("data-id");
 
         axios
-            .post(`./cart/add-cart/${IDMonAn}`, {
-                product_list: productList,
-                _token: document.querySelector("#_token").value,
-            })
+            .post(`./cart/add-cart/${IDMonAn}`)
             .then(function (response) {
                 console.log(response);
             })

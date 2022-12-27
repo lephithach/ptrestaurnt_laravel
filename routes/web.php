@@ -28,9 +28,11 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::get('/', [ClientViewController::class, 'TrangChu'])->name('trangchu');
     Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
     Route::get('/mon-an', [ClientViewController::class, 'DanhSachMonAn'])->name('danhsachmonan');
+    Route::get('/gio-hang', [CartController::class, 'getCart'])->name('giohang');
 });
 
 Route::prefix('/cart')->name('cart.')->group(function() {
+    Route::get('/', [CartController::class, 'getCart'])->name('getcart');
     Route::post('/add-cart/{id}', [CartController::class, 'addCart'])->name('addcart');
 });
     

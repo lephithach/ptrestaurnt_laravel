@@ -219,6 +219,13 @@
   color: rgb(235, 14, 14);
 }
 
+@media screen and (min-width: 1536px) {
+  .container .navbar {
+    padding: 0 3.5rem;
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+}
 .container.client {
   background-color: rgba(252, 246, 237, 0.3);
 }

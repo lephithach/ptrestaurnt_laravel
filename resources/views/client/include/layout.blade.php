@@ -21,6 +21,7 @@
                     <li class="menu-item{{ request()->routeIs('client.trangchu') ? ' active' : '' }}"><a class="menu-link" href="./">Trang chủ</a></li>
                     <li class="menu-item{{ request()->routeIs('client.gioithieu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.gioithieu') }}">Giới thiệu</a></li>
                     <li class="menu-item{{ request()->routeIs('client.danhsachmonan') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.danhsachmonan') }}">Danh sách món ăn</a></li>
+                    <li class="menu-item{{ request()->routeIs('client.giohang') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.giohang') }}">Giỏ hàng</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Góp ý</a></li>
                 </ul>
             </div>
