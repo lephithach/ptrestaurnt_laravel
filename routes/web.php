@@ -10,6 +10,7 @@ use App\Http\Controllers\{
 // Controller Client
 use App\Http\Controllers\Client\{
     ClientViewController,
+    CartController,
 };
 
 /*
@@ -27,6 +28,10 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::get('/', [ClientViewController::class, 'TrangChu'])->name('trangchu');
     Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
     Route::get('/mon-an', [ClientViewController::class, 'DanhSachMonAn'])->name('danhsachmonan');
+});
+
+Route::prefix('/cart')->name('cart.')->group(function() {
+    Route::post('/add-cart/{id}', [CartController::class, 'addCart'])->name('addcart');
 });
     
 Route::prefix('/admin')->name('dashboard.')->group(function() {

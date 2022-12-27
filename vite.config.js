@@ -10,6 +10,7 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/form-maloai.js",
                 "resources/js/function.js",
+                "resources/js/client/cart.js",
             ],
             refresh: true,
         }),

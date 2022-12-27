@@ -4,7 +4,7 @@
 <div class="product py-2">
     <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         @foreach ($monAnList as $monAn)
-        <div class="product-container">
+        <div class="product-container" data-id="{{ $monAn->mamon }}">
             <div class="product-image">
                 <img src="{{ asset("storage/images/products/{$monAn->hinh}") }}" alt="product">
             </div>
@@ -15,4 +15,8 @@
         @endforeach
     </div>
 </div>
+
+<input type="text" name="_token" id="_token" value="{{ csrf_token() }}" hidden>
+
+@vite(['resources/js/client/cart.js'])
 @endsection
