@@ -13,7 +13,9 @@ btnAddCartList.forEach((btnAddCart) => {
         axios
             .post(`./cart/add-cart/${IDMonAn}`)
             .then(function (response) {
-                console.log(response);
+                if (response.data.status == "success") {
+                    alert(response.data.message);
+                }
             })
             .catch(function (error) {
                 console.log(error);

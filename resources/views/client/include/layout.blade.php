@@ -13,12 +13,12 @@
         {{-- Navbar --}}
         <nav class="navbar px-4">
             <div class="logo-container">
-                <p class="brand-name">PT Restaurant</p>
+                <a class="brand-name" href="{{ route('client.trangchu') }}">PT Restaurant</a>
             </div>
 
             <div class="menu-container hidden lg:block">
                 <ul class="menu">
-                    <li class="menu-item{{ request()->routeIs('client.trangchu') ? ' active' : '' }}"><a class="menu-link" href="./">Trang chủ</a></li>
+                    <li class="menu-item{{ request()->routeIs('client.trangchu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.trangchu') }}">Trang chủ</a></li>
                     <li class="menu-item{{ request()->routeIs('client.gioithieu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.gioithieu') }}">Giới thiệu</a></li>
                     <li class="menu-item{{ request()->routeIs('client.danhsachmonan') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.danhsachmonan') }}">Danh sách món ăn</a></li>
                     <li class="menu-item{{ request()->routeIs('client.giohang') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.giohang') }}">Giỏ hàng</a></li>
