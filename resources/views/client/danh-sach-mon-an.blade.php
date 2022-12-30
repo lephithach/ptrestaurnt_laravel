@@ -3,6 +3,7 @@
 <h2 class="product-header font-bold text-center text-header">Danh sách món ăn</h2>
 <div class="product py-2">
     <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+    @if (!$monAnList)            
         @foreach ($monAnList as $monAn)
         <div class="product-container" data-id="{{ $monAn->mamon }}">
             <div class="product-image">
@@ -13,6 +14,9 @@
             <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
         </div>
         @endforeach
+    @else
+        <h3 class="text-center">Danh sách món ăn hiện chưa có</h3>
+    @endif
     </div>
 </div>
 

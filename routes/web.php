@@ -11,6 +11,7 @@ use App\Http\Controllers\{
 use App\Http\Controllers\Client\{
     ClientViewController,
     CartController,
+    RegisterController,
 };
 
 /*
@@ -28,7 +29,9 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::get('/', [ClientViewController::class, 'TrangChu'])->name('trangchu');
     Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
     Route::get('/mon-an', [ClientViewController::class, 'DanhSachMonAn'])->name('danhsachmonan');
-    Route::get('/gio-hang', [CartController::class, 'getCart'])->name('giohang');
+    Route::get('/gio-hang', [CartController::class, 'getCart'])->middleware('checkloginclient')->name('giohang');
+    Route::get('/dang-ky', [RegisterController::class, 'index'])->name('dangky');
+    Route::post('/dang-ky', [RegisterController::class, 'store'])->name('dangky.store');
 });
 
 Route::prefix('/cart')->name('cart.')->group(function() {

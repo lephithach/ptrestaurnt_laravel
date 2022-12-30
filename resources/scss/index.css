@@ -416,4 +416,26 @@
   margin-top: 0.5rem;
 }
 
+.container-register {
+  margin-top: 1rem;
+}
+.container-register .brand-name {
+  font-family: "Courgette", cursive;
+  font-size: 2em;
+  color: #28a745;
+  text-align: center;
+}
+.container-register .register {
+  width: 400px;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.container-register .register .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 /*# sourceMappingURL=index.css.map */

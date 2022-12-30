@@ -14,7 +14,7 @@
             {{-- <th class="w-[5%]">&nbsp;</th> --}}
         </thead>
         <tbody>
-            @if (!empty($giohang))
+            @if (!$giohang)
             @foreach ($giohang as $key => $product)
             <tr class="text-center">
                 <td>{{ $key+1 }}</td>
@@ -37,7 +37,7 @@
             @endforeach
             @else
             <tr>
-                <td colspan="6" class="text-center">Chưa có dữ liệu</td>
+                <td colspan="6" class="text-center">Giỏ hàng trống, vui lòng chọn món ăn <a href="{{ route('client.danhsachmonan') }}">TẠI ĐÂY</a></td>
             </tr>
             @endif
         </tbody>
