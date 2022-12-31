@@ -19,10 +19,24 @@
     @apply border-red-500;
 }
 
+/* Button */
 .btn-primary {
     @apply bg-sky-700 text-white px-4 py-3 rounded cursor-pointer;
 }
 
 .btn-danger {
     @apply bg-red-700 text-white px-4 py-3 rounded cursor-pointer;
+}
+
+/* Alert */
+.alert {
+    @apply rounded-lg p-2 my-2;
+}
+
+.alert.alert-danger {
+    @apply bg-red-100 text-red-700;
+}
+
+.alert.alert-success {
+    @apply bg-green-100 text-green-700;
 }

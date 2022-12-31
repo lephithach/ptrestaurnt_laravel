@@ -37,7 +37,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sdt' => ['required', 'numeric', 'digits:10'],
+            'sdt' => ['required', 'numeric', 'digits:10', 'unique:clientuser,sdt'],
             'password' => ['required'],
             'ho' => ['required', 'max:20'],
             'ten' => ['required', 'max:20'],
@@ -47,6 +47,7 @@ class RegisterController extends Controller
             'sdt.required' => 'Số điện thoại không được để trống',
             'sdt.numeric' => 'Số điện thoại phải là số',
             'sdt.digits' => 'Số điện thoại không đúng',
+            'sdt.unique' => 'Số điện thoại này đã đăng ký tài khoản',
             'password.required' => 'Mật khẩu không được để trống',
             'ho.required' => 'Họ không được để trống',
             'ten.required' => 'Tên không được để trống',
@@ -55,6 +56,21 @@ class RegisterController extends Controller
             'gioitinh.digits' => 'Giới tính không hợp lệ',
             'ngaysinh.required' => 'Ngày sinh không được để trống',
         ]);
+
+        $dataForm = $request->except(['_token', 'btn-submit']);
+        $dataForm['password'] = bcrypt($request->password);
+
+        if(ClientRegisterModel::insert($dataForm)) {
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => 'Đăng ký tài khoản thành công',
+            ]);
+        } else {
+            return redirect()->back()->with([
+                'status' => 'danger',
+                'message' => 'Đăng ký tài khoản thất bại',
+            ])->onlyInput('sdt');
+        }
     }
 
     /**

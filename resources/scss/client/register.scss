@@ -1,5 +1,5 @@
 .container-register {
-    margin-top: 1rem;
+    margin-top: 3rem;
 
     .brand-name {
         font-family: "Courgette", cursive;
@@ -9,7 +9,8 @@
     }
 
     .register {
-        width: 400px;
+        max-width: 600px;
+        min-width: 400px;
         padding: 1rem;
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
         border-radius: 5px;

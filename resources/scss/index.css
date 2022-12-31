@@ -417,7 +417,7 @@
 }
 
 .container-register {
-  margin-top: 1rem;
+  margin-top: 3rem;
 }
 .container-register .brand-name {
   font-family: "Courgette", cursive;
@@ -426,7 +426,8 @@
   text-align: center;
 }
 .container-register .register {
-  width: 400px;
+  max-width: 600px;
+  min-width: 400px;
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
