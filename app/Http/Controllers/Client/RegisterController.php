@@ -57,6 +57,9 @@ class RegisterController extends Controller
             'ngaysinh.required' => 'Ngày sinh không được để trống',
         ]);
 
+        // https://laravel.com/docs/9.x/validation
+        // withErrors
+
         $dataForm = $request->except(['_token', 'btn-submit']);
         $dataForm['password'] = bcrypt($request->password);
 

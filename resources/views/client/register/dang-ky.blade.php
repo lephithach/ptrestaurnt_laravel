@@ -41,14 +41,20 @@
                             <label for="password">Mật khẩu</label>
                             <input class="c-input" type="password" name="password" id="password" placeholder="Mật khẩu" />
                         </div>
+
+                        <div class="form-group">
+                            <label for="re-password">Nhập lại mật khẩu</label>
+                            <input class="c-input" type="password" name="re-password" id="re-password" placeholder="Nhập lại mật khẩu" />
+                        </div>
         
+                    </section>
+                    
+                    <section class="right">
                         <div class="form-group">
                             <label for="ho">Họ</label>
                             <input class="c-input" type="text" name="ho" id="ho" placeholder="Nguyễn Văn" value="{{ old('ho') }}" />
                         </div>
-                    </section>
 
-                    <section class="right">
                         <div class="form-group">
                             <label for="ten">Tên</label>
                             <input class="c-input" type="text" name="ten" id="ten" placeholder="A" value="{{ old('ten') }}" />
