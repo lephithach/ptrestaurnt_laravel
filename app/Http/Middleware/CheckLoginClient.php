@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Session;
 
 class CheckLoginClient
 {
@@ -16,6 +17,9 @@ class CheckLoginClient
      */
     public function handle(Request $request, Closure $next)
     {
+        if(!Session::get('userClient')) {
+            return redirect()->route('client.dangnhap');
+        }
         // dd($request);
         return $next($request);
     }

@@ -27,7 +27,15 @@
             </div>
 
             <div class="hidden lg:block call-now">
-                <a href="tel:+84929626424">Gọi ngay</a>
+                {{-- <a href="tel:+84929626424">Gọi ngay</a> --}}
+                @if (session()->get('userClient'))
+                    @foreach (session()->get('userClient') as $user)
+                    <a href="#">Xin chào: {{$user['ten']}}</a>
+                    {{-- <a href="{{ route('client.dangnhap') }}">Đăng xuất</a> --}}
+                    @endforeach
+                @else
+                    <a href="{{ route('client.dangnhap') }}">Đăng nhập</a>
+                @endif
             </div>
 
             <div class="lg:hidden">

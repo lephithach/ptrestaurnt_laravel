@@ -281,13 +281,13 @@
   border-bottom: 1px solid #fff;
   animation: menu-item-hover 0.25s;
 }
-.container .navbar .call-now a {
+.container .navbar .user a {
   padding: 0.5rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   text-transform: uppercase;
 }
-.container .navbar .call-now a:hover {
+.container .navbar .user a:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 .container .banner {

@@ -39,14 +39,13 @@
         
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
-                            <input class="c-input" type="password" name="password" id="password" placeholder="Mật khẩu" />
+                            <input class="c-input" type="password" name="password" id="password" placeholder="Mật khẩu" value="{{ old('password') }}" />
                         </div>
 
                         <div class="form-group">
-                            <label for="re-password">Nhập lại mật khẩu</label>
-                            <input class="c-input" type="password" name="re-password" id="re-password" placeholder="Nhập lại mật khẩu" />
+                            <label for="rePassword">Nhập lại mật khẩu</label>
+                            <input class="c-input" type="password" name="rePassword" id="rePassword" placeholder="Nhập lại mật khẩu" value="{{ old('rePassword') }}" />
                         </div>
-        
                     </section>
                     
                     <section class="right">
@@ -79,6 +78,10 @@
 
                 <div class="form-group">
                     <input class="btn-primary" type="submit" name="btn-submit" id="btn-submit" value="Đăng ký" />
+                </div>
+
+                <div class="form-group">
+                    <p><a href="{{ route('client.dangnhap') }}">Bạn đã có tài khoản?</a></p>
                 </div>
             </form>
         </section>

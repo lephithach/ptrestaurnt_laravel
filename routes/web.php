@@ -30,8 +30,11 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
     Route::get('/mon-an', [ClientViewController::class, 'DanhSachMonAn'])->name('danhsachmonan');
     Route::get('/gio-hang', [CartController::class, 'getCart'])->middleware('checkloginclient')->name('giohang');
-    Route::get('/dang-ky', [RegisterController::class, 'index'])->name('dangky');
+    Route::get('/dang-ky', [RegisterController::class, 'create'])->name('dangky');
     Route::post('/dang-ky', [RegisterController::class, 'store'])->name('dangky.store');
+    Route::post('/dang-ky', [RegisterController::class, 'store'])->name('dangky.store');
+    Route::get('/dang-nhap', [RegisterController::class, 'index'])->name('dangnhap');
+    Route::post('/dang-nhap', [RegisterController::class, 'login'])->name('dangnhap.login');
 });
 
 Route::prefix('/cart')->name('cart.')->group(function() {

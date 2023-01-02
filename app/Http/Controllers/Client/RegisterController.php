@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ClientRegisterModel;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -15,7 +16,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('client.register.dang-ky');
+        return view('client.register.dang-nhap');
     }
 
     /**
@@ -25,7 +26,37 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.register.dang-ky');
+    }
+
+    public function login(Request $request) {
+        $request->validate([
+            'sdt' => ['required', 'numeric', 'digits:10'],
+            'password' => ['required'],
+        ], [
+            'sdt.required' => 'Số điện thoại không được để trống',
+            'sdt.numeric' => 'Số điện thoại phải là số',
+            'sdt.digits' => 'Số điện thoại không đúng',
+            'password.required' => 'Mật khẩu không được để trống',
+        ]);
+        
+        $getUserLogin = ClientRegisterModel::where('sdt', '=', $request->sdt)
+            ->where('password', '=', md5($request->password))
+            ->get(['sdt', 'ho', 'ten', 'ngaysinh', 'gioitinh'])
+            ->toArray();
+        
+        if(empty($getUserLogin)) {
+            return redirect()->back()->withErrors([
+                'Tài khoản hoặc mật khẩu không đúng'
+            ])->withInput();
+        } else {
+            Session::put('userClient', $getUserLogin);
+
+            return redirect()->back()->with([
+                'status' => 'success',
+                'message' => 'Đăng nhập thành công',
+            ]);
+        }
     }
 
     /**
@@ -39,6 +70,7 @@ class RegisterController extends Controller
         $request->validate([
             'sdt' => ['required', 'numeric', 'digits:10', 'unique:clientuser,sdt'],
             'password' => ['required'],
+            'rePassword' => ['required'],
             'ho' => ['required', 'max:20'],
             'ten' => ['required', 'max:20'],
             'gioitinh' => ['required', 'numeric', 'digits:1'],
@@ -49,6 +81,7 @@ class RegisterController extends Controller
             'sdt.digits' => 'Số điện thoại không đúng',
             'sdt.unique' => 'Số điện thoại này đã đăng ký tài khoản',
             'password.required' => 'Mật khẩu không được để trống',
+            'rePassword.required' => 'Nhập lại mật khẩu không được để trống',
             'ho.required' => 'Họ không được để trống',
             'ten.required' => 'Tên không được để trống',
             'gioitinh.required' => 'Giới tính không được để trống',
@@ -60,19 +93,27 @@ class RegisterController extends Controller
         // https://laravel.com/docs/9.x/validation
         // withErrors
 
-        $dataForm = $request->except(['_token', 'btn-submit']);
-        $dataForm['password'] = bcrypt($request->password);
-
-        if(ClientRegisterModel::insert($dataForm)) {
-            return redirect()->back()->with([
-                'status' => 'success',
-                'message' => 'Đăng ký tài khoản thành công',
-            ]);
+        // check match password
+        if($request->password != $request->rePassword) {
+            return redirect()->back()->withErrors([
+                'Mật khẩu không khớp, vui lòng kiểm tra lại'
+            ])->withInput();
         } else {
-            return redirect()->back()->with([
-                'status' => 'danger',
-                'message' => 'Đăng ký tài khoản thất bại',
-            ])->onlyInput('sdt');
+            $dataForm = $request->except(['_token', 'rePassword', 'btn-submit']);
+            // Encode password
+            $dataForm['password'] = md5($request->password);
+    
+            if(ClientRegisterModel::insert($dataForm)) {
+                return redirect()->back()->with([
+                    'status' => 'success',
+                    'message' => 'Đăng ký tài khoản thành công',
+                ]);
+            } else {
+                return redirect()->back()->with([
+                    'status' => 'danger',
+                    'message' => 'Đăng ký tài khoản thất bại',
+                ])->onlyInput('sdt');
+            }
         }
     }
 
