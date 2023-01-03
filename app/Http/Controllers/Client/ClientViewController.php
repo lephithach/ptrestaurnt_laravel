@@ -24,7 +24,7 @@ class ClientViewController extends Controller
 
     public function DanhSachMonAn() {
         $metaTitle = 'Danh sách món ăn';
-        $monAnList = MonAnModel::all();
+        $monAnList = MonAnModel::select('*')->where('hienthi', '1')->get()->toArray();
         return view('client.danh-sach-mon-an', compact('metaTitle', 'monAnList'));
     }
 }

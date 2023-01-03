@@ -28,6 +28,15 @@
                     <p>{{ session()->get('message') }}</p>
                 </div>
             @endif
+            
+            @if (session()->get('status') == "success" && session()->get('timeout') != 0)
+                <script>
+                    setTimeout(() => {
+                        window.location.href = "{{ route('client.trangchu') }}"
+                    }, {{ session()->get('timeout') }}); // get time return Controller
+                </script>
+            @endif
+            
             <form action="{{ route('client.dangnhap.login') }}" method="post">
                 @csrf
                 <div class="grid grid-cols-1 gap-0 lg:grid-cols-1 lg:gap-2">
@@ -48,7 +57,8 @@
 
                 <div class="form-group">
                     <p><a href="{{ route('client.dangky') }}">Bạn chưa có tài khoản?</a></p>
-                    <p><a href="">Bạn quên mật khẩu?</a></p>
+                    <p><a href="#">Bạn quên mật khẩu?</a></p>
+                    <p><a href="{{ route('client.trangchu') }}">Quay về trang chủ.</a></p>
                 </div>
             </form>
         </section>

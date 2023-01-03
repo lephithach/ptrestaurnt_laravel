@@ -18,9 +18,12 @@ class CheckLoginClient
     public function handle(Request $request, Closure $next)
     {
         if(!Session::get('userClient')) {
-            return redirect()->route('client.dangnhap');
+            return redirect()->route('client.dangnhap')->with([
+                'status' => 'warning',
+                'message' => 'Vui lòng đăng nhập để truy cập giỏ hàng'
+            ]);
         }
-        // dd($request);
+        
         return $next($request);
     }
 }

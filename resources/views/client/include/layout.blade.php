@@ -11,7 +11,7 @@
 <body>
     <div class="container client mx-auto">
         {{-- Navbar --}}
-        <nav class="navbar px-4">
+        <nav class="navbar px-4 mx-container">
             <div class="logo-container">
                 <a class="brand-name" href="{{ route('client.trangchu') }}">PT Restaurant</a>
             </div>
@@ -26,15 +26,29 @@
                 </ul>
             </div>
 
-            <div class="hidden lg:block call-now">
-                {{-- <a href="tel:+84929626424">Gọi ngay</a> --}}
-                @if (session()->get('userClient'))
-                    @foreach (session()->get('userClient') as $user)
-                    <a href="#">Xin chào: {{$user['ten']}}</a>
-                    {{-- <a href="{{ route('client.dangnhap') }}">Đăng xuất</a> --}}
-                    @endforeach
+            <div class="hidden lg:block user">
+                @if (session()->get('userClient'))         
+                    <div class="user-container">
+                        <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="avatar" width="30px" height="30px" class="user-img" />
+                        <i class="bi bi-arrow-down-short"></i>
+                    </div>
+
+                    <div class="user-detail">
+                        @foreach (session()->get('userClient') as $user)
+                        <p class="user-name">Xin chào: {{$user['ten']}}</p>
+                        
+                        <div class="user-avatar">
+                            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="avatar" width="60px" height="60px" class="user-img" />
+                        </div>
+                        @endforeach
+
+                        <div class="user-btn">
+                            <a href="{{ route('client.dangxuat') }}" class="btn-logout">Đăng xuất</a>
+                        </div>
+                    </div>
                 @else
                     <a href="{{ route('client.dangnhap') }}">Đăng nhập</a>
+                    
                 @endif
             </div>
 
@@ -94,6 +108,13 @@
                 document.querySelector(".container .navbar").classList.remove("active"); 
             }
         });
+
+    // Show user detail
+    if(document.querySelector(".user .user-container")) {
+        document.querySelector(".user .user-container").addEventListener("click", () => {
+            document.querySelector(".user .user-detail").classList.toggle("show");
+        });
+    }
     </script>
 </body>
 </html>

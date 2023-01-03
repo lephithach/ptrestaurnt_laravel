@@ -15,6 +15,7 @@ $colorFontPrimary: #28a745;
 .container {
     &.client {
         background-color: rgba($color: #fcf6ed, $alpha: 0.3);
+        position: relative;
 
         h2.text-header {
             font-size: 1.5rem;
@@ -81,20 +82,79 @@ $colorFontPrimary: #28a745;
             }
         }
 
-        .user a {
-            padding: 0.5rem 1rem;
-            border: 1px solid rgba($color: #fff, $alpha: 0.5);
-            border-radius: 5px;
-            text-transform: uppercase;
+        .user {
+            position: relative;
 
-            &:hover {
-                background-color: rgba($color: #fff, $alpha: 0.5);
+            .user-container {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                align-items: center;
+                border: 1px solid rgba($color: #fff, $alpha: 0.5);
+                border-radius: 15px;
+                cursor: pointer;
+                padding: 0.2rem 0.5rem;
+
+                .user-img {
+                    border-radius: 100%;
+                }
+            }
+
+            .user-detail {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: 0.7rem;
+                margin-top: 0.9rem;
+                right: 0;
+                border-radius: 10px;
+                background-color: rgba($color: #000, $alpha: 0.8);
+                max-width: 300px;
+                min-width: 250px;
+                width: 100%;
+                height: 200px;
+                visibility: hidden;
+                opacity: 0;
+                transition: all 0.25s ease-in-out;
+
+                &.show {
+                    visibility: visible;
+                    opacity: 100;
+                }
+
+                .user-name {
+                    text-align: center;
+                }
+
+                .user-avatar {
+                    margin: 0 auto;
+
+                    .user-img {
+                        text-align: center;
+                        border-radius: 100%;
+                    }
+                }
+
+                .user-btn {
+                    margin: 0 auto;
+                }
+            }
+
+            a {
+                padding: 0.5rem 1rem;
+                border: 1px solid rgba($color: #fff, $alpha: 0.5);
+                border-radius: 5px;
+                text-transform: uppercase;
+
+                &:hover {
+                    background-color: rgba($color: #fff, $alpha: 0.5);
+                }
             }
         }
     }
 
     .banner {
-        margin-top: -4rem;
+        // margin-top: -4rem;
         width: auto;
         height: 500px;
 
@@ -255,7 +315,8 @@ $colorFontPrimary: #28a745;
             color: $colorDanger;
         }
 
-        .btn-addcart {
+        .btn-addcart,
+        a {
             padding: 0.5rem 0.7rem;
             background-color: $colorFontPrimary;
             color: #fff;

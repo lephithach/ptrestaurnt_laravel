@@ -35,9 +35,10 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::post('/dang-ky', [RegisterController::class, 'store'])->name('dangky.store');
     Route::get('/dang-nhap', [RegisterController::class, 'index'])->name('dangnhap');
     Route::post('/dang-nhap', [RegisterController::class, 'login'])->name('dangnhap.login');
+    Route::get('/dang-xuat', [RegisterController::class, 'logout'])->name('dangxuat');
 });
 
-Route::prefix('/cart')->name('cart.')->group(function() {
+Route::prefix('/cart')->middleware('checkloginclient')->name('cart.')->group(function() {
     Route::get('/', [CartController::class, 'getCart'])->name('getcart');
     Route::post('/add-cart/{id}', [CartController::class, 'addCart'])->name('addcart');
 });

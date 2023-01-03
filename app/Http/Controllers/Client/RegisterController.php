@@ -54,9 +54,23 @@ class RegisterController extends Controller
 
             return redirect()->back()->with([
                 'status' => 'success',
-                'message' => 'Đăng nhập thành công',
+                'message' => 'Đăng nhập thành công, bạn sẽ được quay về trang chủ trong giây lát',
+                'timeout' => 1700,
             ]);
         }
+    }
+    
+    public function logout()
+    {
+        if(Session::has('userClient')) {
+            Session::forget('userClient');
+        }
+
+        return redirect()->route('client.dangnhap')->with([
+            'status' => 'success',
+            'message' => 'Đăng xuất thành công, hẹn gặp lại quý khách',
+            'timeout' => 1700,
+        ]);
     }
 
     /**

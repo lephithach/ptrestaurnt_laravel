@@ -14,17 +14,17 @@
             {{-- <th class="w-[5%]">&nbsp;</th> --}}
         </thead>
         <tbody>
-            @if (!$giohang)
+            @if (count($giohang) > 0)
             @foreach ($giohang as $key => $product)
             <tr class="text-center">
                 <td>{{ $key+1 }}</td>
-                <td class="text-left">{{ $product->tenmon }}</td>
+                <td class="text-left">{{ $product['tenmon'] }}</td>
                 <td>
-                    <img class="mx-auto" src="{{ asset("/storage/images/products/{$product->hinh}") }}" alt="{{ $product->tenmon }}" width="30px" height="30px">
+                    <img class="mx-auto" src="{{ asset("/storage/images/products/{$product['hinh']}") }}" alt="{{ $product['tenmon'] }}" width="30px" height="30px">
                 </td>
-                <td>{{ $product->soluong }}</td>
-                <td>{{ number_format($product->dongia, 0, ",", ".") }}</td>
-                <td>{{ number_format($product->soluong * $product->dongia, 0, ",", ".") }}</td>
+                <td>{{ $product['soluong'] }}</td>
+                <td>{{ number_format($product['dongia'], 0, ",", ".") }}</td>
+                <td>{{ number_format($product['soluong'] * $product['dongia'], 0, ",", ".") }}</td>
                 {{-- <td class="btn-function">
                     <a href="{{ route('monan.edit', [$product->mamon]) }}">
                         <i class="bi bi-pencil-fill icon-edit cursor-pointer text-blue-500" data-maloai="{{ $product->mamon }}"></i>

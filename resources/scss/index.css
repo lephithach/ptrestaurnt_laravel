@@ -228,6 +228,7 @@
 }
 .container.client {
   background-color: rgba(252, 246, 237, 0.3);
+  position: relative;
 }
 .container.client h2.text-header {
   font-size: 1.5rem;
@@ -281,6 +282,56 @@
   border-bottom: 1px solid #fff;
   animation: menu-item-hover 0.25s;
 }
+.container .navbar .user {
+  position: relative;
+}
+.container .navbar .user .user-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+}
+.container .navbar .user .user-container .user-img {
+  border-radius: 100%;
+}
+.container .navbar .user .user-detail {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+  right: 0;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  max-width: 300px;
+  min-width: 250px;
+  width: 100%;
+  height: 200px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+}
+.container .navbar .user .user-detail.show {
+  visibility: visible;
+  opacity: 100;
+}
+.container .navbar .user .user-detail .user-name {
+  text-align: center;
+}
+.container .navbar .user .user-detail .user-avatar {
+  margin: 0 auto;
+}
+.container .navbar .user .user-detail .user-avatar .user-img {
+  text-align: center;
+  border-radius: 100%;
+}
+.container .navbar .user .user-detail .user-btn {
+  margin: 0 auto;
+}
 .container .navbar .user a {
   padding: 0.5rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -291,7 +342,6 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 .container .banner {
-  margin-top: -4rem;
   width: auto;
   height: 500px;
 }
@@ -354,7 +404,8 @@
 .container .product-price {
   color: rgb(235, 14, 14);
 }
-.container .product .btn-addcart {
+.container .product .btn-addcart,
+.container .product a {
   padding: 0.5rem 0.7rem;
   background-color: #28a745;
   color: #fff;
@@ -426,8 +477,7 @@
   text-align: center;
 }
 .container-register .register {
-  max-width: 600px;
-  min-width: 400px;
+  width: 400px;
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
