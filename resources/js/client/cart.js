@@ -1,8 +1,7 @@
 import axios from "axios";
+import { modalContent, showModal } from "./modal";
 
 const btnAddCartList = document.querySelectorAll(".btn-addcart");
-
-const productList = [1, 2, 3, 4];
 
 btnAddCartList.forEach((btnAddCart) => {
     btnAddCart.addEventListener("click", (e) => {
@@ -13,8 +12,21 @@ btnAddCartList.forEach((btnAddCart) => {
         axios
             .post(`./cart/add-cart/${IDMonAn}`)
             .then(function (response) {
-                if (response.data.status == "success") {
-                    alert(response.data.message);
+                let status = response.data.status;
+
+                switch (status) {
+                    case "warning":
+                        showModal();
+                        modalContent.innerText = response.data.message;
+                        break;
+
+                    case "success":
+                        showModal();
+                        modalContent.innerText = response.data.message;
+                        break;
+
+                    default:
+                        break;
                 }
             })
             .catch(function (error) {

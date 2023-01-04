@@ -28,6 +28,10 @@
     @apply bg-red-700 text-white px-4 py-3 rounded cursor-pointer;
 }
 
+.btn-sm {
+    @apply px-3 py-2;
+}
+
 /* Alert */
 .alert {
     @apply rounded-lg p-2 my-2;

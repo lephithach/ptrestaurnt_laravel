@@ -5,10 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PT Restaurant | {{ $metaTitle ?? 'Sang trọng, ấm cúng' }}</title>
-    @vite(['resources/css/app.css', 'resources/scss/index.css'])
+    @vite(['resources/css/app.css', 'resources/scss/index.css', 'resources/js/client/modal.js'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 </head>
 <body>
+    <div class="modal-alert">
+        <div class="modal-alert-container">
+            <div class="modal-header">
+                <p class="alert-title">Thông báo</p>
+                <i class="bi bi-x btn-close"></i>
+            </div>
+
+            <div class="modal-content">
+                <p class="content">&nbsp;</p>
+            </div>
+
+            <div class="modal-button">
+                <a href="{{ route('client.dangnhap') }}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container client mx-auto">
         {{-- Navbar --}}
         <nav class="navbar px-4 mx-container">
@@ -95,11 +112,11 @@
                 </div>
             </div>
             <hr class="my-4">
-            <p class="text-center">Copyright © 2021 - 2022 | Designed by <a href="#">Lê Phi Thạch</a></p>
+            <p class="text-center">Copyright © 2021 - {{ date('Y') }} | Designed by <a href="https://www.facebook.com/lephiithach/">Lê Phi Thạch</a></p>
         </footer>
     </div>
 
-    <script>        
+    <script>
     // Change backgroundColor navbar on scroll
         document.addEventListener("scroll", (e) => {
             if(window.scrollY > 200) {

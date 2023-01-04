@@ -11,11 +11,12 @@
             </div>
             <div class="product-title">{{ $monAn['tenmon'] }}</div>
             <div class="product-price">{{ number_format($monAn['dongia'], 0, ",", ".") }}</div>
-            @if (!session()->get('userClient'))
+            {{-- @if (!session()->get('userClient'))
                 <a href="{{ route('client.dangnhap') }}">ĐĂNG NHẬP</a>
             @else
                 <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
-            @endif
+            @endif --}}
+                <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
         </div>
         @endforeach
     @else

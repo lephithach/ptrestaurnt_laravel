@@ -24,26 +24,31 @@ class CartController extends Controller
     }
 
     public function addCart($id) {
-        $sdt = 0 . Session::get('userClient')[0]['sdt'];
-
-        $result = CartModel::insert([
-            'sdt' => $sdt,
-            'mamon' => $id,
-            'soluong' => 1
-        ]);
-
-        if($result){
+        if(!Session::has('userClient')) {
             return [
-                'status' => 'success',
-                'message' => 'Thêm giỏ hàng thành công',
+                'status' => 'warning',
+                'message' => 'Vui lòng đăng nhập để sử dụng chức năng này!',
             ];
         } else {
-            return [
-                'status' => 'danger',
-                'message' => 'Thêm giỏ hàng thất bại',
-            ];
+            $sdt = 0 . Session::get('userClient')[0]['sdt'];
+    
+            $result = CartModel::insert([
+                'sdt' => $sdt,
+                'mamon' => $id,
+                'soluong' => 1
+            ]);
+    
+            if($result){
+                return [
+                    'status' => 'success',
+                    'message' => 'Thêm giỏ hàng thành công.',
+                ];
+            } else {
+                return [
+                    'status' => 'danger',
+                    'message' => 'Thêm giỏ hàng thất bại.',
+                ];
+            }
         }
     }
-
-    
 }

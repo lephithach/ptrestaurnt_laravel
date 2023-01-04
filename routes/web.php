@@ -38,11 +38,11 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::get('/dang-xuat', [RegisterController::class, 'logout'])->name('dangxuat');
 });
 
-Route::prefix('/cart')->middleware('checkloginclient')->name('cart.')->group(function() {
+Route::prefix('/cart')->name('cart.')->group(function() {
     Route::get('/', [CartController::class, 'getCart'])->name('getcart');
     Route::post('/add-cart/{id}', [CartController::class, 'addCart'])->name('addcart');
 });
-    
+
 Route::prefix('/admin')->name('dashboard.')->group(function() {
     Route::resource('/', DashboardController::class);
 });
