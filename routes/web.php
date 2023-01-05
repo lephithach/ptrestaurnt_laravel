@@ -41,6 +41,7 @@ Route::prefix('/')->name('client.')->group(function() {
 Route::prefix('/cart')->name('cart.')->group(function() {
     Route::get('/', [CartController::class, 'getCart'])->name('getcart');
     Route::post('/add-cart/{id}', [CartController::class, 'addCart'])->name('addcart');
+    Route::get('/update-cart/{id}/{soluong}', [CartController::class, 'updateCart'])->name('updatecart');
 });
 
 Route::prefix('/admin')->name('dashboard.')->group(function() {

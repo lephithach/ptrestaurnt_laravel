@@ -21,7 +21,7 @@
             </div>
 
             <div class="modal-button">
-                <a href="{{ route('client.dangnhap') }}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>
+                {{-- button function render JS --}}
             </div>
         </div>
     </div>
