@@ -74,27 +74,28 @@ class CartController extends Controller
     public function updateCart($id, $soluong = 1) {
         $sdt = 0 . Session::get('userClient')[0]['sdt'];
 
-        if($soluong > 0) {
-            $result = CartModel::where(['sdt' => $sdt, 'mamon' => $id])
+        $result = CartModel::where(['sdt' => $sdt, 'mamon' => $id])
                 ->update(['soluong' => $soluong]);
 
-            if($result) {
-                return [
-                    'status' => 'success',
-                    'message' => 'Cập nhật giỏ hành thành công'
-                ];
-            }
-        } else {
-            $result = CartModel::where(['sdt' => $sdt, 'mamon' => $id])
+        if($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Cập nhật giỏ hành thành công'
+            ];
+        }      
+    }
+
+    public function deleteCart($id) {
+        $sdt = 0 . Session::get('userClient')[0]['sdt'];
+
+        $result = CartModel::where(['sdt' => $sdt, 'mamon' => $id])
                 ->delete();
 
-                // reload ....
-            if($result) {
-                return [
-                    'status' => 'success',
-                    'message' => 'Cập nhật giỏ hành thành công'
-                ];
-            }
-        }        
+        if($result) {
+            return [
+                'status' => 'success',
+                'message' => 'Xoá món ăn trong giỏ hành thành công',
+            ];
+        }
     }
 }

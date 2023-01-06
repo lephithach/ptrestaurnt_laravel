@@ -377,6 +377,25 @@ $colorFontPrimary: #28a745;
         }
     }
 
+    #cart {
+        .btn-cong,
+        .btn-tru {
+            cursor: pointer;
+        }
+
+        .soluong {
+            width: 40px;
+            text-align: center;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: textfield;
+                margin: 0;
+            }
+        }
+    }
+
     footer {
         .brand-name {
             font-family: "Courgette", cursive;

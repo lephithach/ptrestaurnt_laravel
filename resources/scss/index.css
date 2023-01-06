@@ -448,6 +448,19 @@
   background-color: rgba(255, 255, 255, 0.8);
   color: #000;
 }
+.container #cart .btn-cong,
+.container #cart .btn-tru {
+  cursor: pointer;
+}
+.container #cart .soluong {
+  width: 40px;
+  text-align: center;
+}
+.container #cart .soluong::-webkit-outer-spin-button, .container #cart .soluong::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
 .container footer .brand-name {
   font-family: "Courgette", cursive;
   font-size: 2em;
