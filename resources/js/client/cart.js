@@ -129,13 +129,25 @@ const updateCart = (IDMonAn, soluong, inputSoLuong) => {
 
             switch (status) {
                 case "success":
+                    // Selector
                     let parentNode = inputSoLuong.parentNode.parentNode;
                     let donGia =
                         parentNode.querySelector(".dongia").dataset.dongia;
                     let thanhTien = parentNode.querySelector(".thanhtien");
 
                     // Update thanh tien
+                    thanhTien.dataset.thanhtien = soluong * donGia;
                     thanhTien.innerText = formatNumber(soluong * donGia);
+
+                    // Update tong tien
+                    let thanhTienAll = cartTable.querySelectorAll(".thanhtien");
+                    let tongTienEl = cartTable.querySelector(".tongtien");
+                    let tongTien = 0;
+
+                    thanhTienAll.forEach((item) => {
+                        tongTien += item.dataset.thanhtien * 1;
+                    });
+                    tongTienEl.innerText = formatNumber(tongTien);
                     break;
 
                 default:

@@ -25,6 +25,8 @@
     </div>
 </div>
 
+{{-- http://www.thelog.com.vn/Home/DineWineDetail?name=a%20la%20carte --}}
+
 <input type="text" name="_token" id="_token" value="{{ csrf_token() }}" hidden>
 
 @vite(['resources/js/client/cart.js'])

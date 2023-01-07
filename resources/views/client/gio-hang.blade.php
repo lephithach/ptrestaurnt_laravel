@@ -44,8 +44,12 @@
                     />
                     {{-- <span class="btn-cong"><i class="bi bi-plus"></i></span> --}}
                 </td>
-                <td class="dongia" data-dongia="{{ $product['dongia'] }}">{{ number_format($product['dongia'], 0, ",", ".") }}</td>
-                <td class="thanhtien">{{ number_format($product['soluong'] * $product['dongia'], 0, ",", ".") }}</td>
+                <td class="dongia" data-dongia="{{ $product['dongia'] }}">
+                    {{ number_format($product['dongia'], 0, ",", ".") }}
+                </td>
+                <td class="thanhtien" data-thanhtien="{{ $product['soluong'] * $product['dongia'] }}">
+                    {{ number_format($product['soluong'] * $product['dongia'], 0, ",", ".") }}
+                </td>
                 <td class="btn-function">
                     <span class="btn-delete" data-maloai="{{ $product['mamon'] }}" title="Xoá món {{ $product['tenmon'] }}">
                         <i class="bi bi-x-square-fill icon-delete cursor-pointer text-red-500"></i>
@@ -61,9 +65,9 @@
                 <td colspan="2">Tổng</td>
                 {{-- <td>&nbsp;</td> --}}
                 <td>&nbsp;</td>
-                <td>{{ number_format($total['soluong'], 0, ",", ".") }}</td>
+                <td></td>
                 <td>&nbsp;</td>
-                <td>{{ number_format($total['thanhtien'], 0, ",", ".") }}</td>
+                <td class="tongtien">{{ number_format($total['thanhtien'], 0, ",", ".") }}</td>
             </tr>
 
             @else
@@ -73,6 +77,10 @@
             @endif
         </tbody>
     </table>
+</div>
+
+<div class="text-right">
+    <button class="btn-secondary btn-sm">ĐẶT BÀN</button>
 </div>
 @vite(['resources/js/client/cart.js'])
 
