@@ -22,23 +22,16 @@
         </div>
     </div> --}}
     <h2 class="product-header font-bold text-center text-header">Món ăn mới</h2>
-    <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
         @foreach ($monAnMoiList as $monAnMoi)
-        <div class="product-container">
-            <div class="product-image">
-                <img src="{{ asset("storage/images/products/{$monAnMoi->hinh}") }}" alt="product">
-            </div>
-            <div class="product-title">{{ $monAnMoi->tenmon }}</div>
-            <div class="product-price">{{ number_format($monAnMoi->dongia, 0, ",", ".") }}</div>
-            <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
-        </div>
+            @include('client.include.product', [$monAn = $monAnMoi])
         @endforeach
     </div>
 </section>
 
 <section class="category py-2">
     <h2 class="category-header font-bold text-center text-header">Loại món ăn nổi bật</h2>
-    <div class="grid xl:grid-cols-4 2xl:grid-cols-5 gap-6 mt-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 mt-3">
         @foreach ($loaiMonNoiBatList as $loaiMonNoiBat)
         <div class="category-container">
             <div class="category-image">

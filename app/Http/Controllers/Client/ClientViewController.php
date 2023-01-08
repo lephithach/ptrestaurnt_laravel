@@ -27,4 +27,10 @@ class ClientViewController extends Controller
         $monAnList = MonAnModel::select('*')->where('hienthi', '1')->get()->toArray();
         return view('client.danh-sach-mon-an', compact('metaTitle', 'monAnList'));
     }
+
+    public function ChiTietMonAn($id) {
+        $metaTitle = 'Món ăn...';
+
+        return view('client.chi-tiet-mon-an', compact('metaTitle'));
+    }
 }

@@ -29,6 +29,7 @@ Route::prefix('/')->name('client.')->group(function() {
     Route::get('/', [ClientViewController::class, 'TrangChu'])->name('trangchu');
     Route::get('/gioi-thieu', [ClientViewController::class, 'GioiThieu'])->name('gioithieu');
     Route::get('/mon-an', [ClientViewController::class, 'DanhSachMonAn'])->name('danhsachmonan');
+    Route::get('/mon-an/{id}', [ClientViewController::class, 'ChiTietMonAn'])->name('chitietmonan');
     Route::get('/gio-hang', [CartController::class, 'getCart'])->middleware('checkloginclient')->name('giohang');
     Route::get('/dang-ky', [RegisterController::class, 'create'])->name('dangky');
     Route::post('/dang-ky', [RegisterController::class, 'store'])->name('dangky.store');

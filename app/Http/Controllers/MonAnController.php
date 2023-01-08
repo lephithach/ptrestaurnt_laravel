@@ -100,7 +100,7 @@ class MonAnController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**

@@ -238,7 +238,7 @@
   color: #28a745;
   text-transform: uppercase;
 }
-.container .navbar {
+.container.client .navbar {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
@@ -253,25 +253,25 @@
   text-shadow: 1px 1px 5px #000;
   z-index: 10;
 }
-.container .navbar.active {
+.container.client .navbar.active {
   background-color: rgba(0, 0, 0, 0.8);
 }
-.container .navbar .logo-container .brand-name {
+.container.client .navbar .logo-container .brand-name {
   font-family: "Courgette", cursive;
   font-size: 2em;
 }
-.container .navbar .menu-container .menu {
+.container.client .navbar .menu-container .menu {
   text-transform: uppercase !important;
   display: flex;
   gap: 2.5rem;
 }
-.container .navbar .menu-container .menu .menu-item {
+.container.client .navbar .menu-container .menu .menu-item {
   position: relative;
 }
-.container .navbar .menu-container .menu .menu-item:hover, .container .navbar .menu-container .menu .menu-item.active {
+.container.client .navbar .menu-container .menu .menu-item:hover, .container.client .navbar .menu-container .menu .menu-item.active {
   transition: all 0.25s ease-in-out;
 }
-.container .navbar .menu-container .menu .menu-item:hover .menu-link::before, .container .navbar .menu-container .menu .menu-item.active .menu-link::before {
+.container.client .navbar .menu-container .menu .menu-item:hover .menu-link::before, .container.client .navbar .menu-container .menu .menu-item.active .menu-link::before {
   content: "";
   position: absolute;
   display: block;
@@ -282,10 +282,10 @@
   border-bottom: 1px solid #fff;
   animation: menu-item-hover 0.25s;
 }
-.container .navbar .user {
+.container.client .navbar .user {
   position: relative;
 }
-.container .navbar .user .user-container {
+.container.client .navbar .user .user-container {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
@@ -295,10 +295,10 @@
   cursor: pointer;
   padding: 0.2rem 0.5rem;
 }
-.container .navbar .user .user-container .user-img {
+.container.client .navbar .user .user-container .user-img {
   border-radius: 100%;
 }
-.container .navbar .user .user-detail {
+.container.client .navbar .user .user-detail {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -315,69 +315,69 @@
   opacity: 0;
   transition: all 0.25s ease-in-out;
 }
-.container .navbar .user .user-detail.show {
+.container.client .navbar .user .user-detail.show {
   visibility: visible;
   opacity: 100;
 }
-.container .navbar .user .user-detail .user-name {
+.container.client .navbar .user .user-detail .user-name {
   text-align: center;
 }
-.container .navbar .user .user-detail .user-avatar {
+.container.client .navbar .user .user-detail .user-avatar {
   margin: 0 auto;
 }
-.container .navbar .user .user-detail .user-avatar .user-img {
+.container.client .navbar .user .user-detail .user-avatar .user-img {
   text-align: center;
   border-radius: 100%;
 }
-.container .navbar .user .user-detail .user-btn {
+.container.client .navbar .user .user-detail .user-btn {
   margin: 0 auto;
 }
-.container .navbar .user a {
+.container.client .navbar .user a {
   padding: 0.5rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   text-transform: uppercase;
 }
-.container .navbar .user a:hover {
+.container.client .navbar .user a:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.container .banner {
+.container.client .banner {
   width: auto;
   height: 500px;
 }
-.container .banner .img {
+.container.client .banner .img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: -1;
 }
-.container .about-picture {
+.container.client .about-picture {
   width: 100%;
   height: 500px;
   margin-left: auto;
 }
-.container .about-picture img {
+.container.client .about-picture img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
 }
-.container .about .about-content {
+.container.client .about .about-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
 }
-.container .about .about-content .title {
+.container.client .about .about-content .title {
   font-family: "Pattaya", sans-serif;
   font-size: 2rem;
   color: #28a745;
 }
-.container .about .about-content .content {
+.container.client .about .about-content .content {
   font-size: 1.1rem;
   text-align: justify;
 }
-.container .about .about-content .btn-readmore {
+.container.client .about .about-content .btn-readmore {
   display: block;
   border: 1px solid #000;
   border-radius: 5px;
@@ -386,40 +386,40 @@
   text-transform: uppercase;
   width: 120px;
 }
-.container .product-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
+.container.client .product-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
 }
-.container .product-image img {
-  border-radius: 5px;
+.container.client .product-image img {
+  border-radius: 10px;
+  overflow: hidden;
 }
-.container .product-title {
+.container.client .product-content {
+  width: 100%;
+}
+.container.client .product-content .btn-addcart {
+  background-color: none;
+  padding: 0.5rem 0.7rem;
+  margin-left: auto;
+}
+.container.client .product-title {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #28a745;
 }
-.container .product-price {
+.container.client .product-price {
   color: rgb(235, 14, 14);
 }
-.container .product .btn-addcart,
-.container .product a {
-  padding: 0.5rem 0.7rem;
-  background-color: #28a745;
-  color: #fff;
-  border-radius: 5px;
-}
-.container .category-container {
+.container.client .category-container {
   position: relative;
   border-radius: 5px;
   overflow: hidden;
 }
-.container .category-container .category-image img {
+.container.client .category-container .category-image img {
   border-radius: 5px;
 }
-.container .category-container .category-showmore {
+.container.client .category-container .category-showmore {
   position: absolute;
   inset: 0;
   display: flex;
@@ -431,52 +431,52 @@
   color: #fff;
   transition: all 0.25s ease-in-out;
 }
-.container .category-container .category-showmore:hover {
+.container.client .category-container .category-showmore:hover {
   background-color: rgba(0, 0, 0, 0.6);
 }
-.container .category-container .category-showmore .category-title {
+.container.client .category-container .category-showmore .category-title {
   font-size: 1.2rem;
   text-transform: uppercase;
 }
-.container .category-container .category-showmore .btn-addcart {
+.container.client .category-container .category-showmore .btn-addcart {
   padding: 0.5rem 0.7rem;
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   transition: all 0.25s ease-in-out;
 }
-.container .category-container .category-showmore .btn-addcart:hover {
+.container.client .category-container .category-showmore .btn-addcart:hover {
   background-color: rgba(255, 255, 255, 0.8);
   color: #000;
 }
-.container #cart .btn-cong,
-.container #cart .btn-tru {
+.container.client #cart .btn-cong,
+.container.client #cart .btn-tru {
   cursor: pointer;
 }
-.container #cart .soluong {
+.container.client #cart .soluong {
   width: 40px;
   text-align: center;
 }
-.container #cart .soluong::-webkit-outer-spin-button, .container #cart .soluong::-webkit-inner-spin-button {
+.container.client #cart .soluong::-webkit-outer-spin-button, .container.client #cart .soluong::-webkit-inner-spin-button {
   -webkit-appearance: none;
   -moz-appearance: textfield;
   margin: 0;
 }
-.container footer .brand-name {
+.container.client footer .brand-name {
   font-family: "Courgette", cursive;
   font-size: 2em;
   color: #28a745;
 }
-.container footer .social a {
+.container.client footer .social a {
   font-size: 1.5rem;
   transition: all 0.25s ease-in-out;
 }
-.container footer .social a:hover {
+.container.client footer .social a:hover {
   color: #28a745;
 }
-.container footer .social a + a {
+.container.client footer .social a + a {
   margin-left: 0.7rem;
 }
-.container footer .address p + p {
+.container.client footer .address p + p {
   margin-top: 0.5rem;
 }
 
