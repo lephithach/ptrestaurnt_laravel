@@ -26,6 +26,61 @@
         </div>
     </div>
 
+    <div class="modal-product show">
+        <div class="modal-product-container flex-wrap lg:flex-nowrap">
+            <div class="left">
+                <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="images">
+            </div>
+
+            <div class="right">
+                <div class="header text-center md:text-left">
+                    <h3 class="product-title">CUA RANG ME</h3>
+                    <p class="product-price">350.000</p>
+                    <div>
+                        <a href="#" class="btn-success btn-sm btn-addcart">THÊM VÀO GIỎ</a>
+                        <span class="text-green-700"><i class="bi bi-check2"></i>Thêm thành công</span>
+                    </div>
+                </div>
+
+                <ul class="comment">
+                        
+                    <li class="comment-container">
+                        <div class="user-img">
+                            <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                        </div>
+                        
+                        <div class="user-comment">
+                            <div class="user-name">Phi Thạch</div>
+                            <div class="user-content">Lorem ipsum dolor sit amet, consectetur adipiscing elitsed do eiusmod tempor incididunt</div>
+                        </div>
+                    </li>
+                    <li class="comment-container">
+                        <div class="user-img">
+                            <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                        </div>
+                        
+                        <div class="user-comment">
+                            <div class="user-name">Phi Thạch</div>
+                            <div class="user-content">minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                        </div>
+                    </li>
+                    <li class="comment-container">
+                        <div class="user-img">
+                            <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                        </div>
+                        
+                        <div class="user-comment">
+                            <div class="user-name">Phi Thạch</div>
+                            <div class="user-content">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</div>
+                        </div>
+                    </li>
+
+                    <p class="loadmore">Xem thêm nhận xét</p>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class="container client mx-auto">
         {{-- Navbar --}}
         <nav class="navbar px-4 mx-container">

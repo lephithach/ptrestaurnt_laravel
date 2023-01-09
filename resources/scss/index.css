@@ -554,4 +554,108 @@
   margin: 1rem 0 0.5rem 0;
 }
 
+.modal-product {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 11;
+  transition: all 0.25s ease-in-out;
+}
+.modal-product.show {
+  visibility: visible;
+  opacity: 100;
+}
+.modal-product-container {
+  min-width: 300px;
+  max-width: 800px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.modal-product-container .left {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.modal-product-container .left img {
+  width: 100%;
+  border-radius: 10px;
+}
+.modal-product-container .right {
+  flex: 1;
+}
+.modal-product-container .right .header .product-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #28a745;
+}
+.modal-product-container .right .header .product-price {
+  color: rgb(235, 14, 14);
+  font-weight: bold;
+}
+.modal-product-container .right .comment {
+  margin-top: 1rem;
+  overflow-y: scroll;
+  height: 210px;
+  padding-right: 0.3rem;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.modal-product-container .right .comment::-webkit-scrollbar {
+  width: 5px;
+}
+.modal-product-container .right .comment::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.modal-product-container .right .comment::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.modal-product-container .right .comment::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.modal-product-container .right .comment-container {
+  display: flex;
+  flex-direction: row;
+}
+.modal-product-container .right .comment-container + .comment-container {
+  margin-top: 0.5rem;
+}
+.modal-product-container .right .comment-container .user-img {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.2rem;
+}
+.modal-product-container .right .comment-container .user-img img {
+  object-fit: cover;
+  border-radius: 100%;
+}
+.modal-product-container .right .comment-container .user-comment {
+  flex: 1;
+  background-color: #f0f2f5;
+  border-radius: 10px;
+  padding: 0.3rem;
+  max-width: 400px;
+}
+.modal-product-container .right .comment-container .user-comment .user-name {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+.modal-product-container .right .comment-container .user-comment .user-content {
+  margin-top: -0.3rem;
+  overflow-y: hidden;
+}
+.modal-product-container .right .comment .loadmore {
+  margin-top: 0.3rem;
+}
+
 /*# sourceMappingURL=index.css.map */
