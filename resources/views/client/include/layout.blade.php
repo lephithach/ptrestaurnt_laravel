@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PT Restaurant | {{ $metaTitle ?? 'Sang trọng, ấm cúng' }}</title>
-    @vite(['resources/css/app.css', 'resources/scss/index.css', 'resources/js/client/modal.js'])
+    @vite(['resources/css/app.css', 'resources/scss/index.css', 'resources/js/client/modal.js', 'resources/js/client/show-modal-product.js'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 </head>
 <body>
@@ -26,24 +26,34 @@
         </div>
     </div>
 
-    <div class="modal-product show">
-        <div class="modal-product-container flex-wrap lg:flex-nowrap">
+    {{-- Modal show product --}}
+    <div class="modal-product">
+        <div class="modal-product-container text-center md:text-left flex-wrap lg:flex-nowrap relative">
+            <span class="absolute right-1 top-1 text-lg cursor-pointer btn-close"><i class="bi bi-x-circle"></i></span>
             <div class="left">
-                <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="images">
+                <img src="" alt="images">
+                <div class="mt-1 star-vote text-yellow-400">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <small class="text-black">(1.000)</small>
+                </div>
             </div>
 
             <div class="right">
-                <div class="header text-center md:text-left">
+                <div class="header">
                     <h3 class="product-title">CUA RANG ME</h3>
                     <p class="product-price">350.000</p>
+                    
                     <div>
-                        <a href="#" class="btn-success btn-sm btn-addcart">THÊM VÀO GIỎ</a>
+                        <a href="#" class="btn-success btn-sm mt-1 btn-addcart" data-id="">THÊM VÀO GIỎ</a>
                         <span class="text-green-700"><i class="bi bi-check2"></i>Thêm thành công</span>
                     </div>
                 </div>
 
-                <ul class="comment">
-                        
+                <ul class="comment">                    
                     <li class="comment-container">
                         <div class="user-img">
                             <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
@@ -76,7 +86,19 @@
                     </li>
 
                     <p class="loadmore">Xem thêm nhận xét</p>
+                    {{-- <p>Chưa có nhận xét nào, bạn hãy để lại nhận xét nhé!</p> --}}
                 </ul>
+
+                <div class="comment-container mt-1">
+                    <div class="user-img">
+                        <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                    </div>
+
+                    <div class="flex items-center w-full relative">
+                        <textarea class="border rounded-lg flex-1 p-1 resize-none" name="comment" id="comment" rows="2" placeholder="Nhận xét"></textarea>
+                        <span class="absolute right-1 cursor-pointer text-green-700 text-lg"><i class="bi bi-arrow-up-circle-fill"></i></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

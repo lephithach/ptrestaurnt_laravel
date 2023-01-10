@@ -594,7 +594,7 @@
   flex: 1;
 }
 .modal-product-container .right .header .product-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: #28a745;
 }
@@ -605,7 +605,7 @@
 .modal-product-container .right .comment {
   margin-top: 1rem;
   overflow-y: scroll;
-  height: 210px;
+  max-height: 150px;
   padding-right: 0.3rem;
   /* Track */
   /* Handle */

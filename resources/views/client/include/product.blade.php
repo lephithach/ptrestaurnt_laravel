@@ -1,5 +1,5 @@
 <div class="product-container" data-id="{{ $monAn['mamon'] }}">
-    <div class="product-image">
+    <div class="product-image cursor-pointer">
         <img src="{{ asset("storage/images/products/{$monAn['hinh']}") }}" alt="product">
     </div>
     
@@ -21,5 +21,5 @@
     @else
         <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
     @endif --}}
-    <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a>
+    {{-- <a href="#" class="btn-addcart">THÊM VÀO GIỎ</a> --}}
 </div>

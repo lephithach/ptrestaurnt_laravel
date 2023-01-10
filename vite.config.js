@@ -12,6 +12,7 @@ export default defineConfig({
                 "resources/js/function.js",
                 "resources/js/client/cart.js",
                 "resources/js/client/modal.js",
+                "resources/js/client/show-modal-product.js",
             ],
             refresh: true,
         }),
