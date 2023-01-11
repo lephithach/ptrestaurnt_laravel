@@ -29,7 +29,7 @@ $colorFontPrimary: #28a745;
 
         .navbar {
             // background-color: #fcf6ed;
-            background-color: rgba($color: #000000, $alpha: 0.3);
+            background-color: rgba($color: #000000, $alpha: 0.6);
             position: fixed;
             top: 0;
             left: 0;
@@ -44,7 +44,7 @@ $colorFontPrimary: #28a745;
             z-index: 10;
 
             &.active {
-                background-color: rgba($color: #000, $alpha: 0.8);
+                background-color: rgba($color: #000, $alpha: 0.85);
             }
 
             .logo-container {
@@ -326,14 +326,47 @@ $colorFontPrimary: #28a745;
 
             // Test
             &-container {
-                // display: flex;
-                // flex-direction: column;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
                 // align-items: center;
                 // gap: 0.5rem;
                 // padding: 0.5rem 0;
                 border: 1px solid rgba($color: #000, $alpha: 0.1);
                 border-radius: 10px;
                 background-color: #fff;
+
+                .badge {
+                    position: absolute;
+                    left: -0.4rem;
+                    top: 0.5rem;
+                    // min-width: 30%;
+                    max-width: 80%;
+                    text-overflow: ellipsis;
+                    // white-space: nowrap;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1; /* after 2 line show ... */
+                    -webkit-box-orient: vertical;
+
+                    background-color: $colorDanger;
+                    font-size: 0.75rem;
+                    padding: 0 0.2rem;
+                    color: #fff;
+                    // clip-path: polygon(90% 0, 100% 49%, 90% 100%, 0 100%, 0 0);
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: -10px;
+                        z-index: -1;
+                        left: 0;
+                        width: 10px;
+                        height: 10px;
+                        background-color: $colorDanger;
+                        clip-path: polygon(0 0, 100% 100%, 100% 0);
+                    }
+                }
             }
 
             &-image {
@@ -345,11 +378,16 @@ $colorFontPrimary: #28a745;
 
             &-content {
                 width: 100%;
+                margin-top: auto;
 
                 .btn-addcart {
                     background-color: none;
                     padding: 0.5rem 0.7rem;
                     margin-left: auto;
+                }
+
+                .star-vote {
+                    font-size: 0.85rem;
                 }
             }
 
@@ -357,6 +395,12 @@ $colorFontPrimary: #28a745;
                 font-weight: bold;
                 font-size: 1rem;
                 color: $colorFontPrimary;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                // white-space: nowrap;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* after 2 line show ... */
+                -webkit-box-orient: vertical;
             }
 
             &-price {

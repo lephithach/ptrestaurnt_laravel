@@ -239,7 +239,7 @@
   text-transform: uppercase;
 }
 .container.client .navbar {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
   left: 0;
@@ -254,7 +254,7 @@
   z-index: 10;
 }
 .container.client .navbar.active {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
 }
 .container.client .navbar .logo-container .brand-name {
   font-family: "Courgette", cursive;
@@ -387,9 +387,38 @@
   width: 120px;
 }
 .container.client .product-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #fff;
+}
+.container.client .product-container .badge {
+  position: absolute;
+  left: -0.4rem;
+  top: 0.5rem;
+  max-width: 80%;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* after 2 line show ... */
+  -webkit-box-orient: vertical;
+  background-color: rgb(235, 14, 14);
+  font-size: 0.75rem;
+  padding: 0 0.2rem;
+  color: #fff;
+}
+.container.client .product-container .badge::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  z-index: -1;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(235, 14, 14);
+  clip-path: polygon(0 0, 100% 100%, 100% 0);
 }
 .container.client .product-image img {
   border-radius: 10px;
@@ -397,16 +426,25 @@
 }
 .container.client .product-content {
   width: 100%;
+  margin-top: auto;
 }
 .container.client .product-content .btn-addcart {
   background-color: none;
   padding: 0.5rem 0.7rem;
   margin-left: auto;
 }
+.container.client .product-content .star-vote {
+  font-size: 0.85rem;
+}
 .container.client .product-title {
   font-weight: bold;
   font-size: 1rem;
   color: #28a745;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* after 2 line show ... */
+  -webkit-box-orient: vertical;
 }
 .container.client .product-price {
   color: rgb(235, 14, 14);
@@ -564,7 +602,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 11;
+  z-index: 10;
   transition: all 0.25s ease-in-out;
 }
 .modal-product.show {

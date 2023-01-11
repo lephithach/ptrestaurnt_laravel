@@ -1,45 +1,78 @@
 import axios from "axios";
 import { modalContent, modalButton, showModal, hiddenModal } from "./modal";
+import { modalProduct, alertMessage } from "./show-modal-product";
+("./show-modal-product");
+
+modalProduct.querySelector(".btn-addcart").addEventListener("click", (e) => {
+    let IDMonAn = e.target.dataset.id;
+
+    axios
+        .post(`./cart/add-cart/${IDMonAn}`)
+        .then(function (response) {
+            let status = response.data.status;
+            let message = response.data.message;
+            let link = response.data.link ?? null;
+
+            switch (status) {
+                case "warning":
+                    showModal();
+                    modalContent.innerText = message;
+                    modalButton.innerHTML = `<a href="${link}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>`;
+                    break;
+
+                case "success":
+                    alertMessage.classList.remove("hidden");
+                    break;
+
+                default:
+                    console.log(response.data);
+                    break;
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
 
 // Add cart
-const btnAddCartList = document.querySelectorAll(".btn-addcart");
+// const btnAddCartList = document.querySelectorAll(".btn-addcart");
 
-btnAddCartList.forEach((btnAddCart) => {
-    btnAddCart.addEventListener("click", (e) => {
-        e.preventDefault();
-        let targetElement = e.target.nextSibling.parentNode;
-        let IDMonAn = targetElement.getAttribute("data-id");
+// btnAddCartList.forEach((btnAddCart) => {
+//     btnAddCart.addEventListener("click", (e) => {
+//         e.preventDefault();
+//         let targetElement = e.target.nextSibling.parentNode;
+//         let IDMonAn = targetElement.getAttribute("data-id");
 
-        axios
-            .post(`./cart/add-cart/${IDMonAn}`)
-            .then(function (response) {
-                let status = response.data.status;
-                let message = response.data.message;
-                let link = response.data.link ?? null;
+//         axios
+//             .post(`./cart/add-cart/${IDMonAn}`)
+//             .then(function (response) {
+//                 let status = response.data.status;
+//                 let message = response.data.message;
+//                 let link = response.data.link ?? null;
 
-                switch (status) {
-                    case "warning":
-                        showModal();
-                        modalContent.innerText = message;
-                        modalButton.innerHTML = `<a href="${link}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>`;
-                        break;
+//                 switch (status) {
+//                     case "warning":
+//                         showModal();
+//                         modalContent.innerText = message;
+//                         modalButton.innerHTML = `<a href="${link}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>`;
+//                         break;
 
-                    case "success":
-                        showModal();
-                        modalContent.innerText = message;
-                        setTimeout(() => hiddenModal(), 1200);
-                        break;
+//                     case "success":
+//                         showModal();
+//                         modalContent.innerText = message;
+//                         setTimeout(() => hiddenModal(), 1200);
+//                         break;
 
-                    default:
-                        console.log(response.data);
-                        break;
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    });
-});
+//                     default:
+//                         console.log(response.data);
+//                         break;
+//                 }
+//             })
+//             .catch(function (error) {
+//                 console.log(error);
+//             });
+//     });
+// });
 
 const formatNumber = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

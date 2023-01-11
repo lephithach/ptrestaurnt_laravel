@@ -1,5 +1,8 @@
 const modalProduct = document.querySelector(".modal-product");
 const productList = document.querySelectorAll(".product-container");
+const alertMessage = modalProduct.querySelector(".alert-message");
+
+export { modalProduct, alertMessage };
 
 // Close modal
 modalProduct
@@ -32,6 +35,9 @@ const closeModalProduct = () => {
     modalProduct.querySelector(".right .product-title").innerText = "";
     // remove price product
     modalProduct.querySelector(".right .product-price").innerText = "";
+
+    // hidden alert message
+    alertMessage.classList.add("hidden");
 };
 
 productList.forEach((productEl) => {

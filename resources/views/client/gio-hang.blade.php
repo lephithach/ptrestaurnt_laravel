@@ -5,13 +5,13 @@
 <div class="relative overflow-x-auto">
     <table class="table-fixed w-full" id="cart">
         <thead>
-            <th class="w-[10%]">#</th>
-            <th class="w-[25%]">Tên món</th>
-            <th class="w-[5%]">Ảnh</th>
-            <th class="w-[15%]">SL</th>
-            <th class="w-[20%]">Đơn giá</th>
-            <th class="w-[20%]">Thành tiền</th>
-            <th class="w-[5%]">&nbsp;</th>
+            <th class="w-8 md:w-[5%]">#</th>
+            <th class="w-40 md:w-[30%]">Tên món</th>
+            <th class="w-8 md:w-[5%]">Ảnh</th>
+            <th class="w-8 md:w-[5%]">SL</th>
+            <th class="w-24 md:w-[15%]">Đơn giá</th>
+            <th class="w-24 md:w-[15%]">Thành tiền</th>
+            <th class="w-8 md:w-[5%]">Xoá</th>
         </thead>
         <tbody>
             @if (count($giohang) > 0)
@@ -59,6 +59,7 @@
             @endforeach
 
             <tr>
+                {{-- line --}}
                 <td colspan="7"><hr></td>
             </tr>
             <tr class="text-center font-bold text-green-700">
@@ -80,6 +81,12 @@
 </div>
 
 <div class="text-right">
+    <label for="ban">Chọn bàn</label>
+    <select name="ban" id="ban" class="c-input">
+        <option value="#">Standard</option>
+        <option value="#">Classic</option>
+        <option value="#">Premium</option>
+    </select>
     <button class="btn-secondary btn-sm">ĐẶT BÀN</button>
 </div>
 @vite(['resources/js/client/cart.js'])

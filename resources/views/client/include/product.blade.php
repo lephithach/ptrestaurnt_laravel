@@ -1,11 +1,13 @@
 <div class="product-container" data-id="{{ $monAn['mamon'] }}">
+    <span class="badge">{{ $monAn['tenloai'] }}</span>
+
     <div class="product-image cursor-pointer">
         <img src="{{ asset("storage/images/products/{$monAn['hinh']}") }}" alt="product">
     </div>
     
     <div class="product-content p-2">
         <div class="product-title">{{ $monAn['tenmon'] }}</div>
-        <div class="flex justify-between w-full">
+        <div class="flex justify-between items-center w-full">
             <div class="star-vote text-yellow-400">
                 <i class="bi bi-star-fill"></i>
                 <i class="bi bi-star-fill"></i>

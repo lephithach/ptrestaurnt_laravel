@@ -29,7 +29,7 @@
     {{-- Modal show product --}}
     <div class="modal-product">
         <div class="modal-product-container text-center md:text-left flex-wrap lg:flex-nowrap relative">
-            <span class="absolute right-1 top-1 text-lg cursor-pointer btn-close"><i class="bi bi-x-circle"></i></span>
+            <span class="absolute right-1 top-0 text-lg cursor-pointer btn-close"><i class="bi bi-x-circle"></i></span>
             <div class="left">
                 <img src="" alt="images">
                 <div class="mt-1 star-vote text-yellow-400">
@@ -47,9 +47,9 @@
                     <h3 class="product-title">CUA RANG ME</h3>
                     <p class="product-price">350.000</p>
                     
-                    <div>
-                        <a href="#" class="btn-success btn-sm mt-1 btn-addcart" data-id="">THÊM VÀO GIỎ</a>
-                        <span class="text-green-700"><i class="bi bi-check2"></i>Thêm thành công</span>
+                    <div class="btn-addcart-container">
+                        <button class="btn-success btn-sm mt-1 btn-addcart" data-id="">THÊM VÀO GIỎ</button>
+                        <span class="text-green-700 alert-message hidden"><i class="bi bi-check2"></i>Thêm thành công</span>
                     </div>
                 </div>
 
@@ -114,7 +114,7 @@
                 <ul class="menu">
                     <li class="menu-item{{ request()->routeIs('client.trangchu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.trangchu') }}">Trang chủ</a></li>
                     <li class="menu-item{{ request()->routeIs('client.gioithieu') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.gioithieu') }}">Giới thiệu</a></li>
-                    <li class="menu-item{{ request()->routeIs('client.danhsachmonan') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.danhsachmonan') }}">Danh sách món ăn</a></li>
+                    <li class="menu-item{{ request()->routeIs('client.danhsachmonan') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.danhsachmonan') }}">Món ăn</a></li>
                     <li class="menu-item{{ request()->routeIs('client.giohang') ? ' active' : '' }}"><a class="menu-link" href="{{ route('client.giohang') }}">Giỏ hàng</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Góp ý</a></li>
                 </ul>
@@ -196,7 +196,7 @@
     <script>
     // Change backgroundColor navbar on scroll
         document.addEventListener("scroll", (e) => {
-            if(window.scrollY > 200) {
+            if(window.scrollY > 70) {
                 document.querySelector(".container .navbar").classList.add("active"); 
             } else {
                 document.querySelector(".container .navbar").classList.remove("active"); 
