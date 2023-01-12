@@ -80,10 +80,11 @@ const formatNumber = (number) => {
 
 // Update cart
 const cartTable = document.querySelector("table#cart");
-const inputSoluongList = cartTable.querySelectorAll("input.soluong");
 
 // Update after change value input
 if (cartTable != null) {
+    let inputSoluongList = cartTable?.querySelectorAll("input.soluong");
+
     inputSoluongList.forEach((inputSoLuong) => {
         inputSoLuong.addEventListener("change", () => {
             let IDMonAn = inputSoLuong.dataset.id;
@@ -193,11 +194,32 @@ const updateCart = (IDMonAn, soluong, inputSoLuong) => {
 };
 
 // Delete product on cart
-const btnDeleteList = cartTable.querySelectorAll(".btn-function .btn-delete");
+const btnDeleteList = cartTable?.querySelectorAll(".btn-function .btn-delete");
 
-btnDeleteList.forEach((btn) => {
+btnDeleteList?.forEach((btn) => {
     btn.addEventListener("click", () => {
         let IDMonAn = btn.dataset.maloai;
         deleteCart(IDMonAn);
     });
 });
+
+// Sort by
+const filter = document.querySelector(".filter");
+const sortBy = filter?.querySelector("#sortby");
+const loaiMon = filter?.querySelector("#loaimon");
+
+// console.log(filter);
+if (filter) {
+    filter.addEventListener("change", (e) => {
+        // location.reload();
+        window.location.href = `?sortby=${sortBy.value}&loaimon=${loaiMon.value}`;
+    });
+
+    // sortBy.addEventListener("change", (e) => {
+    //     console.log(sortBy.value);
+    // });
+
+    // loaiMon.addEventListener("change", (e) => {
+    //     console.log(loaiMon.value);
+    // });
+}
