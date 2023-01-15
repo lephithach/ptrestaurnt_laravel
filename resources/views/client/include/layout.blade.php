@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PT Restaurant | {{ $metaTitle ?? 'Sang trọng, ấm cúng' }}</title>
-    @vite(['resources/css/app.css', 'resources/scss/index.css', 'resources/js/client/modal.js', 'resources/js/client/show-modal-product.js'])
+    @vite(['resources/css/app.css', 'resources/scss/index.css', 'resources/js/client/modal.js', 'resources/js/client/show-modal-product.js', 'resources/js/client/comment.js'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
 </head>
 <body>
@@ -56,7 +56,7 @@
                 <ul class="comment">                    
                     <li class="comment-container">
                         <div class="user-img">
-                            <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="">
                         </div>
                         
                         <div class="user-comment">
@@ -66,7 +66,7 @@
                     </li>
                     <li class="comment-container">
                         <div class="user-img">
-                            <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="">
                         </div>
                         
                         <div class="user-comment">
@@ -76,7 +76,7 @@
                     </li>
                     <li class="comment-container">
                         <div class="user-img">
-                            <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                            <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="">
                         </div>
                         
                         <div class="user-comment">
@@ -91,12 +91,12 @@
 
                 <div class="comment-container mt-1">
                     <div class="user-img">
-                        <img src="{{ asset('storage/images/products/cua-rang-me.jpg') }}" alt="">
+                        <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="avatar">
                     </div>
 
                     <div class="flex items-center w-full relative">
                         <textarea class="border rounded-lg flex-1 p-1 resize-none" name="comment" id="comment" rows="2" placeholder="Nhận xét"></textarea>
-                        <span class="absolute right-1 cursor-pointer text-green-700 text-lg"><i class="bi bi-arrow-up-circle-fill"></i></span>
+                        <span class="absolute right-1 cursor-pointer text-green-700 text-lg btn-addcommet"><i class="bi bi-arrow-up-circle-fill"></i></span>
                     </div>
                 </div>
             </div>

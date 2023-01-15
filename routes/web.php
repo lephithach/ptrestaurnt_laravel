@@ -46,6 +46,10 @@ Route::prefix('/cart')->name('cart.')->group(function() {
     Route::get('/delete-cart/{id}', [CartController::class, 'deleteCart'])->name('deletecart');
 });
 
+Route::prefix('/comment')->name('comment.')->group(function() { 
+    Route::post('/add', [CartController::class, 'store'])->name('addcomment');
+});
+
 Route::prefix('/admin')->name('dashboard.')->group(function() {
     Route::resource('/', DashboardController::class);
 });

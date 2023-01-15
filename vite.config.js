@@ -13,6 +13,7 @@ export default defineConfig({
                 "resources/js/client/cart.js",
                 "resources/js/client/modal.js",
                 "resources/js/client/show-modal-product.js",
+                "resources/js/client/comment.js",
             ],
             refresh: true,
         }),

@@ -83,12 +83,14 @@
 <div class="text-right">
     <label for="ban">Chọn bàn</label>
     <select name="ban" id="ban" class="c-input">
-        <option value="#">Standard</option>
-        <option value="#">Classic</option>
-        <option value="#">Premium</option>
+        <option value="#" data-pricetable="150000">Standard</option>
+        <option value="#" data-pricetable="300000">Classic</option>
+        <option value="#" data-pricetable="500000">Premium</option>
+        <option value="#" data-pricetable="200000">Couple</option>
     </select>
     <button class="btn-secondary btn-sm">ĐẶT BÀN</button>
 </div>
+
 @vite(['resources/js/client/cart.js'])
 
 <script>
