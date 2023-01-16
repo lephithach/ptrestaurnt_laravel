@@ -28,7 +28,7 @@
 
     {{-- Modal show product --}}
     <div class="modal-product">
-        <div class="modal-product-container text-center md:text-left flex-wrap lg:flex-nowrap relative">
+        <div class="modal-product-container text-center min-w-[300px] lg:min-w-[700px] md:text-left flex-wrap lg:flex-nowrap relative">
             <span class="absolute right-1 top-0 text-lg cursor-pointer btn-close"><i class="bi bi-x-circle"></i></span>
             <div class="left">
                 <img src="" alt="images">
@@ -53,8 +53,8 @@
                     </div>
                 </div>
 
-                <ul class="comment">                    
-                    <li class="comment-container">
+                <ul class="comment text-left">
+                    {{-- <li class="comment-container">
                         <div class="user-img">
                             <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="">
                         </div>
@@ -85,20 +85,34 @@
                         </div>
                     </li>
 
-                    <p class="loadmore">Xem thêm nhận xét</p>
-                    {{-- <p>Chưa có nhận xét nào, bạn hãy để lại nhận xét nhé!</p> --}}
+                    <p class="text-sm loadmore cursor-pointer">Xem thêm nhận xét</p> --}}
                 </ul>
+                    {{-- <p>Chưa có nhận xét nào, bạn hãy để lại nhận xét nhé!</p> --}}
 
+                {{-- Check login comment --}}
+                @if(session()->has('userClient'))
                 <div class="comment-container mt-1">
                     <div class="user-img">
                         <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="avatar">
                     </div>
 
                     <div class="flex items-center w-full relative">
-                        <textarea class="border rounded-lg flex-1 p-1 resize-none" name="comment" id="comment" rows="2" placeholder="Nhận xét"></textarea>
-                        <span class="absolute right-1 cursor-pointer text-green-700 text-lg btn-addcommet"><i class="bi bi-arrow-up-circle-fill"></i></span>
+                        <textarea class="border rounded-lg flex-1 p-1 resize-none" name="comment" id="comment" rows="2" placeholder="Bạn thấy món này như thế nào?"></textarea>
+                        <span class="absolute right-1 cursor-pointer text-green-700 text-lg btn-addcomment"><i class="bi bi-arrow-up-circle-fill"></i></span>
                     </div>
                 </div>
+                @else
+                <div class="comment-container mt-1">
+                    <div class="user-img">
+                        <img src="https://icon-library.com/images/no-user-image-icon/no-user-image-icon-23.jpg" alt="avatar">
+                    </div>
+
+                    <div class="flex items-center w-full relative">
+                        <textarea class="border rounded-lg flex-1 p-1 resize-none" rows="2" placeholder="Vui lòng đăng nhập để viết bình luận" disabled readonly></textarea>
+                        <span class="absolute right-1 cursor-pointe text-lg text-gray-500"><i class="bi bi-arrow-up-circle-fill"></i></span>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>

@@ -16,4 +16,8 @@ class MonAnModel extends Model
     public function getMaLoai() {
         return $this->hasOne(LoaiMonModel::class, 'maloai', 'maloai');
     }
+
+    public function comment() {
+        return $this->hasMany(MonAnCommentModel::class, 'mamon', 'mamon');
+    }
 }

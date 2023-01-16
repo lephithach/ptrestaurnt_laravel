@@ -13,5 +13,6 @@ class ClientRegisterModel extends Model
     protected $primaryKey = 'sdt';
     public $timestamps = true;
 
+    protected $hidden = ['password'];
     protected $fillable = ['sdt', 'password', 'ho', 'ten', 'ngaysinh', 'gioitinh'];
 }

@@ -12,6 +12,7 @@ use App\Http\Controllers\Client\{
     ClientViewController,
     CartController,
     RegisterController,
+    CommentController,
 };
 
 /*
@@ -46,8 +47,9 @@ Route::prefix('/cart')->name('cart.')->group(function() {
     Route::get('/delete-cart/{id}', [CartController::class, 'deleteCart'])->name('deletecart');
 });
 
-Route::prefix('/comment')->name('comment.')->group(function() { 
-    Route::post('/add', [CartController::class, 'store'])->name('addcomment');
+Route::prefix('/comment')->name('comment.')->group(function() {
+    Route::get('/', [CommentController::class, 'index'])->name('index');
+    Route::post('/add', [CommentController::class, 'store'])->name('store');
 });
 
 Route::prefix('/admin')->name('dashboard.')->group(function() {

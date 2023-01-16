@@ -11,11 +11,16 @@
     @apply flex flex-col mb-2;
 }
 
+/* Input */
 .c-input {
     @apply p-2 border rounded;
 }
 
 .c-input.is-invalid {
+    @apply border-red-500;
+}
+
+.is-invalid {
     @apply border-red-500;
 }
 

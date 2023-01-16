@@ -610,7 +610,6 @@
   opacity: 100;
 }
 .modal-product-container {
-  min-width: 300px;
   max-width: 800px;
   height: auto;
   background-color: #fff;
@@ -653,7 +652,7 @@
   width: 5px;
 }
 .modal-product-container .right .comment::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background-color: transparent;
 }
 .modal-product-container .right .comment::-webkit-scrollbar-thumb {
   background: #888;

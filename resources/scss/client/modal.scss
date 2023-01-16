@@ -78,7 +78,7 @@
     }
 
     &-container {
-        min-width: 300px;
+        // min-width: 500px;
         max-width: 800px;
         height: auto;
         background-color: #fff;
@@ -135,7 +135,8 @@
 
                 /* Track */
                 &::-webkit-scrollbar-track {
-                    background: #f1f1f1;
+                    // background: #f1f1f1;
+                    background-color: transparent;
                 }
 
                 /* Handle */
