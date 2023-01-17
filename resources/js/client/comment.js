@@ -1,6 +1,6 @@
 import axios from "axios";
 import { modalProduct, showComment } from "./show-modal-product";
-import { modalAlert, modalContent, showModal, hiddenModal } from "./modal";
+import { modalAlert, modalContent, showModalAlert } from "./modal";
 
 const commentBox = modalProduct.querySelector(".comment-container #comment");
 const btnAddComment = modalProduct?.querySelector(".btn-addcomment");
@@ -25,13 +25,21 @@ btnAddComment?.addEventListener("click", () => {
             .then(function (response) {
                 let data = response.data;
 
-                showComment(IDMonAn);
-                commentBox.value = "";
+                if (data.status == "danger") {
+                    showModalAlert();
+                    modalContent.innerText = data.message;
+                } else {
+                    showComment(IDMonAn);
+                    commentBox.value = "";
+                }
+
+                // showModal();
+                // modalContent.innerText = "Thêm bình luận thành công, ";
             })
             .catch(function (error) {
                 console.log(error.response.data);
                 commentBox.classList.add("is-invalid");
-                showModal();
+                showModalAlert();
                 modalContent.innerText = error.response.data.message;
             });
     }

@@ -3,18 +3,24 @@ const modalContent = modalAlert.querySelector(".modal-content .content");
 const btnCloseModal = modalAlert.querySelector("i.btn-close");
 const modalButton = modalAlert.querySelector(".modal-button");
 
-const showModal = () => {
+const showModalAlert = () => {
     modalAlert.classList.add("show");
     document.querySelector("body").style.overflow = "hidden";
 };
 
-const hiddenModal = () => {
+const hiddenModalAlert = () => {
     modalAlert.classList.remove("show");
     document.querySelector("body").style = "";
 };
 
 btnCloseModal.addEventListener("click", (e) => {
-    hiddenModal();
+    hiddenModalAlert();
 });
 
-export { modalAlert, modalContent, modalButton, showModal, hiddenModal };
+export {
+    modalAlert,
+    modalContent,
+    modalButton,
+    showModalAlert,
+    hiddenModalAlert,
+};

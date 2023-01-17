@@ -19,7 +19,7 @@ class CommentController extends Controller
     {
         $id = request()->input('id');
         $get = MonAnCommentModel::with('sdt')
-                ->where(['mamon' => $id, 'hienthi' => '0'])
+                ->where(['mamon' => $id, 'hienthi' => '1'])
                 ->orderBy('created_at', 'desc')
                 ->get(['comment', 'id_comment', 'created_at', 'sdt'])
                 ->toArray();
@@ -37,6 +37,12 @@ class CommentController extends Controller
         //
     }
 
+    protected $listNhayCam = [
+        'dở', 'zở', 'không', 'ko' , 'chán', 'nhạt', 'cứt', 'như', 'dâm', 'chê', 'lại', 'quay', 'tào', 'lao', 'động', 'viên', 'nhân', 'đầu', 'bếp', 'chậm', 'vụ', 'phục', 'sạch', 'dơ', 'gớm', 'vệ', 'sinh', 'dơ', 'dáy'             
+    ];
+
+    protected $isCheck = false;
+
     /**
      * Store a newly created resource in storage.
      *
@@ -52,7 +58,16 @@ class CommentController extends Controller
             'commentText.min' => 'Bình luận không được ngắn hơn :min ký tự',
         ]);
 
-        if(Session::has('userClient')) {
+        $text = $request->commentText;
+        $split = explode(" ", $text);
+
+        foreach($split as $value) {
+            if(in_array($value, $this->listNhayCam)) {
+                $this->isCheck = true;
+            }
+        }
+
+        if($this->isCheck) {
             $sdt = Session::get('userClient')[0]['sdt'];
             $mamon = $request->IDMonAn;
             $comment = $request->commentText;
@@ -65,18 +80,59 @@ class CommentController extends Controller
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
 
-            if($result) {
-                return [
-                    'status' => 'success',
-                    'message' => 'Thêm bình luận thành công'
-                ];
-            } else {
-                return [
-                    'status' => 'danger',
-                    'message' => 'Error',
-                ];
-            }
+            return [
+                'status' => 'danger',
+                'message' => 'Đăng thành công. Nhận xét của bạn hiện đang chờ duyệt'
+            ];
+        } else {
+            $sdt = Session::get('userClient')[0]['sdt'];
+            $mamon = $request->IDMonAn;
+            $comment = $request->commentText;
+
+            $result = MonAnCommentModel::insert([
+                'mamon' => $mamon,
+                'sdt' => $sdt,
+                'comment' => $comment,
+                'hienthi' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
+            return [
+                'status' => 'success',
+                'message' => 'Đăng thành công'
+            ];
         }
+
+        return $this->isCheck;
+
+        // return $split;
+
+        // if(Session::has('userClient')) {
+        //     $sdt = Session::get('userClient')[0]['sdt'];
+        //     $mamon = $request->IDMonAn;
+        //     $comment = $request->commentText;
+
+        //     $result = MonAnCommentModel::insert([
+        //         'mamon' => $mamon,
+        //         'sdt' => $sdt,
+        //         'comment' => $comment,
+        //         'created_at' => date('Y-m-d H:i:s'),
+        //         'updated_at' => date('Y-m-d H:i:s'),
+        //     ]);
+
+        //     if($result) {
+        //         return [
+        //             'status' => 'success',
+        //             'message' => 'Thêm bình luận thành công'
+        //         ];
+        //     } else {
+        //         return [
+        //             'status' => 'danger',
+        //             'message' => 'Error',
+        //         ];
+        //     }
+        // }
         
         // $request->session()->has('key');
 

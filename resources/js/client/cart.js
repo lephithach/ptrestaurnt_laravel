@@ -1,5 +1,5 @@
 import axios from "axios";
-import { modalContent, modalButton, showModal, hiddenModal } from "./modal";
+import { modalContent, modalButton, showModalAlert } from "./modal";
 import { modalProduct, alertMessage } from "./show-modal-product";
 ("./show-modal-product");
 

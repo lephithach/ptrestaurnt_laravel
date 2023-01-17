@@ -80,6 +80,7 @@ const closeModalProduct = () => {
     alertMessage.classList.add("hidden");
 
     document.querySelector("body").style.overflow = "";
+    commentElement.innerHTML = "";
 };
 
 productList.forEach((productEl) => {
