@@ -9,7 +9,8 @@
     }
 
     .register {
-        width: 400px;
+        min-width: 350px;
+        max-width: 500px;
         padding: 1rem;
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
         border-radius: 5px;
@@ -22,3 +23,11 @@
         }
     }
 }
+
+// @media screen and (min-width: 768px) {
+//     .container-register {
+//         .register {
+//             width: 450px;
+//         }
+//     }
+// }

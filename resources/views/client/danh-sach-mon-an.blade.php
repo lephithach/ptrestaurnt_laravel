@@ -5,7 +5,7 @@
 <div class="filter">
     <label for="sortby">Sắp xếp theo</label>
     <select name="sortby" id="sortby" class="c-input">
-        <option value="">--Chọn--</option>
+        <option value="">Mặc định</option>
         <option value="price-asc" @selected(request()->input('sortby') == 'price-asc')>Giá tăng dần</option>
         <option value="price-desc" @selected(request()->input('sortby') == 'price-desc')>Giá giảm dần</option>
         <option value="name-asc" @selected(request()->input('sortby') == 'name-asc')>A-Z</option>
@@ -14,7 +14,7 @@
 
     <label for="loaimon">Loại món</label>
     <select name="loaimon" id="loaimon" class="c-input">
-            <option value="">--Chọn--</option>
+            <option value="">Tất cả</option>
         @foreach ($loaiMon as $loaiMon)
             <option value="{{ $loaiMon['maloai'] }}" @selected(request()->input('loaimon') == $loaiMon['maloai'])>{{ $loaiMon['tenloai'] }}</option>
         @endforeach

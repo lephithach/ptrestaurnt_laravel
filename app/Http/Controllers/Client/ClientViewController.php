@@ -12,8 +12,8 @@ use App\Models\{
 class ClientViewController extends Controller
 {
     public function TrangChu() {
-        $monAnMoiList = MonAnModel::select('*')->offset(0)->limit(5)->get();
-        $loaiMonNoiBatList = LoaiMonModel::select('*')->offset(0)->limit(5)->get();
+        $monAnMoiList = MonAnModel::join('loaimon', 'loaimon.maloai', '=', 'monan.maloai')->offset(0)->limit(6)->get();
+        $loaiMonNoiBatList = LoaiMonModel::with('anhLoaiMon')->offset(0)->limit(6)->get();
         return view('client.home', compact('monAnMoiList', 'loaiMonNoiBatList'));
     }
 

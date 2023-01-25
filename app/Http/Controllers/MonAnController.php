@@ -103,6 +103,13 @@ class MonAnController extends Controller
         // 
     }
 
+    public function getName(Request $request) {
+        if(!$request->tenmon) return [];
+
+        return MonAnModel::where('tenmon', 'like', "%{$request->tenmon}%")
+            ->get(['tenmon', 'maloai'])->toArray();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

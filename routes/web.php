@@ -74,4 +74,5 @@ Route::prefix('/admin/mon-an')->name('monan.')->group(function() {
     Route::get('/{id}/edit', [MonAnController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [MonAnController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [MonAnController::class, 'destroy'])->name('destroy');
+    Route::post('/get-name', [MonAnController::class, 'getName'])->name('getname');
 });

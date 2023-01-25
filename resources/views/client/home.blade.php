@@ -22,7 +22,7 @@
         </div>
     </div> --}}
     <h2 class="product-header font-bold text-center text-header">Món ăn mới</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6">
         @foreach ($monAnMoiList as $monAnMoi)
             @include('client.include.product', [$monAn = $monAnMoi])
         @endforeach
@@ -31,16 +31,23 @@
 
 <section class="category py-2">
     <h2 class="category-header font-bold text-center text-header">Loại món ăn nổi bật</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 mt-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 mt-3">
         @foreach ($loaiMonNoiBatList as $loaiMonNoiBat)
         <div class="category-container">
             <div class="category-image">
-                <img src="{{ asset('storage/images/products/cua_nuong_moi.jpg') }}" alt="product">
+                <img
+                    src="{{
+                        !empty($loaiMonNoiBat->anhLoaiMon['hinh'])
+                            ? asset("storage/images/products/{$loaiMonNoiBat->anhLoaiMon['hinh']}")
+                            : asset("storage/images/products/PT Restaurant.jpg")
+                        }}"
+                    alt="product"
+                />
             </div>
 
             <div class="category-showmore">
                 <div class="category-title">{{ $loaiMonNoiBat->tenloai }}</div>
-                <a href="#" class="btn-addcart">XEM NGAY</a>
+                <a href="{{ route('client.danhsachmonan', ['loaimon' => $loaiMonNoiBat->maloai]) }}" class="btn-showmore">XEM NGAY</a>
             </div>
         </div>
         @endforeach

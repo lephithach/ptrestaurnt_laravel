@@ -191,9 +191,10 @@
                         <a href="#"><i class="bi bi-envelope"></i></a>
                     </div>
                     <div class="address">
-                        <p>Email: lephithach00@gmail.com</p>
-                        <p>Điện thoại: 0929-626-424 | 038-3431-380</p>
-                        <p>Địa chỉ: 123, Võ Thị Sáu, Thống Nhất, TP. Biên Hòa, Đồng Nai</p>
+                        <p><span class="font-bold">Email:</span> lephithach00@gmail.com</p>
+                        <p><span class="font-bold">Điện thoại:</span> 0929-626-424 | 038-3431-380</p>
+                        <p><span class="font-bold">Địa chỉ:</span> 123, Võ Thị Sáu, Thống Nhất, TP. Biên Hòa, Đồng Nai</p>
+                        <p><span class="font-bold">Giờ đón khách:</span> 09:30 - 23:00</p>
                     </div>
                 </div>
     

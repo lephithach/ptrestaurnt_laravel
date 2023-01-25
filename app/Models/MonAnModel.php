@@ -13,7 +13,7 @@ class MonAnModel extends Model
     protected $primaryKey = 'mamon';
     public $timestamps = false;
 
-    public function getMaLoai() {
+    public function loaiMon() {
         return $this->hasOne(LoaiMonModel::class, 'maloai', 'maloai');
     }
 

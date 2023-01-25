@@ -90,7 +90,7 @@
                     <th>#</th>
                     <th>Mã Loại</th>
                     <th>Tên Loại</th>
-                    <th>Số món</th>
+                    <th>Tổng món ăn</th>
                     <th>&nbsp;</th>
                 </thead>
                 <tbody>
@@ -100,7 +100,7 @@
                         <td>{{ $key+1 }}</td>
                         <td>{{ $item->maloai }}</td>
                         <td>{{ $item->tenloai }}</td>
-                        <td>&nbsp;</td>
+                        <td>{{ count($item->monAn) }}</td>
                         <td class="btn-function">
                             <i class="bi bi-pencil-fill icon-edit cursor-pointer text-blue-500" data-maloai="{{ $item->maloai }}"></i>
                             <i class="bi bi-trash3-fill icon-delete cursor-pointer text-red-500" data-maloai="{{ $item->maloai }}"></i>

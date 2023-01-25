@@ -12,9 +12,14 @@ class LoaiMonModel extends Model
     // protected $primaryKey = 'maloai';
     public $timestamps = false;
 
-    public function getMonAn() {
+    public function monAn() {
         return $this->hasMany(MonAnModel::class, 'maloai', 'maloai');
     }
+
+    public function anhLoaiMon() {
+        return $this->hasOne(MonAnModel::class, 'maloai', 'maloai');
+    }
+
     public function scopeMonAn($query) {
         return $query->join(MonAnModel::class, 'maloai', 'maloai');
     }

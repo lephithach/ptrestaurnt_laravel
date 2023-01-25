@@ -24,7 +24,7 @@ class LoaiMonController extends Controller
      */
     public function create()
     {
-        $data = LoaiMonModel::select('*')->paginate(10);
+        $data = LoaiMonModel::with('monAn')->select('*')->paginate(10);
         return view('admin.monan.tao-ma-mon', compact('data'));
     }
 

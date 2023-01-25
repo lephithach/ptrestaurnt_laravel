@@ -22,9 +22,14 @@
             <form action="{{ route('monan.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
     
-                <div class="form-group c-form-group-flex-col">
+                <div class="form-group c-form-group-flex-col relative">
                     <label for="tenmon">Tên món ăn</label>
-                    <input type="text" name="tenmon" id="tenmon" placeholder="Tên món ăn" class="c-input @error('tenmon') is-invalid @enderror" autocomplete="off" value="{{ old('tenmon') ?? null }}" />
+                    <input type="text" class="c-input @error('tenmon') is-invalid @enderror" name="tenmon" id="tenmon" placeholder="Tên món ăn" autocomplete="off" value="{{ old('tenmon') ?? null }}" />
+                    <ul class="absolute hidden cursor-pointer w-full h-14 border p-1 overflow-y-scroll bg-white z-10 mt-[4.2rem] left-0 right-0">
+                        {{-- <li>Lẩu</li>
+                        <li>Súp</li>
+                        <li>Cua</li> --}}
+                    </ul>
                 </div>
 
                 <div class="form-group c-form-group-flex-col">
@@ -66,10 +71,12 @@
         <h3 class="text-xl font-bold mb-3">XEM TRƯỚC KẾT QUẢ</h3>
 
         <div class="preview-product">
-            <p class="product-name">Tên món</p>
-            <img src="" alt="hinh-anh" class="product-image" id="product-image" />
-            <p class="product-price">0.000.000</p>
+            <p class="product-name">PT Restaurant</p>
+            <img src="{{ asset('storage/images/products/PT Restaurant.jpg') }}" alt="hinh-anh" class="product-image" id="product-image" />
+            <p class="product-price">0</p>
         </div>
     </section>
 </div>
+
+@vite(['resources/js/handle-tao-mon-an.js'])
 @endsection

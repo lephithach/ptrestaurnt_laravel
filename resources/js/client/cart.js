@@ -15,7 +15,7 @@ modalProduct.querySelector(".btn-addcart").addEventListener("click", (e) => {
 
             switch (status) {
                 case "warning":
-                    showModal();
+                    showModalAlert();
                     modalContent.innerText = message;
                     modalButton.innerHTML = `<a href="${link}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>`;
                     break;
@@ -52,13 +52,13 @@ modalProduct.querySelector(".btn-addcart").addEventListener("click", (e) => {
 
 //                 switch (status) {
 //                     case "warning":
-//                         showModal();
+//                         showModalAlert();
 //                         modalContent.innerText = message;
 //                         modalButton.innerHTML = `<a href="${link}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>`;
 //                         break;
 
 //                     case "success":
-//                         showModal();
+//                         showModalAlert();
 //                         modalContent.innerText = message;
 //                         setTimeout(() => hiddenModal(), 1200);
 //                         break;
@@ -137,7 +137,7 @@ const deleteCart = (IDMonAn) => {
 
             switch (status) {
                 case "warning":
-                // showModal();
+                // showModalAlert();
                 // modalContent.innerText = message;
                 // modalButton.innerHTML = `<a href="${link}" class="btn-primary btn-sm">ĐĂNG NHẬP</a>`;
                 // break;

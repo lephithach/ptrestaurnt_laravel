@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PT Restaurant | Đăng ký</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     @vite(['resources/css/app.css', 'resources/scss/index.css'])
 </head>
 <body>
@@ -30,7 +31,8 @@
             @endif
             <form action="{{ route('client.dangky.store') }}" method="post">
                 @csrf
-                <div class="grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-2">
+                {{-- <div class="grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-2"> --}}
+                <div class="flex flex-col gap-0 lg:flex-row lg:gap-2">
                     <section class="left">
                         <div class="form-group">
                             <label for="sdt">Số điện thoại</label>
@@ -39,12 +41,22 @@
         
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
-                            <input class="c-input" type="password" name="password" id="password" placeholder="Mật khẩu" value="{{ old('password') }}" />
+                            <div class="relative">
+                                <input class="c-input w-full !pr-8" type="password" name="password" id="password" placeholder="Mật khẩu" value="{{ old('password') }}" />
+                                <span class="absolute right-2 bottom-2 block cursor-pointer bg-white btn-showPassword">
+                                    <i class="bi bi-eye-fill"></i>
+                                </span>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="rePassword">Nhập lại mật khẩu</label>
-                            <input class="c-input" type="password" name="rePassword" id="rePassword" placeholder="Nhập lại mật khẩu" value="{{ old('rePassword') }}" />
+                            <div class="relative">
+                                <input class="c-input w-full !pr-8" type="password" name="rePassword" id="rePassword" placeholder="Nhập lại mật khẩu" value="{{ old('rePassword') }}" />
+                                <span class="absolute right-2 bottom-2 block cursor-pointer bg-white btn-showPassword">
+                                    <i class="bi bi-eye-fill"></i>
+                                </span>
+                            </div>
                         </div>
                     </section>
                     
@@ -86,5 +98,21 @@
             </form>
         </section>
     </div>
+
+    <script>
+        const btnShowPassword = document.querySelectorAll('.btn-showPassword');
+
+        btnShowPassword.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                if(btn.previousElementSibling.getAttribute('type') == "password") {
+                    btn.previousElementSibling.setAttribute('type', 'text');
+                    btn.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
+                } else {
+                    btn.previousElementSibling.setAttribute('type', 'password');
+                    btn.innerHTML = '<i class="bi bi-eye-fill"></i>';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
