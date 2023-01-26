@@ -34,7 +34,7 @@
             </div>
         </li>
 
-        <li class="item" id="donhang" sub-menu="true">
+        <li class="item {{ request()->routeIs('donhang*') ? 'active' : '' }}" id="donhang" sub-menu="true">
             <a href="#" class="btn-menu">
                 <i class="bi bi-journals"></i>
                 <span>Đơn hàng</span>
@@ -42,7 +42,7 @@
             </a>
 
             <div class="sub-menu">
-                <a href="#">Tạo đơn hàng</a>
+                <a href="{{ route('donhang.create') }}" class="{{ request()->routeIs('donhang.create') ? 'active' : '' }}">Tạo đơn hàng</a>
                 <a href="#">Danh sách đơn hàng Offline</a>
                 <a href="#">Danh sách đơn hàng Online</a>
             </div>
@@ -64,7 +64,14 @@
 
         <li class="item">
             <a href="#" class="btn-menu">
-                <i class="bi bi-box-arrow-left"></i>
+                <i class="bi bi-arrow-left"></i>
+                <span>Thu nhỏ</span>
+            </a>
+        </li>
+        
+        <li class="item">
+            <a href="#" class="btn-menu">
+                <i class="bi bi-power"></i>
                 <span>Đăng xuất</span>
             </a>
         </li>

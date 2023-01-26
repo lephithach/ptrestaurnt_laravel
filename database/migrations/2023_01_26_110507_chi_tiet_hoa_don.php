@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account', function (Blueprint $table) {
-            $table->string('username')->primary();
-            $table->text('text');
+        Schema::create('chitiethoadon', function (Blueprint $table) {
+            $table->bigInteger('mahoadon')->index();
+            $table->integer('mamon')->index();
+            $table->integer('soluong');
+            $table->integer('soluong');
+            $table->integer('dongia_cthd');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account');
+        Schema::dropIfExists('chitiethoadon');
     }
 };

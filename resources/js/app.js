@@ -18,9 +18,9 @@ subMenuList.forEach((menu) => {
 
 // Toast control
 const containerToast = document.querySelector(".container-toast");
-const toastList = containerToast.querySelectorAll(".toast");
+const toastList = containerToast?.querySelectorAll(".toast");
 
-if (toastList.length > 0) {
+if (toastList?.length > 0) {
     toastList.forEach((toast) => {
         // Click button close toast
         // toast.querySelector(".icon-close").addEventListener("click", () => {

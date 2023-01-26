@@ -6,6 +6,7 @@ use App\Http\Controllers\{
     DashboardController,
     LoaiMonController,
     MonAnController,
+    DonHangController,
 };
 // Controller Client
 use App\Http\Controllers\Client\{
@@ -75,4 +76,11 @@ Route::prefix('/admin/mon-an')->name('monan.')->group(function() {
     Route::post('/update/{id}', [MonAnController::class, 'update'])->name('update');
     Route::post('/delete/{id}', [MonAnController::class, 'destroy'])->name('destroy');
     Route::post('/get-name', [MonAnController::class, 'getName'])->name('getname');
+});
+
+
+Route::prefix('/admin/don-hang')->name('donhang.')->group(function() {
+    Route::get('/', [DonHangController::class, 'index'])->name('index');
+    Route::get('/create', [DonHangController::class, 'create'])->name('create');
+    Route::post('/search', [DonHangController::class, 'search']);
 });

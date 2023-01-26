@@ -25,10 +25,10 @@ return new class extends Migration
             $table->time('giovao');
             $table->time('giora');
             $table->tinyInteger('chietkhau')->nullable();
-            $table->double('tongtien', 10, 2);
+            $table->integer('tongtien');
             $table->tinyInteger('tinhtrang')->comment('0:Chưa thanh toán, 1:Chờ thanh toán, 2:Đã thanh toán');
-            $table->double('khachdua', 10, 2);
-            $table->double('trakhach', 10, 2);
+            $table->integer('khachdua');
+            $table->integer('trakhach');
             $table->string('ghichu', 150);
         });
     }

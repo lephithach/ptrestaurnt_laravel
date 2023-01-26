@@ -218,6 +218,89 @@
 .admin-container.container .preview-product .product-price {
   color: rgb(235, 14, 14);
 }
+.admin-container.container .donhang .filter .tab-filter {
+  display: flex;
+  flex-direction: row;
+}
+.admin-container.container .donhang .filter .tab-filter .tab-item {
+  cursor: pointer;
+  background-color: #f2f2f2;
+  padding: 0.2rem 0.7rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.admin-container.container .donhang .filter .tab-filter .tab-item.active {
+  background-color: #007bff;
+  color: #fff;
+}
+.admin-container.container .donhang .monan {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  height: 88vh;
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.admin-container.container .donhang .monan::-webkit-scrollbar {
+  width: 5px;
+}
+.admin-container.container .donhang .monan::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.admin-container.container .donhang .monan::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.admin-container.container .donhang .monan::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.admin-container.container .donhang .monan .items {
+  width: 200px;
+  height: 200px;
+  padding: 0.1rem;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.admin-container.container .donhang .monan .items img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+}
+.admin-container.container .donhang .bill {
+  overflow-y: scroll;
+  height: 50vh;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.admin-container.container .donhang .bill::-webkit-scrollbar {
+  width: 5px;
+}
+.admin-container.container .donhang .bill::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.admin-container.container .donhang .bill::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.admin-container.container .donhang .bill::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.admin-container.container .donhang .bill table th {
+  background-color: #f2f2f2;
+}
+.admin-container.container .donhang .bill table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.admin-container.container .donhang .bill table tbody tr td {
+  border: none;
+}
+.admin-container.container .donhang .bill table tbody tr td input[type=number]::-webkit-outer-spin-button, .admin-container.container .donhang .bill table tbody tr td input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
 
 @media screen and (min-width: 1536px) {
   .container .navbar {

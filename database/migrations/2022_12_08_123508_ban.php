@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('ban', function (Blueprint $table) {
             $table->string('soban', 2)->primary();
             $table->string('tenban', 50);
+            $table->string('loaiban', 50)->comment('Standard, Premium, Couple, Family');
+            $table->integer('dongiaban');
             $table->tinyInteger('trangthaiban');
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('ban');
     }
 };
