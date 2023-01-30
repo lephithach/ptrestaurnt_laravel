@@ -83,4 +83,7 @@ Route::prefix('/admin/don-hang')->name('donhang.')->group(function() {
     Route::get('/', [DonHangController::class, 'index'])->name('index');
     Route::get('/create', [DonHangController::class, 'create'])->name('create');
     Route::post('/search', [DonHangController::class, 'search']);
+    Route::get('/search', [DonHangController::class, 'search']);
+    Route::post('/order', [DonHangController::class, 'order'])->name('order');
+    Route::get('/order', [DonHangController::class, 'order'])->name('testorder');
 });

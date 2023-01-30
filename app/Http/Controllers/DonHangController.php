@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 use App\Models\{
     MonAnModel,
     LoaiMonModel,
@@ -34,7 +35,6 @@ class DonHangController extends Controller
         return view('admin.donhang.tao-don-hang', compact('monAn', 'loaiMon'));
     }
 
-
     public function search(Request $request) {
         $maloai = trim($request->maloai);
         $searchInput = $request->searchInput;
@@ -46,15 +46,19 @@ class DonHangController extends Controller
            $query->where('maloai', $maloai);
         }
 
-        // if($maloai != 'all') {
-        //     $query = $query->where('maloai', $maloai);
-        // }
+        // get database
+        $data = $query->get();
 
-        // if($searchInput) {
-        //     $query = $query->where('tenmon', 'like', "%{$request->searchInput}%");
-        // }
+        // fix link image
+        foreach($data as $key => $newData) {
+            $newData['hinh'] =  "http://{$request->getHttpHost()}/storage/images/products/{$data[$key]['hinh']}";
+        }
 
-        return $query->get();
+        return $data;
+    }
+
+    public function order(Request $request) {
+        // dùng local storage :))
     }
 
     /**

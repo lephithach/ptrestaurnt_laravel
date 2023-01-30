@@ -22,7 +22,7 @@
     
         <section class="monan">
             @foreach ($monAn as $item)
-                <div class="items">
+                <div class="items" data-mamon="{{ $item->mamon }}" data-maloai="{{ $item->maloai }}">
                     <img src="{{ asset("storage/images/products/{$item->hinh}") }}" alt="{{ $item->tenmon }}" />
                     <p>{{ $item->tenmon }}</p>
                 </div>

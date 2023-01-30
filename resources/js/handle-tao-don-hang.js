@@ -43,14 +43,14 @@ const getData = (searchInput, maloai = "all") => {
         .then(function (respone) {
             let data = respone.data;
             let html = "";
-            console.log(respone.data);
+            // console.log(respone.data);
 
             let sectionMonAn = document.querySelector(".monan");
 
             data.forEach((item) => {
                 html += `
                 <div class="items">
-                    <img src="http://127.0.0.1:8000/storage/images/products/${item.hinh}" alt="${item.tenmon}" />
+                    <img src="${item.hinh}" alt="${item.tenmon}" />
                     <p>${item.tenmon}</p>
                 </div>
                 `;
@@ -59,3 +59,24 @@ const getData = (searchInput, maloai = "all") => {
             sectionMonAn.innerHTML = html;
         });
 };
+
+// handle order
+const listMonAn = document.querySelectorAll(".monan .items");
+
+listMonAn.forEach((product) => {
+    product.addEventListener("click", () => {
+        let maMon = product.dataset.mamon;
+
+        // Dùng local storage :))
+
+        // axios
+        //     .post("./order", {
+        //         maMon,
+        //     })
+        //     .then(function (respone) {
+        //         console.log(respone);
+        //     });
+
+        // console.log(product);
+    });
+});
