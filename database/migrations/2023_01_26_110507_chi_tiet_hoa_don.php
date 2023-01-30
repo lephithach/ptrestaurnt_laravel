@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigInteger('mahoadon')->index();
             $table->integer('mamon')->index();
             $table->integer('soluong');
-            $table->integer('soluong');
             $table->integer('dongia_cthd');
             $table->timestamps();
         });
