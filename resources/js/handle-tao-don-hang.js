@@ -1,4 +1,5 @@
 import axios from "axios";
+import { stringify } from "postcss";
 
 // click active tab filter
 const tabFilter = document.querySelector(".tab-filter");
@@ -62,10 +63,40 @@ const getData = (searchInput, maloai = "all") => {
 
 // handle order
 const listMonAn = document.querySelectorAll(".monan .items");
+// var orderArray = [];
 
 listMonAn.forEach((product) => {
     product.addEventListener("click", () => {
         let maMon = product.dataset.mamon;
+        let soBan = document.querySelector("#ban").value;
+        let orderArray = [];
+
+        // get local storage
+        if (localStorage.getItem(`orderTempBan${soBan}`)) {
+            let orderTemp = JSON.parse(
+                localStorage.getItem(`orderTempBan${soBan}`)
+            );
+            orderArray = orderTemp;
+
+            orderArray += { maMon, soluong: 1 };
+
+            console.log(orderArray);
+
+            localStorage.setItem(
+                `orderTempBan${soBan}`,
+                JSON.stringify(orderArray)
+            );
+        } else {
+            orderArray = { maMon, soluong: 1 };
+
+            // save local storage
+            localStorage.setItem(
+                `orderTempBan${soBan}`,
+                JSON.stringify(orderArray)
+            );
+        }
+
+        // console.log(orderArray);
 
         // Dùng local storage :))
 

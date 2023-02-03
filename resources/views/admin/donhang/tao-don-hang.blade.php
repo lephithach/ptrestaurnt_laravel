@@ -35,9 +35,9 @@
             <div class="form-group">
                 <label for="ban">Bàn số</label>
                 <select name="ban" id="ban" class="c-input">
-                    <option value="#">01</option>
-                    <option value="#">02</option>
-                    <option value="#">03</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
                 </select>
             </div>
     
