@@ -22,7 +22,7 @@
     
         <section class="monan">
             @foreach ($monAn as $item)
-                <div class="items" data-mamon="{{ $item->mamon }}" data-maloai="{{ $item->maloai }}">
+                <div class="items" data-mamon="{{ $item->mamon }}" data-maloai="{{ $item->maloai }}" data-dongia="{{ $item->dongia }}">
                     <img src="{{ asset("storage/images/products/{$item->hinh}") }}" alt="{{ $item->tenmon }}" />
                     <p>{{ $item->tenmon }}</p>
                 </div>
@@ -61,14 +61,14 @@
                 </thead>
 
                 <tbody>
-                    @for ($i = 0; $i < 12; $i++)
+                    {{-- @for ($i = 0; $i < 12; $i++)
                         <tr>
                             <td class="text-left">Royal Salute 21YO Signature Blend Red New Year (700ml)</td>
                             <td class="text-center"><input class="w-full" type="number" value="1" /></td>
                             <td class="text-right">3.500.000</td>
                             <td class="text-center"><i class="bi bi-x-square-fill icon-delete cursor-pointer text-red-500"></i></td>
                         </tr>
-                    @endfor
+                    @endfor --}}
                 </tbody>
             </table>
         </section>
@@ -76,29 +76,29 @@
         <section class="total my-2 flex flex-col gap-2">
             <div class="form-group flex justify-between items-center">
                 <label for="tongtien">Tổng tiền</label>
-                <input type="text" class="c-input text-right" name="tongtien" id="tongtien" value="3.500.000" disabled readonly />
+                <input type="text" class="c-input text-right" name="tongtien" id="tongtien" value="" placeholder="0" disabled readonly />
             </div>
 
             <div class="form-group flex justify-between items-center">
-                <label for="phuthu">Phụ thu</label>
-                <input type="text" class="c-input text-right" name="phuthu" id="phuthu" value="3.500.000" />
+                <label for="phuthu">Phụ thu <sup>%</sup></label>
+                <input type="text" class="c-input text-right" name="phuthu" id="phuthu" value="" placeholder="0" />
             </div>
 
             <div class="form-group flex justify-between items-center">
                 <label for="khachdua">Khách đưa</label>
-                <input type="text" class="c-input text-right" name="khachdua" id="khachdua" value="3.500.000" />
+                <input type="text" class="c-input text-right" name="khachdua" id="khachdua" value="" placeholder="0" />
             </div>
 
             <div class="form-group flex justify-between items-center">
                 <label for="trakhach">Trả khách</label>
-                <input type="text" class="c-input text-right" name="trakhach" id="trakhach" value="3.500.000" disabled readonly />
+                <input type="text" class="c-input text-right" name="trakhach" id="trakhach" value="" placeholder="0" disabled readonly />
             </div>
         </section>
 
         <section class="btn-function">
-            <button class="btn-primary">Lưu (F1)</button>
-            <button class="btn-success">Thanh toán (F2)</button>
-            <button class="btn-danger">Huỷ (F3)</button>
+            <button id="btn-luu" class="btn-primary">Lưu (F1)</button>
+            <button id="btn-thanhtoan" class="btn-success">Thanh toán (F2)</button>
+            <button id="btn-huy" class="btn-danger">Huỷ (F3)</button>
         </section>
     </div>
 </div>

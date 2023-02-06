@@ -6,7 +6,7 @@ use App\Http\Controllers\{
     DashboardController,
     LoaiMonController,
     MonAnController,
-    DonHangController,
+    OrderController,
 };
 // Controller Client
 use App\Http\Controllers\Client\{
@@ -80,10 +80,13 @@ Route::prefix('/admin/mon-an')->name('monan.')->group(function() {
 
 
 Route::prefix('/admin/don-hang')->name('donhang.')->group(function() {
-    Route::get('/', [DonHangController::class, 'index'])->name('index');
-    Route::get('/create', [DonHangController::class, 'create'])->name('create');
-    Route::post('/search', [DonHangController::class, 'search']);
-    Route::get('/search', [DonHangController::class, 'search']);
-    Route::post('/order', [DonHangController::class, 'order'])->name('order');
-    Route::get('/order', [DonHangController::class, 'order'])->name('testorder');
+    Route::get('/', [OrderController::class, 'index'])->name('index');
+    Route::get('/create', [OrderController::class, 'create'])->name('create');
+    Route::post('/search', [OrderController::class, 'search']);
+    Route::get('/search', [OrderController::class, 'search']);
+    Route::post('/order', [OrderController::class, 'order'])->name('order');
+    Route::get('/order', [OrderController::class, 'order'])->name('testorder');
+    Route::get('/store', [OrderController::class, 'store'])->name('teststore');
+    Route::get('/update', [OrderController::class, 'update'])->name('update');
+    Route::get('/delete', [OrderController::class, 'destroy'])->name('delete');
 });

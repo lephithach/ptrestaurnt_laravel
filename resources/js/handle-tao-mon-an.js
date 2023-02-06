@@ -1,4 +1,5 @@
 import axios from "axios";
+import { formatNumber } from "./function";
 
 // search ten mon an
 const productNameInput = document.querySelector(".form .form-group #tenmon");
@@ -100,12 +101,6 @@ if (imageInput) {
         readURL(imageInput, imageOutput)
     );
 }
-
-// Change product name, product price realtime
-export const formatNumber = (number) => {
-    let NumberFormat = new Intl.NumberFormat();
-    return NumberFormat.format(number);
-};
 
 // Check exist
 if (productNameInput)

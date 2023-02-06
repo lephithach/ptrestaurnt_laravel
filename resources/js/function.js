@@ -17,3 +17,8 @@ export const closeModal = () => {
     modalElement.classList.remove("show");
 };
 // End - Modal control
+
+export const formatNumber = (number) => {
+    let NumberFormat = new Intl.NumberFormat();
+    return NumberFormat.format(number);
+};
