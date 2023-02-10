@@ -20,13 +20,24 @@ subMenuList.forEach((menu) => {
         // End show sub menu
 
         // Minimize menu left
-        let isMinimize = menu.dataset.minimize ? true : false;
+        let isMinimize = menu.dataset.minimize === "true" ? true : false;
 
-        if (isMinimize) {
-            document.querySelector("#menu-left").style.maxWidth = "40px";
-            listText.forEach((item) => {
-                item.style.display = "none";
-            });
+        if (!isMinimize) {
+            // document.querySelector("#menu-left").style.maxWidth = "40px";
+            // listText.forEach((item) => {
+            //     item.style.display = "none";
+            // });
+            document.querySelector("#menu-left").classList.add("minimize");
+            document
+                .querySelector(".admin-container")
+                .classList.add("full-width");
+            menu.dataset.minimize = "true";
+        } else {
+            document.querySelector("#menu-left").classList.remove("minimize");
+            document
+                .querySelector(".admin-container")
+                .classList.remove("full-width");
+            menu.dataset.minimize = "false";
         }
     });
 });

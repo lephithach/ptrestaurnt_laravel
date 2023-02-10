@@ -1,5 +1,25 @@
 #menu-left {
     background-color: $colorMenuLeft;
+    transition: all 0.25s ease-in-out;
+
+    &.minimize {
+        width: 40px;
+        max-width: 40px;
+        margin: 0 auto;
+
+        .main-menu .item .btn-menu {
+            // hide text item menu
+            span {
+                display: none;
+            }
+
+            // Hide icon arrow down
+            .icon-arrow {
+                margin-left: 0;
+                display: none;
+            }
+        }
+    }
 
     .main-menu {
         .item {

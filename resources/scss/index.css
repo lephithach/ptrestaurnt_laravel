@@ -32,6 +32,19 @@
 }
 #menu-left {
   background-color: #273a49;
+  transition: all 0.25s ease-in-out;
+}
+#menu-left.minimize {
+  width: 40px;
+  max-width: 40px;
+  margin: 0 auto;
+}
+#menu-left.minimize .main-menu .item .btn-menu span {
+  display: none;
+}
+#menu-left.minimize .main-menu .item .btn-menu .icon-arrow {
+  margin-left: 0;
+  display: none;
 }
 #menu-left .main-menu .item {
   padding: 1rem 0.5rem;
@@ -80,6 +93,15 @@
   width: calc(100% - 250px);
   margin-left: 250px;
   padding: 1rem;
+}
+.admin-container.container.full-width {
+  max-width: calc(100% - 40px) !important;
+  width: calc(100% - 40px) !important;
+  margin-left: 40px;
+}
+.admin-container.container.full-width .monan .items {
+  width: 185px !important;
+  height: 185px !important;
 }
 .admin-container.container table tr th {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

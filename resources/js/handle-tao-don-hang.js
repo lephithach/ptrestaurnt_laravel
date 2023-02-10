@@ -257,7 +257,13 @@ banEl.addEventListener("change", () => {
 const btnLuu = document.querySelector("#btn-luu");
 
 btnLuu.addEventListener("click", () => {
-    console.log("lưu");
+    axios
+        .post("/admin/hoa-don/store", {
+            soBan: banEl.value,
+        })
+        .then(function (respone) {
+            console.log(respone);
+        });
 });
 
 // handle hot key function

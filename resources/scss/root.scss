@@ -3,294 +3,309 @@
     width: $widthMenuLeft;
 }
 
-.admin-container.container {
-    max-width: calc(100% - $widthMenuLeft);
-    width: calc(100% - $widthMenuLeft);
-    margin-left: $widthMenuLeft;
-    padding: 1rem;
+.admin-container {
+    &.container {
+        max-width: calc(100% - $widthMenuLeft);
+        width: calc(100% - $widthMenuLeft);
+        margin-left: $widthMenuLeft;
+        padding: 1rem;
 
-    table {
-        tr {
-            th {
-                border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
-            }
+        // full width after menu left minimize
+        &.full-width {
+            max-width: calc(100% - 40px) !important;
+            width: calc(100% - 40px) !important;
+            margin-left: 40px;
 
-            td {
-                border: 1px solid rgba($color: #000000, $alpha: 0.1);
-                padding: 0.5rem;
-            }
-
-            .btn-function i + i,
-            .btn-function a + a {
-                margin-left: 0.3rem;
-            }
-        }
-    }
-
-    .form-group {
-        input + input {
-            margin-top: 0.5rem;
-        }
-
-        input.disabled {
-            background-color: $colorSecondary;
-        }
-    }
-
-    .modal {
-        display: none;
-
-        &.show {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            inset: 0;
-            background-color: rgba($color: #000000, $alpha: 0.6);
-            z-index: 10;
-        }
-
-        &-button {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-
-            .icon-close {
-                display: block;
-                cursor: pointer;
+            .monan .items {
+                width: 185px !important;
+                height: 185px !important;
             }
         }
 
-        &-container {
-            width: 700px;
-            height: auto;
-            max-height: 80vh;
-            border-radius: 10px;
-            background-color: #fff;
-            padding: 1rem 1.5rem;
+        table {
+            tr {
+                th {
+                    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+                }
+
+                td {
+                    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+                    padding: 0.5rem;
+                }
+
+                .btn-function i + i,
+                .btn-function a + a {
+                    margin-left: 0.3rem;
+                }
+            }
         }
-    }
 
-    // Test toast remake
-    .container-toast {
-        position: absolute;
-        bottom: 20px;
-        right: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        overflow: hidden;
+        .form-group {
+            input + input {
+                margin-top: 0.5rem;
+            }
 
-        .toast {
+            input.disabled {
+                background-color: $colorSecondary;
+            }
+        }
+
+        .modal {
             display: none;
-            border-radius: 5px;
-            width: 300px;
-            padding: 0.7rem;
-            transform: translateX(100%);
-            background-color: #fff;
 
             &.show {
-                z-index: 10;
-                display: flex;
-                flex-direction: row;
-                gap: 1rem;
-                transform: translateX(0);
-                animation-name: toastShow;
-                animation-duration: 0.25s;
-            }
-
-            &.toast-success {
-                color: $colorSucess;
-                border: 1px solid rgba($color: $colorSucess, $alpha: 0.3);
-            }
-
-            &.toast-danger {
-                color: $colorDanger;
-                border: 1px solid rgba($color: $colorDanger, $alpha: 0.3);
-            }
-
-            .icon-close {
-                margin-left: auto;
-                cursor: pointer;
-            }
-        }
-    }
-    // End test toast remake
-
-    #toast-success {
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        bottom: 2px;
-        right: 10px;
-
-        &.show {
-            opacity: 100;
-            visibility: visible;
-        }
-    }
-
-    // Active page pagination
-    .paginate {
-        .active > span {
-            background-color: $colorPrimary;
-            color: #fff;
-        }
-    }
-
-    // Preview Product Admin
-    .preview-product {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 300px;
-
-        .product-name {
-            font-weight: bold;
-            text-transform: uppercase;
-            color: $colorPrimary;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .product-image {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            background-position: center;
-            object-fit: cover;
-            overflow: hidden;
-            border-radius: 10px;
-            border: 1px solid rgba($color: #000000, $alpha: 0.2);
-
-            &::before {
-                content: "Hình ảnh";
-                position: absolute;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                background-color: #fff;
+                position: fixed;
                 inset: 0;
+                background-color: rgba($color: #000000, $alpha: 0.6);
+                z-index: 10;
+            }
+
+            &-button {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                .icon-close {
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+
+            &-container {
+                width: 700px;
+                height: auto;
+                max-height: 80vh;
+                border-radius: 10px;
+                background-color: #fff;
+                padding: 1rem 1.5rem;
             }
         }
 
-        .product-price {
-            color: $colorDanger;
-        }
-    }
+        // Test toast remake
+        .container-toast {
+            position: absolute;
+            bottom: 20px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            overflow: hidden;
 
-    // section don hang
-    .donhang {
-        .filter {
-            .tab-filter {
-                display: flex;
-                flex-direction: row;
+            .toast {
+                display: none;
+                border-radius: 5px;
+                width: 300px;
+                padding: 0.7rem;
+                transform: translateX(100%);
+                background-color: #fff;
 
-                .tab-item {
+                &.show {
+                    z-index: 10;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+                    transform: translateX(0);
+                    animation-name: toastShow;
+                    animation-duration: 0.25s;
+                }
+
+                &.toast-success {
+                    color: $colorSucess;
+                    border: 1px solid rgba($color: $colorSucess, $alpha: 0.3);
+                }
+
+                &.toast-danger {
+                    color: $colorDanger;
+                    border: 1px solid rgba($color: $colorDanger, $alpha: 0.3);
+                }
+
+                .icon-close {
+                    margin-left: auto;
                     cursor: pointer;
-                    background-color: #f2f2f2;
-                    padding: 0.2rem 0.7rem;
-                    border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
+                }
+            }
+        }
+        // End test toast remake
 
-                    &.active {
-                        background-color: $colorPrimary;
-                        color: #fff;
+        #toast-success {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            bottom: 2px;
+            right: 10px;
+
+            &.show {
+                opacity: 100;
+                visibility: visible;
+            }
+        }
+
+        // Active page pagination
+        .paginate {
+            .active > span {
+                background-color: $colorPrimary;
+                color: #fff;
+            }
+        }
+
+        // Preview Product Admin
+        .preview-product {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 300px;
+
+            .product-name {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $colorPrimary;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+
+            .product-image {
+                position: relative;
+                width: 300px;
+                height: 300px;
+                background-position: center;
+                object-fit: cover;
+                overflow: hidden;
+                border-radius: 10px;
+                border: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+                &::before {
+                    content: "Hình ảnh";
+                    position: absolute;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #fff;
+                    inset: 0;
+                }
+            }
+
+            .product-price {
+                color: $colorDanger;
+            }
+        }
+
+        // section don hang
+        .donhang {
+            .filter {
+                .tab-filter {
+                    display: flex;
+                    flex-direction: row;
+
+                    .tab-item {
+                        cursor: pointer;
+                        background-color: #f2f2f2;
+                        padding: 0.2rem 0.7rem;
+                        border-right: 1px solid
+                            rgba($color: #000000, $alpha: 0.1);
+
+                        &.active {
+                            background-color: $colorPrimary;
+                            color: #fff;
+                        }
                     }
                 }
             }
-        }
 
-        .monan {
-            display: flex;
-            align-content: flex-start;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 0.5rem 0;
-            height: 88vh;
-            overflow-y: scroll;
+            .monan {
+                display: flex;
+                align-content: flex-start;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+                padding: 0.5rem 0;
+                height: 88vh;
+                overflow-y: scroll;
 
-            &::-webkit-scrollbar {
-                width: 5px;
-            }
-
-            /* Track */
-            &::-webkit-scrollbar-track {
-                // background: #f1f1f1;
-                background-color: transparent;
-            }
-
-            /* Handle */
-            &::-webkit-scrollbar-thumb {
-                background: #888;
-            }
-
-            /* Handle on hover */
-            &::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-
-            .items {
-                width: 200px;
-                height: 200px;
-                padding: 0.1rem;
-                background-color: #f2f2f2;
-                cursor: pointer;
-
-                img {
-                    width: 100%;
-                    height: 60%;
-                    object-fit: cover;
+                &::-webkit-scrollbar {
+                    width: 5px;
                 }
-            }
-        }
 
-        .bill {
-            overflow-y: scroll;
-            height: 50vh;
+                /* Track */
+                &::-webkit-scrollbar-track {
+                    // background: #f1f1f1;
+                    background-color: transparent;
+                }
 
-            &::-webkit-scrollbar {
-                width: 5px;
-            }
+                /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: #888;
+                }
 
-            /* Track */
-            &::-webkit-scrollbar-track {
-                // background: #f1f1f1;
-                background-color: transparent;
-            }
+                /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
 
-            /* Handle */
-            &::-webkit-scrollbar-thumb {
-                background: #888;
-            }
-
-            /* Handle on hover */
-            &::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-
-            table {
-                th {
+                .items {
+                    width: 200px;
+                    height: 200px;
+                    padding: 0.1rem;
                     background-color: #f2f2f2;
+                    cursor: pointer;
+
+                    img {
+                        width: 100%;
+                        height: 60%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .bill {
+                overflow-y: scroll;
+                height: 50vh;
+
+                &::-webkit-scrollbar {
+                    width: 5px;
                 }
 
-                tbody {
-                    tr {
-                        border-bottom: 1px solid
-                            rgba($color: #000000, $alpha: 0.2);
+                /* Track */
+                &::-webkit-scrollbar-track {
+                    // background: #f1f1f1;
+                    background-color: transparent;
+                }
 
-                        td {
-                            border: none;
+                /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: #888;
+                }
 
-                            input[type="number"] {
-                                &::-webkit-outer-spin-button,
-                                &::-webkit-inner-spin-button {
-                                    -webkit-appearance: none;
-                                    -moz-appearance: textfield;
-                                    margin: 0;
+                /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
+
+                table {
+                    th {
+                        background-color: #f2f2f2;
+                    }
+
+                    tbody {
+                        tr {
+                            border-bottom: 1px solid
+                                rgba($color: #000000, $alpha: 0.2);
+
+                            td {
+                                border: none;
+
+                                input[type="number"] {
+                                    &::-webkit-outer-spin-button,
+                                    &::-webkit-inner-spin-button {
+                                        -webkit-appearance: none;
+                                        -moz-appearance: textfield;
+                                        margin: 0;
+                                    }
                                 }
                             }
                         }

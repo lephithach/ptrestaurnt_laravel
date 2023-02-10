@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     LoaiMonController,
     MonAnController,
     OrderController,
+    HoaDonController,
 };
 // Controller Client
 use App\Http\Controllers\Client\{
@@ -85,8 +86,10 @@ Route::prefix('/admin/don-hang')->name('donhang.')->group(function() {
     Route::post('/search', [OrderController::class, 'search']);
     Route::get('/search', [OrderController::class, 'search']);
     Route::post('/order', [OrderController::class, 'order'])->name('order');
-    Route::get('/order', [OrderController::class, 'order'])->name('testorder');
-    Route::get('/store', [OrderController::class, 'store'])->name('teststore');
     Route::get('/update', [OrderController::class, 'update'])->name('update');
     Route::get('/delete', [OrderController::class, 'destroy'])->name('delete');
+});
+
+Route::prefix('/admin/hoa-don')->name('hoadon.')->group(function() {
+    Route::post('/store', [HoaDonController::class, 'store'])->name('store');
 });
