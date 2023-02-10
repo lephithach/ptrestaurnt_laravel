@@ -62,7 +62,7 @@
             </a>
         </li>
 
-        <li class="item">
+        <li class="item" data-minimize="true">
             <a href="#" class="btn-menu">
                 <i class="bi bi-arrow-left"></i>
                 <span>Thu nhỏ</span>
